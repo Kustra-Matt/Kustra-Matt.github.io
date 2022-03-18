@@ -5,7 +5,7 @@
     <link>https://kustra-matt.github.io/publication-type/2/</link>
       <atom:link href="https://kustra-matt.github.io/publication-type/2/index.xml" rel="self" type="application/rss+xml" />
     <description>2</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 01 Sep 2015 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 03 Mar 2022 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://kustra-matt.github.io/media/icon_hu968023516251523fc9a78b9c44e7eeb6_483323_512x512_fill_lanczos_center_3.png</url>
       <title>2</title>
@@ -13,22 +13,19 @@
     </image>
     
     <item>
-      <title>An example journal article</title>
-      <link>https://kustra-matt.github.io/publication/journal-article/</link>
-      <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>https://kustra-matt.github.io/publication/journal-article/</guid>
-      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-    Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-    Create your slides in Markdown - click the &lt;em&gt;Slides&lt;/em&gt; button to check out the example.
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;Supplementary notes can be added here, including &lt;a href=&#34;https://wowchemy.com/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;code, math, and images&lt;/a&gt;.&lt;/p&gt;
-</description>
+      <title>On the spread of microbes that manipulate reproduction in marine invertebrates</title>
+      <link>https://kustra-matt.github.io/publication/kustra-carrier-2022/</link>
+      <pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>https://kustra-matt.github.io/publication/kustra-carrier-2022/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sperm and alternative reproductive tactics: a review of existing theory and empirical data</title>
+      <link>https://kustra-matt.github.io/publication/kustra-alonzo-2020/</link>
+      <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://kustra-matt.github.io/publication/kustra-alonzo-2020/</guid>
+      <description></description>
     </item>
     
   </channel>
