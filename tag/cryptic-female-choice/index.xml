@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cryptic female choice | Matt Kustra</title>
+    <link>https://kustra-matt.github.io/tag/cryptic-female-choice/</link>
+      <atom:link href="https://kustra-matt.github.io/tag/cryptic-female-choice/index.xml" rel="self" type="application/rss+xml" />
+    <description>Cryptic female choice</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 17 Mar 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://kustra-matt.github.io/media/icon_hu968023516251523fc9a78b9c44e7eeb6_483323_512x512_fill_lanczos_center_3.png</url>
+      <title>Cryptic female choice</title>
+      <link>https://kustra-matt.github.io/tag/cryptic-female-choice/</link>
+    </image>
+    
+    <item>
+      <title>Alternative reproductive tactics</title>
+      <link>https://kustra-matt.github.io/project/art/</link>
+      <pubDate>Thu, 17 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>https://kustra-matt.github.io/project/art/</guid>
+      <description>&lt;p&gt;I am interested in the evolution and maintenence of alternative reproductive tactics. My main study system is the unique and intriguing ocellated wrasse (&lt;em&gt;Symphodus ocellatus&lt;/em&gt;)! In this species there are three distinct male morphs: (1) nesting males, (2) satellite males, and (3) sneaker males. Females have a strong preference for nesting males who provide all the parental care. Sneaker males will try to sneak in during matings. Satellite males help nesting males chase away sneakers, but when given the opportunity will also try to sneak spawns. In my dissertation I have two main project. First, I am investigating (1) how sneakers and satellite males differ in sneaking delays, (2) how social interactions influence sneaking delays. Second, I am running fertilization experiments to see how female reproductive fluids influence the timing of fertilization and selection on male sneaking delays.&lt;/p&gt;
+&lt;p&gt;I have also published a &lt;a href=&#34;https://kustra-matt.github.io/publication/kustra-alonzo-2020/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;review&lt;/a&gt; with my advisor, &lt;a href=&#34;https://alonzo.sites.ucsc.edu/suzanne-alonzo/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Suzanne Alonzo&lt;/a&gt;, on the evolution of sperm traits in species with alternative reproductive tactics. We specifically reviewed theoretical predictions on how male alternative reproductive tactics should differ in sperm quality. Despite general expectations that sneaker males should have higher sperm quality, existing theory does not make explicit predictions on how males adopting ARTs should differ in sperm traits. When we look at empirical studies, the majority of studies find no significant difference in sperm performance traits between dominant and sneaker males.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Cryptic female choice theory</title>
+      <link>https://kustra-matt.github.io/project/cfc/</link>
+      <pubDate>Thu, 17 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>https://kustra-matt.github.io/project/cfc/</guid>
+      <description>&lt;p&gt;I am interested in using theoretical models to understand how cryptic female choice and sperm competition work together to shape the evolution of both male and female reproductive traits. Currently, I am developing individual-based models to understand the coevolutionary dynamics of cryptic female choice and if cryptic female choice can maintain reproductive isolation.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
