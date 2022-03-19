@@ -136,6 +136,22 @@ The variance of the distribution is $\sigma^{2}$.
     </item>
     
     <item>
+      <title>Selection on Sperm Count, but Not on Sperm Morphology or Velocity, in a Wild Population of Anolis Lizards</title>
+      <link>https://kustra-matt.github.io/publication/kahrl-et-al-2021/</link>
+      <pubDate>Wed, 01 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://kustra-matt.github.io/publication/kahrl-et-al-2021/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Anti-racist interventions to transform ecology, evolution and conservation biology departments</title>
+      <link>https://kustra-matt.github.io/publication/cronnin-et-al-2021/</link>
+      <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://kustra-matt.github.io/publication/cronnin-et-al-2021/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Welcome to Wowchemy, the website builder for Hugo</title>
       <link>https://kustra-matt.github.io/post/getting-started2/</link>
       <pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate>
@@ -306,7 +322,7 @@ data.head()
 &lt;p&gt;Demo:&lt;/p&gt;
 
 
-&lt;div id=&#34;chart-428579361&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-732948651&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -316,7 +332,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-428579361&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-732948651&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
