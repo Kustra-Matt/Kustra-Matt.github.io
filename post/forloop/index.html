@@ -60,10 +60,10 @@
   
     
   
-  <meta name="description" content="PhD Candidate" />
+  <meta name="description" content="This tutorial is designed to help understand/make for loops. This is essential for doing both repetitive and complex analyses in R and are useful for working in other programming language." />
 
   
-  <link rel="alternate" hreflang="en-us" href="https://kustra-matt.github.io/post/" />
+  <link rel="alternate" hreflang="en-us" href="https://kustra-matt.github.io/post/forloop/" />
 
   
   
@@ -307,8 +307,6 @@
   
 
   
-    <link rel="alternate" href="/post/index.xml" type="application/rss+xml" title="Matt Kustra" />
-  
 
   
     <link rel="manifest" href="/manifest.webmanifest" />
@@ -317,7 +315,7 @@
   <link rel="icon" type="image/png" href="/media/icon_hu968023516251523fc9a78b9c44e7eeb6_483323_32x32_fill_lanczos_center_3.png" />
   <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu968023516251523fc9a78b9c44e7eeb6_483323_180x180_fill_lanczos_center_3.png" />
 
-  <link rel="canonical" href="https://kustra-matt.github.io/post/" />
+  <link rel="canonical" href="https://kustra-matt.github.io/post/forloop/" />
 
   
   
@@ -328,7 +326,6 @@
   
   
     
-    
   
   
 
@@ -337,36 +334,89 @@
     
     
   
-  <meta property="twitter:card" content="summary" />
+  <meta property="twitter:card" content="summary_large_image" />
   
   <meta property="og:site_name" content="Matt Kustra" />
-  <meta property="og:url" content="https://kustra-matt.github.io/post/" />
-  <meta property="og:title" content="R Tutorials | Matt Kustra" />
-  <meta property="og:description" content="PhD Candidate" /><meta property="og:image" content="https://kustra-matt.github.io/media/icon_hu968023516251523fc9a78b9c44e7eeb6_483323_512x512_fill_lanczos_center_3.png" />
-    <meta property="twitter:image" content="https://kustra-matt.github.io/media/icon_hu968023516251523fc9a78b9c44e7eeb6_483323_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
+  <meta property="og:url" content="https://kustra-matt.github.io/post/forloop/" />
+  <meta property="og:title" content="For Loops | Matt Kustra" />
+  <meta property="og:description" content="This tutorial is designed to help understand/make for loops. This is essential for doing both repetitive and complex analyses in R and are useful for working in other programming language." /><meta property="og:image" content="https://kustra-matt.github.io/post/forloop/featured.png" />
+    <meta property="twitter:image" content="https://kustra-matt.github.io/post/forloop/featured.png" /><meta property="og:locale" content="en-us" />
   
     
-      <meta property="og:updated_time" content="2022-03-05T00:00:00&#43;00:00" />
+      <meta
+        property="article:published_time"
+        content="2022-01-02T00:00:00&#43;00:00"
+      />
     
+    <meta property="article:modified_time" content="2022-01-02T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://kustra-matt.github.io/post/forloop/"
+  },
+  "headline": "For Loops",
+  
+  "image": [
+    "https://kustra-matt.github.io/post/forloop/featured.png"
+  ],
+  
+  "datePublished": "2022-01-02T00:00:00Z",
+  "dateModified": "2022-01-02T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Matthew Kustra"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Matt Kustra",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://kustra-matt.github.io/media/icon_hu968023516251523fc9a78b9c44e7eeb6_483323_192x192_fill_lanczos_center_3.png"
+    }
+  },
+  "description": "This tutorial is designed to help understand/make for loops. This is essential for doing both repetitive and complex analyses in R and are useful for working in other programming language."
+}
+</script>
+
+  
+
+  
+
   
 
   
 
 
 
-  
-
-  
 
 
-
-
-
-  <title>R Tutorials | Matt Kustra</title>
+  <title>For Loops | Matt Kustra</title>
 </head>
 
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="6370009740e1eb2ee0b7974f10ecc91f" >
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="b13dbb45b88294576b8e81da1ae9ab3a" >
 
   
   
@@ -667,43 +717,17 @@
   </div>
 
   <div class="page-body">
-    
-
-
-
-
-
-
-
-
-
-
-
+    <article class="article">
 
   
 
-  
-  
-  
-    
-  
-<div class="universal-wrapper pt-3">
-  <h1>R Tutorials</h1>
-
-  
-
-  
-</div>
 
 
 
-<div class="universal-wrapper">
 
-  
 
-  
-  
-    
+
+
 
 
 
@@ -718,124 +742,15 @@
 
 
   
-
-
-<div class="media stream-item view-compact">
-  <div class="media-body">
-
-    <div class="section-subheading article-title mb-0 mt-0">
-      <a href="/post/3dplots/" >3D plots with Plotly</a>
-    </div>
-
-    
-    <a href="/post/3dplots/"  class="summary-link">
-      <div class="article-style">
-        Introduction ‘plotly’ is a popular graphing package in Python, but also has an R interface.
-      </div>
-    </a>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
-
-
-<div class="article-metadata">
-
-  
   
 
-  
-  <span class="article-date">
-    
-    
-      
-    
-    Mar 5, 2022
-  </span>
-  
+
+<div class="article-container pt-3">
+  <h1>For Loops</h1>
 
   
 
   
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    8 min read
-  </span>
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-
-</div>
-
-      
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-    
-    <a href="/post/3dplots/" >
-      <img src="/post/3dplots/featured_hu93cad4645a52c6671c9d8be83f6ba738_52210_150x0_resize_q75_h2_lanczos_3.webp" height="107" width="150"
-           alt="3D plots with Plotly" loading="lazy">
-    </a>
-    
-  </div>
-</div>
-
-  
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item view-compact">
-  <div class="media-body">
-
-    <div class="section-subheading article-title mb-0 mt-0">
-      <a href="/post/forloop/" >For Loops</a>
-    </div>
-
-    
-    <a href="/post/forloop/"  class="summary-link">
-      <div class="article-style">
-        This tutorial is designed to help understand/make for loops. This is essential for doing both repetitive and complex analyses in R and are useful for working in other programming language.
-      </div>
-    </a>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
 
 
 <div class="article-metadata">
@@ -874,220 +789,400 @@
 
 </div>
 
-      
-    </div>
+  
 
-    
 
-  </div>
-  <div class="ml-3">
-    
-    
-    
-    <a href="/post/forloop/" >
-      <img src="/post/forloop/featured_hu3e4d07265ac2b0f2cae65ed9882ed100_276829_150x0_resize_q75_h2_lanczos_3.webp" height="82" width="150"
-           alt="For Loops" loading="lazy">
-    </a>
+
+
+
+</div>
+
+
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 392px;">
+  <div style="position: relative">
+    <img src="/post/forloop/featured_hu3e4d07265ac2b0f2cae65ed9882ed100_276829_720x2500_fit_q75_h2_lanczos_3.webp" width="720" height="392" alt="" class="featured-image">
     
   </div>
 </div>
 
+
+
+  <div class="article-container">
+
+    <div class="row">
+
+      <div class="col-12 col-lg-9 article-style">
+        <p>This tutorial is designed to help understand/make for loops. This is essential for doing both repetitive and complex  analyses in R and are useful for working in other programming language.</p>
+<p>For loops are really great for repeating the same task over and over and over. Say if you want to run an analysis on a lot of different variables. One option would be to copy and paste the same code and manually change the variable. However, a better way that required less work on your part would be to use a for loop.</p>
+<p>To follow this lesson you should understand conditional statements and logic in R and <code>ggplot2</code>. See my <a href="https://kustra-matt.github.io/post/ggplot2/" target="_blank" rel="noopener">logic tutorial</a> and [ggplot2 tutorial].</p>
+<h2 id="general-for-loop-structure">General For loop structure</h2>
+<p>The general form a for loop is shown below:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="If-Else" srcset="
+               /post/forloop/featured_hu3e4d07265ac2b0f2cae65ed9882ed100_276829_2c8758fc584351eaacdeb429f82c575d.webp 400w,
+               /post/forloop/featured_hu3e4d07265ac2b0f2cae65ed9882ed100_276829_26b84517e16d91a6fa8d77e16babcc4e.webp 760w,
+               /post/forloop/featured_hu3e4d07265ac2b0f2cae65ed9882ed100_276829_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="/post/forloop/featured_hu3e4d07265ac2b0f2cae65ed9882ed100_276829_2c8758fc584351eaacdeb429f82c575d.webp"
+               width="760"
+               height="414"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+
+It&rsquo;s called a for loop because we are looping through some sort of sequence and repeating a task during each iteration. At the end of the iteration, R checks if there is another item in the sequence we are iterating over. If there is another item we repeat a task keeping track of where we are in the sequence we are looping over. Otherwise we exit the loop.</p>
+<p>In R we can loop through elements of a vector itself or through the different positions i.e., index of the vector.</p>
+<h3 id="for-loop-iterating-through-elements-of-a-vector">For loop iterating through elements of a vector</h3>
+<p>A cartoon example might be just printing out the values in a vector.</p>
+<p><code>i</code> is the iterator variable, which keeps track of where we are in b. We use the iterator variable inside the body of the for loop (i.e, inside the curly brackets). In this case all we are printing out <code>i</code> each time, which will be a different element of <code>b</code>. The first time we go through the loop <code>i</code> will be equal to <code>1</code>, the second time <code>i</code> will be equal to <code>50</code>, the third time <code>i</code> will be equal to <code>2</code>, and so on:</p>
+<pre><code class="language-r">#first lets make a vector of numbers
+b&lt;-c(1,50,2,3,6,9,20)
+#lets just print out each number
+for(i in b){
+  print (i)
+}
+</code></pre>
+<pre><code>## [1] 1
+## [1] 50
+## [1] 2
+## [1] 3
+## [1] 6
+## [1] 9
+## [1] 20
+</code></pre>
+<p>We can do more complex things within the for loop. For example, we can include if&hellip;else statements. Let&rsquo;s make a for loop that tests if the current element (<code>i</code>) is even or odd. To test if <code>i</code> is even we will use <code>%%</code> which gives us the modulo (equivalent to the remainder for positive integers). A <code>i</code> will be even if <code>i</code> modulo 2 is 0, otherwise it is odd.</p>
+<p>We can use the <code>paste()</code> function to put together the value of different variables with characters. So now we are printing out the value of <code>i</code> and whether that element of the <code>b</code> vector is odd or even.</p>
+<pre><code class="language-r">for(i in b) {
+  if (i %% 2 == 0) {
+    print(paste(i,&quot;is even&quot;))
+  } else{
+    print(paste(i,&quot;is odd&quot;))
+  }
   
-    
+}
+</code></pre>
+<pre><code>## [1] &quot;1 is odd&quot;
+## [1] &quot;50 is even&quot;
+## [1] &quot;2 is even&quot;
+## [1] &quot;3 is odd&quot;
+## [1] &quot;6 is even&quot;
+## [1] &quot;9 is odd&quot;
+## [1] &quot;20 is even&quot;
+</code></pre>
+<h3 id="for-loop-iterating-through-index">For loop iterating through index</h3>
+<p>What if we want to save the results? In this case it might make more sense to iterate via index (or location of an element in the vector) rather than the actual element value. This way we can use that index to save the results in a separate vector that corresponds to the original vector.</p>
+<p>The way do this is rather than <code>for (i in b)</code>, we say <code>for(i in 1:length(b))</code>. Thus <code>i</code> will now be 1 the first time we loop through, 2 the second time we loop through, and so forth until we get the length of b which is the last location/position.</p>
+<p>To do this we first need to make a results vector that is the same length of the input vector <code>b</code> to store our results which we name <code>b_results</code>.</p>
+<p>Next, we modify the <code>for()</code> part as described above. Then we have to change what we are testing. We are no longer testing <code>i</code> since <code>i</code> is the position not an actual element of <code>b</code>. We can get the actual element of <code>b</code> that corresponds to the i&rsquo;th position using <code>b[i]</code>. Finally to save the results in the right location we will assign values to the corresponding location in <code>b_results</code> like so: <code>b_results[i]&lt;-Result</code>. Putting it all together:</p>
+<pre><code class="language-r">b_results&lt;-character(length=length(b))
+print(&quot;initial b_results&quot;)
+</code></pre>
+<pre><code>## [1] &quot;initial b_results&quot;
+</code></pre>
+<pre><code class="language-r">b_results
+</code></pre>
+<pre><code>## [1] &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot;
+</code></pre>
+<pre><code class="language-r">for(i in 1:length(b)){
+  if(b[i]%%2==0){
+    b_results[i]&lt;- &quot;Even&quot;
+  }else{
+    b_results[i]&lt;- &quot;Odd&quot;
+  }
+}
+print(&quot;final b_results&quot;)
+</code></pre>
+<pre><code>## [1] &quot;final b_results&quot;
+</code></pre>
+<pre><code class="language-r">b_results
+</code></pre>
+<pre><code>## [1] &quot;Odd&quot;  &quot;Even&quot; &quot;Even&quot; &quot;Odd&quot;  &quot;Even&quot; &quot;Odd&quot;  &quot;Even&quot;
+</code></pre>
+<h2 id="closing-remarks">Closing remarks</h2>
+<p>I hoped you enjoyed this tutorial. Please shoot me an email if there on any tips for improvement or if you caught a bug! Please check out the other tutorials on my website.</p>
+ 
+      </div>
 
+      <div class="col-12 col-lg-3 docs-toc">
+        <ul class="nav toc-top">
+          <li>
+            <a href="#" id="back_to_top" class="docs-toc-title">
+              Contents
+            </a>
+          </li>
+        </ul>
 
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#general-for-loop-structure">General For loop structure</a>
+      <ul>
+        <li><a href="#for-loop-iterating-through-elements-of-a-vector">For loop iterating through elements of a vector</a></li>
+        <li><a href="#for-loop-iterating-through-index">For loop iterating through index</a></li>
+      </ul>
+    </li>
+    <li><a href="#closing-remarks">Closing remarks</a></li>
+  </ul>
+</nav> 
 
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item view-compact">
-  <div class="media-body">
-
-    <div class="section-subheading article-title mb-0 mt-0">
-      <a href="/post/ifelse/" >Logic and if-else statements</a>
+      </div>
     </div>
 
     
-    <a href="/post/ifelse/"  class="summary-link">
-      <div class="article-style">
-        This tutorial is designed to help understand logic in R and use that logic to write conditional statements (i.e., if-else statements). These programming skills are essential for doing more complex analyses in R and are useful for working in other programming language.
-      </div>
-    </a>
+
+
+
+
+
+
+
+
+<div class="share-box">
+  <ul class="share">
     
-
-    <div class="stream-meta article-metadata">
-
       
-
+      
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://kustra-matt.github.io/post/forloop/&amp;text=For%20Loops" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
       
-    
-    Dec 2, 2021
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    6 min read
-  </span>
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-    
-    <a href="/post/ifelse/" >
-      <img src="/post/ifelse/featured_hubb20e6837dd2eab2aca6c4a177ee01a3_429796_150x0_resize_q75_h2_lanczos_3.webp" height="82" width="150"
-           alt="Logic and if-else statements" loading="lazy">
-    </a>
-    
-  </div>
-</div>
-
-  
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item view-compact">
-  <div class="media-body">
-
-    <div class="section-subheading article-title mb-0 mt-0">
-      <a href="/post/ggplot2/" >Intro to ggplot2</a>
-    </div>
-
-    
-    <a href="/post/ggplot2/"  class="summary-link">
-      <div class="article-style">
-        &lsquo;ggplot2&rsquo; is a popular graphing package for the R programming language. Once you&rsquo;ve learned the logic and the general grammar of &ldquo;ggplot2&rdquo; it becomes easy to make publication ready graphs. Unfortunately, the learning curve can be pretty steep, especially if you are used to using basic R plots.
-      </div>
-    </a>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://kustra-matt.github.io/post/forloop/&amp;t=For%20Loops" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
       
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=For%20Loops&amp;body=https://kustra-matt.github.io/post/forloop/" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
     
-    Oct 5, 2021
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    9 min read
-  </span>
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://kustra-matt.github.io/post/forloop/&amp;title=For%20Loops" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=For%20Loops%20https://kustra-matt.github.io/post/forloop/" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://kustra-matt.github.io/post/forloop/&amp;title=For%20Loops" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
 </div>
 
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
       
+      <a href="https://kustra-matt.github.io/"><img class="avatar mr-3 avatar-circle" src="/author/matthew-kustra/avatar_hu42b16d72e766e2642cc1f920e77458fd_123421_270x270_fill_q75_lanczos_center.jpg" alt="Matthew Kustra"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://kustra-matt.github.io/">Matthew Kustra</a></h5>
+      <h6 class="card-subtitle">PhD Candidate</h6>
+      <p class="card-text">My research interests include sexual selection, speciation, and endosymbionts.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/#contact" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/m_kus_kus" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=MlvEfKAAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+        <i class="fas fa-graduation-cap"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/Kustra-Matt" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/matthew-kustra-3b3729202/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+</ul>
+
     </div>
-
-    
-
   </div>
-  <div class="ml-3">
-    
-    
-    
-    <a href="/post/ggplot2/" >
-      <img src="/post/ggplot2/featured_hu4841ee3f62ea0f5c319844d0db503478_179767_150x0_resize_q75_h2_lanczos_3.webp" height="107" width="150"
-           alt="Intro to ggplot2" loading="lazy">
-    </a>
-    
-  </div>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
-
   
 
 
-</div>
+
+
+
+  </div>
+</article>
   </div>
 
   <div class="page-footer">

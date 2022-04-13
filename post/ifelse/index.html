@@ -1,0 +1,1626 @@
+<!DOCTYPE html><html lang="en-us" >
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.4.0 for Hugo" />
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Matthew Kustra" />
+
+  
+  
+  
+    
+  
+  <meta name="description" content="This tutorial is designed to help understand logic in R and use that logic to write conditional statements (i.e., if-else statements). These programming skills are essential for doing more complex analyses in R and are useful for working in other programming language." />
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://kustra-matt.github.io/post/ifelse/" />
+
+  
+  
+  
+    <meta name="theme-color" content="#1565c0" />
+  
+
+  
+  
+
+  
+
+  <link rel="stylesheet" href="/css/vendor-bundle.min.f1ecf783c14edc00c9320c205831ad8e.css" media="print" onload="this.media='all'">
+
+  
+  
+  
+    
+    
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/github.min.css" crossorigin="anonymous" title="hl-light" media="print" onload="this.media='all'">
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media='all'" disabled>
+        
+      
+    
+
+    
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.min.css" integrity="" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.9b4671d2bdda42ce1dc1009a5bc56a42.css" />
+
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-40Q3S9TMJ2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'G-40Q3S9TMJ2', {});
+  gtag('set', {'cookie_flags': 'SameSite=None;Secure'});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
+  
+
+  
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+    <link rel="manifest" href="/manifest.webmanifest" />
+  
+
+  <link rel="icon" type="image/png" href="/media/icon_hu968023516251523fc9a78b9c44e7eeb6_483323_32x32_fill_lanczos_center_3.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu968023516251523fc9a78b9c44e7eeb6_483323_180x180_fill_lanczos_center_3.png" />
+
+  <link rel="canonical" href="https://kustra-matt.github.io/post/ifelse/" />
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary_large_image" />
+  
+  <meta property="og:site_name" content="Matt Kustra" />
+  <meta property="og:url" content="https://kustra-matt.github.io/post/ifelse/" />
+  <meta property="og:title" content="Logic and if-else statements | Matt Kustra" />
+  <meta property="og:description" content="This tutorial is designed to help understand logic in R and use that logic to write conditional statements (i.e., if-else statements). These programming skills are essential for doing more complex analyses in R and are useful for working in other programming language." /><meta property="og:image" content="https://kustra-matt.github.io/post/ifelse/featured.png" />
+    <meta property="twitter:image" content="https://kustra-matt.github.io/post/ifelse/featured.png" /><meta property="og:locale" content="en-us" />
+  
+    
+      <meta
+        property="article:published_time"
+        content="2021-12-02T00:00:00&#43;00:00"
+      />
+    
+    <meta property="article:modified_time" content="2021-12-02T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://kustra-matt.github.io/post/ifelse/"
+  },
+  "headline": "Logic and if-else statements",
+  
+  "image": [
+    "https://kustra-matt.github.io/post/ifelse/featured.png"
+  ],
+  
+  "datePublished": "2021-12-02T00:00:00Z",
+  "dateModified": "2021-12-02T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Matthew Kustra"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Matt Kustra",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://kustra-matt.github.io/media/icon_hu968023516251523fc9a78b9c44e7eeb6_483323_192x192_fill_lanczos_center_3.png"
+    }
+  },
+  "description": "This tutorial is designed to help understand logic in R and use that logic to write conditional statements (i.e., if-else statements). These programming skills are essential for doing more complex analyses in R and are useful for working in other programming language."
+}
+</script>
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  <title>Logic and if-else statements | Matt Kustra</title>
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="c6419b2c987fa583af4852237481ba40" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.13d3c1ccc66961c64e937f4e854fdd1e.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header--fixed">
+  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+    <div class="container-xl">
+
+      
+      <div class="d-none d-lg-inline-flex">
+        <a class="navbar-brand" href="/">Matt Kustra</a>
+      </div>
+      
+
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+      
+      <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+        <a class="navbar-brand" href="/">Matt Kustra</a>
+      </div>
+      
+
+      
+      
+      <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+        
+        <ul class="navbar-nav d-md-inline-flex">
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#projects"><span>Research Projects</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#publications"><span>Publications</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#experience"><span>Other Projects</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link  active" href="/post/"><span>R Tutorials</span></a>
+          </li>
+
+          
+          
+
+        
+
+          
+        </ul>
+      </div>
+
+      <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+        
+        
+          
+            
+            <li class="nav-item d-none d-lg-inline-flex">
+              <a class="nav-link" href="https://twitter.com/m_kus_kus" data-toggle="tooltip" data-placement="bottom" title="Follow me on Twitter" target="_blank" rel="noopener" aria-label="Follow me on Twitter">
+                <i class="fab fa-twitter" aria-hidden="true"></i>
+              </a>
+            </li>
+          
+        
+
+        
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+        
+        <li class="nav-item dropdown theme-dropdown">
+          <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item js-set-theme-light">
+              <span>Light</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-dark">
+              <span>Dark</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-auto">
+              <span>Automatic</span>
+            </a>
+          </div>
+        </li>
+        
+
+        
+        
+
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+
+  </div>
+
+  <div class="page-body">
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<div class="article-container pt-3">
+  <h1>Logic and if-else statements</h1>
+
+  
+
+  
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Dec 2, 2021
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    6 min read
+  </span>
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+  
+
+
+
+
+
+</div>
+
+
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 391px;">
+  <div style="position: relative">
+    <img src="/post/ifelse/featured_hubb20e6837dd2eab2aca6c4a177ee01a3_429796_720x2500_fit_q75_h2_lanczos_3.webp" width="720" height="391" alt="" class="featured-image">
+    
+  </div>
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="row">
+
+      <div class="col-12 col-lg-9 article-style">
+        <p>This tutorial is designed to help understand logic in R and use that logic to write conditional statements (i.e., if-else statements). These programming skills are essential for doing more complex analyses in R and are useful for working in other programming language.</p>
+<p><strong>Disclaimer/clarification</strong>: Please note that in this tutorial I use vector to mean anything with length greater than 1, even though in R a single number or single character is technically also a vector albeit of length 1.</p>
+<h2 id="logical-values">Logical values</h2>
+<p>Logical values can be either true or false. In practice, we generally use them to help filter data or run a specific analysis based on a specific condition. In R logical values are coded as <code>TRUE</code> and <code>FALSE</code>. You may also see/use <code>T</code> or <code>F</code>, however, it is generally recommended not to use these two. This is because you can always overwrite <code>T</code> or <code>F</code> but cannot overwrite <code>TRUE</code> or <code>FALSE</code>. This can cause errors if for whatever reason <code>T</code> or <code>F</code> is overwritten but used elsewhere as a logical value. Logical values are returned whenever we do a comparison, i.e, use a relational operator.</p>
+<h2 id="relational-operators">Relational operators</h2>
+<p>Here are the most common relational operators in R:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="Relational operators" srcset="
+               /post/ifelse/Compare_hu5279ec3dfe0a91dd64026b159131c2d4_628224_0cbcf0b43837b0f440e1018b43631498.webp 400w,
+               /post/ifelse/Compare_hu5279ec3dfe0a91dd64026b159131c2d4_628224_6c2ebe4838a4ffb6bdac21a5f05f1441.webp 760w,
+               /post/ifelse/Compare_hu5279ec3dfe0a91dd64026b159131c2d4_628224_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="/post/ifelse/Compare_hu5279ec3dfe0a91dd64026b159131c2d4_628224_0cbcf0b43837b0f440e1018b43631498.webp"
+               width="760"
+               height="281"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p>Let&rsquo;s code up those examples:</p>
+<pre><code class="language-r">2&lt;3
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre>
+<pre><code class="language-r">2&gt;8
+</code></pre>
+<pre><code>## [1] FALSE
+</code></pre>
+<pre><code class="language-r">3&lt;=3
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre>
+<pre><code class="language-r">&quot;APPLE&quot;==&quot;APPLE&quot;
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre>
+<pre><code class="language-r">&quot;Mayonnaise&quot;!= &quot;Instrument&quot;
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre>
+<p>It is important to note that comparing characters is case sensitive. For example,<code>&quot;Apple&quot;==&quot;APPLE&quot;</code> returns <code>FALSE</code>.</p>
+<h3 id="na-and-logic"><code>NA</code> and logic</h3>
+<p>Using comparison operators and other logical functions on <code>NA</code> will return <code>NA</code> even when comparing <code>NA</code> to <code>NA</code>. For example:</p>
+<pre><code class="language-r">3&gt;NA
+</code></pre>
+<pre><code>## [1] NA
+</code></pre>
+<pre><code class="language-r">NA == NA
+</code></pre>
+<pre><code>## [1] NA
+</code></pre>
+<p>If <code>NA == NA</code> is <code>NA</code>, how do I test if there is an <code>NA</code> value? Luckily there is a special R function for that: <code>is.na()</code>:</p>
+<pre><code class="language-r">is.na(NA)
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre>
+<pre><code class="language-r">is.na(4)
+</code></pre>
+<pre><code>## [1] FALSE
+</code></pre>
+<h3 id="other-isx-functions">Other <code>is.x()</code> functions</h3>
+<p>While <code>is.na()</code> is probably the most commonly used, there are other similar functions to test for different data types. For example, <code>is.character()</code> tests if the input is a character, <code>is.numeric()</code> tests if the input is numerical. This is often useful when data wrangling. For example:</p>
+<pre><code class="language-r">is.numeric(&quot;five&quot;)
+</code></pre>
+<pre><code>## [1] FALSE
+</code></pre>
+<pre><code class="language-r">is.numeric(5)
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre>
+<pre><code class="language-r">is.character(&quot;five&quot;)
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre>
+<h2 id="logical-operators">Logical operators</h2>
+<p>The next import operators to cover are ones that work on logical values and then return a logical value. These are particulary important if there are multiple conditions you need to be met.</p>
+<p>The most relevant ones are NOT (<code>!</code>), AND (<code>&amp;</code>), and OR (<code>|</code>) which are described below.</p>
+<p>The truth table shows the result of either <code>&amp;</code> or <code>|</code> given all possible combinations of inputs (x and y).</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="Logical Operators" srcset="
+               /post/ifelse/table_hucc24530f84677382d1ae1df6d4cd6dac_381716_77d6585d90356c2f7f1754d35c12c522.webp 400w,
+               /post/ifelse/table_hucc24530f84677382d1ae1df6d4cd6dac_381716_c96a0a8ca5678d6ea0d74c1a4c857fa4.webp 760w,
+               /post/ifelse/table_hucc24530f84677382d1ae1df6d4cd6dac_381716_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="/post/ifelse/table_hucc24530f84677382d1ae1df6d4cd6dac_381716_77d6585d90356c2f7f1754d35c12c522.webp"
+               width="760"
+               height="380"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+
+An example of what that looks like in R</p>
+<pre><code class="language-r">!(1&gt;2)#should return TRUE
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre>
+<pre><code class="language-r">(1&gt;2)|(3&gt;2)#Should return TRUE
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre>
+<pre><code class="language-r">(1&gt;2)&amp;(3&gt;2)#Should return FALSE since 1 is not greater than 2
+</code></pre>
+<pre><code>## [1] FALSE
+</code></pre>
+<h2 id="vector-logic">Vector logic</h2>
+<p>All of the operations described above work on vectors of data and there are also special functions</p>
+<h3 id="relational-operators-on-vectors">Relational operators on vectors</h3>
+<p>The relational operators discussed above also work on vectors!</p>
+<p>We can compare a whole vector to a single value. This will return a vector with logical values for the comparison being applied to each element of the vector. For example:</p>
+<pre><code class="language-r">x&lt;-c(1,3,5,6)
+3&lt;x
+</code></pre>
+<pre><code>## [1] FALSE FALSE  TRUE  TRUE
+</code></pre>
+<p>If we compare vectors of the same length, it will return a logical vector doing pairwise comparisons:</p>
+<pre><code class="language-r">y&lt;-c(1,5,8)
+z&lt;-c(1,1,5)
+z==y
+</code></pre>
+<pre><code>## [1]  TRUE FALSE FALSE
+</code></pre>
+<h3 id="logical-operators-on-vectors">Logical operators on vectors</h3>
+<p>The logical operators discussed above also work on vectors! Like in the previous section, if we use a logical operator between a vector and a single logical value it will apply that comparison to every element:</p>
+<pre><code class="language-r">!c(TRUE,FALSE,TRUE)
+</code></pre>
+<pre><code>## [1] FALSE  TRUE FALSE
+</code></pre>
+<pre><code class="language-r">TRUE &amp; c(TRUE,FALSE,TRUE)
+</code></pre>
+<pre><code>## [1]  TRUE FALSE  TRUE
+</code></pre>
+<p>If the two vectors are the same length, it will do pairwise operations:</p>
+<pre><code class="language-r">c(TRUE,FALSE,FALSE) &amp; c(TRUE,FALSE,TRUE)
+</code></pre>
+<pre><code>## [1]  TRUE FALSE FALSE
+</code></pre>
+<pre><code class="language-r">c(TRUE,FALSE,FALSE) | c(TRUE,TRUE,TRUE)
+</code></pre>
+<pre><code>## [1] TRUE TRUE TRUE
+</code></pre>
+<h3 id="special-vector-operators">Special vector operators</h3>
+<p>There are also special functions that act on logical vectors: <code>any()</code>, <code>all()</code>,<code>which()</code>, and <code>%in%</code> described below:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="Vector operators" srcset="
+               /post/ifelse/vector_huab8e1403dc3a181d53bfe8a9ebea93cb_361693_89d943f8109f6bbec6f52f93476db367.webp 400w,
+               /post/ifelse/vector_huab8e1403dc3a181d53bfe8a9ebea93cb_361693_9766243c56818e98b0eb7976daaaf213.webp 760w,
+               /post/ifelse/vector_huab8e1403dc3a181d53bfe8a9ebea93cb_361693_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="/post/ifelse/vector_huab8e1403dc3a181d53bfe8a9ebea93cb_361693_89d943f8109f6bbec6f52f93476db367.webp"
+               width="760"
+               height="252"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p><code>any()</code>returns <code>TRUE</code> if there is a single <code>TRUE</code> value. Here are a few examples:</p>
+<pre><code class="language-r">any(2&gt;c(1,7,10)) #should be true cause of 1
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre>
+<pre><code class="language-r">any(1&gt;c(1,7,10)) 
+</code></pre>
+<pre><code>## [1] FALSE
+</code></pre>
+<p><code>all()</code>only returns true if all elements are <code>TRUE</code>. Here are a few examples of</p>
+<pre><code class="language-r">all(c(1,2,3,4)==c(1,2,3,5))
+</code></pre>
+<pre><code>## [1] FALSE
+</code></pre>
+<pre><code class="language-r">all(c(1,2,3,4)==c(1,2,3,4))
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre>
+<pre><code class="language-r">all(!is.na(c(NA,2,3,5,NA)))
+</code></pre>
+<pre><code>## [1] FALSE
+</code></pre>
+<p><code>which()</code>returns indexes (or position) of <code>TRUE</code> values. NOTE: that indexing starts at 1 in R unlike other programing languages that start at 0. Here is an example of code that returns the location of NA values.</p>
+<pre><code class="language-r">which(is.na(c(NA,2,3,5,NA)))
+</code></pre>
+<pre><code>## [1] 1 5
+</code></pre>
+<p><code>%in%</code> tests which items in the vector left of <code>%in%</code> are within the vector right of <code>%in%</code>. For example this will test if any of the fruits listed in the vector on the left are in the vector on the right.</p>
+<pre><code class="language-r">c(&quot;Strawberry&quot;,&quot;Apple&quot;,&quot;Lychee&quot;,&quot;Pear&quot;) %in% c(&quot;Apple&quot;,&quot;Pear&quot;)
+</code></pre>
+<pre><code>## [1] FALSE  TRUE FALSE  TRUE
+</code></pre>
+<h2 id="if-else-statements">If-Else statements</h2>
+<p>Now let&rsquo;s get into conditionals! Often times, we use these logical values or logical results to do something conditioned on them. Graphically this looks like:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="If-Else" srcset="
+               /post/ifelse/ifelse_hubb20e6837dd2eab2aca6c4a177ee01a3_429796_1a238528a4e6e66f61a4dd90cb6c4690.webp 400w,
+               /post/ifelse/ifelse_hubb20e6837dd2eab2aca6c4a177ee01a3_429796_0100e0aa5c35877f3ddd824b9ae0ac6c.webp 760w,
+               /post/ifelse/ifelse_hubb20e6837dd2eab2aca6c4a177ee01a3_429796_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="/post/ifelse/ifelse_hubb20e6837dd2eab2aca6c4a177ee01a3_429796_1a238528a4e6e66f61a4dd90cb6c4690.webp"
+               width="760"
+               height="413"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p>An example would be If it is raining, then I will bring an umbrella, otherwise I will not bring an umbrella. The condition is &ldquo;presence/absence of rain&rdquo;. The different actions is either &ldquo;bring an umbrella&rdquo; or don&rsquo;t &ldquo;bring an umbrella.&rdquo; Coded up in R this is what it looks like:</p>
+<pre><code class="language-r">if(weather==&quot;rain&quot;){
+  &quot;Bring an umbrella&quot;
+}else{
+  &quot;Dont bring an umbrella&quot;
+}
+</code></pre>
+<p>A more useful example would be in a function or a <a href="https://kustra-matt.github.io/post/forloop/" target="_blank" rel="noopener">for loop</a>. Let&rsquo;s make a function to test if something is odd or even.</p>
+<p>To do this we will name our function <code>even_odd</code> and declare it a as a function with one input <code>num</code>: <code>function(num)</code>. Then we will use are if&hellip;else statements to test if <code>num</code> is even or odd and return a character value indicating the result of that test. To test if <code>num</code> is even we will use <code>%%</code> which gives us the modulo (equivalent to the remainder for positive integers). A <code>num</code> will be even if <code>num</code> modulo 2 is 0, otherwise it is odd.</p>
+<pre><code class="language-r">even_odd&lt;-function(num){
+  if(num%%2==0){
+    return(&quot;Even&quot;)
+  }else{
+    return(&quot;Odd&quot;)
+  }
+  
+}
+
+even_odd(2)
+</code></pre>
+<pre><code>## [1] &quot;Even&quot;
+</code></pre>
+<pre><code class="language-r">even_odd(1)
+</code></pre>
+<pre><code>## [1] &quot;Odd&quot;
+</code></pre>
+<p>However, if we run <code>even_odd(NA)</code> this will throw an error. We need to add another condition to catch <code>NA</code> values. But how do we add another condition?</p>
+<h3 id="if-elif-else-statments">If-Elif-Else statments</h3>
+<p>Luckily it&rsquo;s super easy to add another condition with <code>else if(){}</code> and we can add an arbitrary amount of conditions stringing together <code>else if(){}</code>. <strong>NOTE</strong>: the order matters as in R will evalutate the first condition in the <code>if</code> statement then the first <code>else if</code> then the next <code>else if</code> and so on until the <code>else</code> block. Shown below is a diagram of what that looks like:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="If-Elif-Else" srcset="
+               /post/ifelse/elif_hu8480ef27de809c06e937848f76c13cfc_597870_e7b25f589a499f8b5392b4f19de2a8b0.webp 400w,
+               /post/ifelse/elif_hu8480ef27de809c06e937848f76c13cfc_597870_540b5f98863dc57957c009ee692f1751.webp 760w,
+               /post/ifelse/elif_hu8480ef27de809c06e937848f76c13cfc_597870_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="/post/ifelse/elif_hu8480ef27de809c06e937848f76c13cfc_597870_e7b25f589a499f8b5392b4f19de2a8b0.webp"
+               width="760"
+               height="427"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+
+Let&rsquo;s try our new and improved <code>even_odd</code> function. Because errors happen when we try to test <code>NA</code> values. Let&rsquo;s make that our first condition we check.</p>
+<pre><code class="language-r">even_odd&lt;-function(num){
+  if(is.na(num)){
+    return(&quot;NA!&quot;)
+  }else if(num%%2==0){
+    return(&quot;Even&quot;)
+  }else{
+    return(&quot;Odd&quot;)
+  }
+  
+}
+even_odd(2)
+</code></pre>
+<pre><code>## [1] &quot;Even&quot;
+</code></pre>
+<pre><code class="language-r">even_odd(1)
+</code></pre>
+<pre><code>## [1] &quot;Odd&quot;
+</code></pre>
+<pre><code class="language-r">even_odd(NA)
+</code></pre>
+<pre><code>## [1] &quot;NA!&quot;
+</code></pre>
+<p>And it worked!</p>
+<h2 id="closing-remarks">Closing remarks</h2>
+<p>I hoped you enjoyed this tutorial. Please shoot me an email if there on any tips for improvement or if you caught a bug! Please check out the other tutorials on my website.</p>
+ 
+      </div>
+
+      <div class="col-12 col-lg-3 docs-toc">
+        <ul class="nav toc-top">
+          <li>
+            <a href="#" id="back_to_top" class="docs-toc-title">
+              Contents
+            </a>
+          </li>
+        </ul>
+
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#logical-values">Logical values</a></li>
+    <li><a href="#relational-operators">Relational operators</a>
+      <ul>
+        <li><a href="#na-and-logic"><code>NA</code> and logic</a></li>
+        <li><a href="#other-isx-functions">Other <code>is.x()</code> functions</a></li>
+      </ul>
+    </li>
+    <li><a href="#logical-operators">Logical operators</a></li>
+    <li><a href="#vector-logic">Vector logic</a>
+      <ul>
+        <li><a href="#relational-operators-on-vectors">Relational operators on vectors</a></li>
+        <li><a href="#logical-operators-on-vectors">Logical operators on vectors</a></li>
+        <li><a href="#special-vector-operators">Special vector operators</a></li>
+      </ul>
+    </li>
+    <li><a href="#if-else-statements">If-Else statements</a>
+      <ul>
+        <li><a href="#if-elif-else-statments">If-Elif-Else statments</a></li>
+      </ul>
+    </li>
+    <li><a href="#closing-remarks">Closing remarks</a></li>
+  </ul>
+</nav> 
+
+      </div>
+    </div>
+
+    
+
+
+
+
+
+
+
+
+<div class="share-box">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://kustra-matt.github.io/post/ifelse/&amp;text=Logic%20and%20if-else%20statements" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://kustra-matt.github.io/post/ifelse/&amp;t=Logic%20and%20if-else%20statements" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Logic%20and%20if-else%20statements&amp;body=https://kustra-matt.github.io/post/ifelse/" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://kustra-matt.github.io/post/ifelse/&amp;title=Logic%20and%20if-else%20statements" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=Logic%20and%20if-else%20statements%20https://kustra-matt.github.io/post/ifelse/" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://kustra-matt.github.io/post/ifelse/&amp;title=Logic%20and%20if-else%20statements" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <a href="https://kustra-matt.github.io/"><img class="avatar mr-3 avatar-circle" src="/author/matthew-kustra/avatar_hu42b16d72e766e2642cc1f920e77458fd_123421_270x270_fill_q75_lanczos_center.jpg" alt="Matthew Kustra"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://kustra-matt.github.io/">Matthew Kustra</a></h5>
+      <h6 class="card-subtitle">PhD Candidate</h6>
+      <p class="card-text">My research interests include sexual selection, speciation, and endosymbionts.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/#contact" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/m_kus_kus" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=MlvEfKAAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+        <i class="fas fa-graduation-cap"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/Kustra-Matt" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/matthew-kustra-3b3729202/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+
+  
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a> — the free, <a href="https://github.com/wowchemy/wowchemy-hugo-themes" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+    
+    <script src="/js/vendor-bundle.min.3d946de2e8784a477845261d87025092.js"></script>
+
+    
+    
+    
+      
+      
+        <script src="https://cdn.jsdelivr.net/gh/desandro/imagesloaded@v4.1.4/imagesloaded.pkgd.min.js" integrity="sha512-S5PZ9GxJZO16tT9r3WJp/Safn31eu8uWrzglMahDT4dsmgqWonRY9grk3j+3tfuPr9WJNsfooOR7Gi7HL5W2jw==" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/gh/metafizzy/isotope@v3.0.6/dist/isotope.pkgd.min.js" integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew==" crossorigin="anonymous"></script>
+      
+
+      
+      
+
+      
+
+      
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/highlight.min.js" integrity="sha512-Ypjm0o7jOxAd4hpdoppSEN0TQOC19UtPAqD+4s5AlXmUvbmmS/YMxYqAqarQYyxTnB6/rqip9qcxlNB/3U9Wdg==" crossorigin="anonymous"></script>
+        
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/languages/r.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/languages/python.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/languages/latex.min.js" crossorigin="anonymous"></script>
+        
+      
+
+    
+
+    
+    
+    
+      <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.min.js" integrity="" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+      
+      <script id="search-hit-fuse-template" type="text/x-template">
+        <div class="search-hit" id="summary-{{key}}">
+          <div class="search-hit-content">
+            <div class="search-hit-name">
+              <a href="{{relpermalink}}">{{title}}</a>
+              <div class="article-metadata search-hit-type">{{type}}</div>
+              <p class="search-hit-description">{{snippet}}</p>
+            </div>
+          </div>
+        </div>
+      </script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+      
+      
+      
+      
+      
+      
+      
+    
+
+    
+
+    
+    
+    
+    <script id="page-data" type="application/json">{"use_headroom":true}</script>
+
+    
+    
+      <script src="/js/wowchemy-headroom.208bf5db800f4a4e5a38cf3b67a99a51.js" type="module"></script>
+    
+    
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    <script src="/en/js/wowchemy.min.63639926e24ecfb8040ea052c1077969.js"></script>
+
+    
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
+
+</body>
+</html>
