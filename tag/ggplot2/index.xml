@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ggplot2 | Matt Kustra</title>
+    <link>https://kustra-matt.github.io/tag/ggplot2/</link>
+      <atom:link href="https://kustra-matt.github.io/tag/ggplot2/index.xml" rel="self" type="application/rss+xml" />
+    <description>ggplot2</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 05 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://kustra-matt.github.io/media/icon_hu968023516251523fc9a78b9c44e7eeb6_483323_512x512_fill_lanczos_center_3.png</url>
+      <title>ggplot2</title>
+      <link>https://kustra-matt.github.io/tag/ggplot2/</link>
+    </image>
+    
+    <item>
+      <title>Intro to ggplot2</title>
+      <link>https://kustra-matt.github.io/post/ggplot2/</link>
+      <pubDate>Tue, 05 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>https://kustra-matt.github.io/post/ggplot2/</guid>
+      <description>&lt;p&gt;&amp;lsquo;&lt;a href=&#34;https://ggplot2.tidyverse.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ggplot2&lt;/a&gt;&amp;rsquo; is a popular graphing package for the R programming language. Once you&amp;rsquo;ve learned the logic and the general grammar of &amp;ldquo;ggplot2&amp;rdquo; it becomes easy to make publication ready graphs. Unfortunately, the learning curve can be pretty steep, especially if you are used to using basic R plots. This is a tutorial to help you get started making graphs in &amp;lsquo;ggplot2&amp;rsquo; and help get through some of the learning curve.&lt;/p&gt;
+&lt;h2 id=&#34;getting-ready&#34;&gt;Getting ready&lt;/h2&gt;
+&lt;p&gt;First, let&amp;rsquo;s install the required packages for this tutorial. We will need to install &lt;code&gt;ggplot2&lt;/code&gt; and the &lt;code&gt;palmerpenguins&lt;/code&gt; packages. The &amp;lsquo;palmerpenguins&amp;rsquo; package has a great dataset we will be using for this tutorial.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;install.packages(&amp;quot;ggplot2&amp;quot;)
+install.packages(&amp;quot;palmerpenguins&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next we need to load up the packages.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(ggplot2)
+library(palmerpenguins)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;loading-up-and-checking-the-data&#34;&gt;Loading up and checking the data&lt;/h2&gt;
+&lt;p&gt;Unlike plotting with base R. &lt;code&gt;ggplot2&lt;/code&gt; requires data frames to make graphs. For this tutorial we will use the penguin dataset from the package &amp;lsquo;palmerpenguins.&amp;rsquo;
+Let&amp;rsquo;s get some info about the data set, using &lt;code&gt;str&lt;/code&gt; function which tells us each column, type of data and starts printing out columns.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;str(penguins)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## tibble [333 × 8] (S3: tbl_df/tbl/data.frame)
+##  $ species          : Factor w/ 3 levels &amp;quot;Adelie&amp;quot;,&amp;quot;Chinstrap&amp;quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ island           : Factor w/ 3 levels &amp;quot;Biscoe&amp;quot;,&amp;quot;Dream&amp;quot;,..: 3 3 3 3 3 3 3 3 3 3 ...
+##  $ bill_length_mm   : num [1:333] 39.1 39.5 40.3 36.7 39.3 38.9 39.2 41.1 38.6 34.6 ...
+##  $ bill_depth_mm    : num [1:333] 18.7 17.4 18 19.3 20.6 17.8 19.6 17.6 21.2 21.1 ...
+##  $ flipper_length_mm: int [1:333] 181 186 195 193 190 181 195 182 191 198 ...
+##  $ body_mass_g      : int [1:333] 3750 3800 3250 3450 3650 3625 4675 3200 3800 4400 ...
+##  $ sex              : Factor w/ 2 levels &amp;quot;female&amp;quot;,&amp;quot;male&amp;quot;: 2 1 1 1 2 1 2 1 2 2 ...
+##  $ year             : int [1:333] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;making-our-first-ggplot2-graph&#34;&gt;Making our first &lt;code&gt;ggplot2&lt;/code&gt; graph&lt;/h2&gt;
+&lt;p&gt;In this section we will make our first &lt;code&gt;ggplot2&lt;/code&gt; graph! For simplicity we will to a scatter plot of &lt;code&gt;bill_length_mm&lt;/code&gt; and &lt;code&gt;bill_depth_mm&lt;/code&gt; to see the relationship of these two variables.&lt;/p&gt;
+&lt;h3 id=&#34;initializing-ggplot2&#34;&gt;Initializing &lt;code&gt;ggplot2&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;The first step of making a plot with &lt;code&gt;ggplot2&lt;/code&gt; is to initialize the plot with the function &lt;code&gt;ggplot()&lt;/code&gt;. The first argument of the &lt;code&gt;ggplot()&lt;/code&gt; function is the dataframe you are using and the second argument defines how you want to map the columns to various components of the graph (e.g., which column will be the x-axis).&lt;/p&gt;
+&lt;p&gt;For example to make a scatter plot of &lt;code&gt;bill_length_mm&lt;/code&gt; and &lt;code&gt;bill_depth_mm&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(data=penguins,aes(x=bill_length_mm,y=bill_depth_mm))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/scatter1-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;p&gt;But it looks empty! Exactly, that&amp;rsquo;s because we haven&amp;rsquo;t actually specified what we want to plot. The &lt;code&gt;ggplot&lt;/code&gt; function just gives us the set up, we have to tell R what we want to plot.&lt;/p&gt;
+&lt;h3 id=&#34;adding-geoms-making-a-scatter-plot&#34;&gt;Adding geoms (making a scatter plot)&lt;/h3&gt;
+&lt;p&gt;To actually visualize our data using &lt;code&gt;ggplot2&lt;/code&gt;, we need to use &amp;ldquo;geoms&amp;rdquo;. Geoms are ways to visually represent our data and &lt;code&gt;ggplot2&lt;/code&gt; has many different options. &lt;a href=&#34;https://github.com/rstudio/cheatsheets/blob/main/data-visualization-2.1.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Here&lt;/a&gt; is a great resource to see some of the possibilities.&lt;/p&gt;
+&lt;p&gt;In our case, since we want to make a scatter plot, we just need to add &lt;code&gt;geom_point()&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(data=penguins,aes(x=bill_length_mm,y=bill_depth_mm))+
+  geom_point()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/scatter2-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;h3 id=&#34;color-aesthetics&#34;&gt;Color aesthetics&lt;/h3&gt;
+&lt;p&gt;It looks like we have three different clusters. Looking back at the data maybe these three different clusters represent the three different species in our data set?&lt;/p&gt;
+&lt;p&gt;One way we could visualize this is by giving each species a different color, using the &lt;code&gt;color&lt;/code&gt; parameter. Since, we are matching some sort of aesthetic to a variable in our data frame it has to go &lt;strong&gt;inside&lt;/strong&gt; &lt;code&gt;aes()&lt;/code&gt; like so:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(data=penguins,aes(x=bill_length_mm,y=bill_depth_mm,color=species))+
+  geom_point()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/scatter3-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;h3 id=&#34;adding-another-geom-a-line-of-best-fit&#34;&gt;Adding another geom (a line of best fit)&lt;/h3&gt;
+&lt;p&gt;A cool thing with &lt;code&gt;ggplot2&lt;/code&gt; is that it is very easy to add more layers. All we have to do is another &lt;code&gt;+ geom_xxx&lt;/code&gt;. A logical next step for this scatter plot is to add a line of best fit using the &lt;code&gt;geom_smooth()&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(data=penguins,aes(x=bill_length_mm,y=bill_depth_mm,color=species))+
+  geom_point()+
+  geom_smooth()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/scatter4-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;p&gt;It looks a little weird. That&amp;rsquo;s because by default &lt;code&gt;geom_smooth&lt;/code&gt; uses a &amp;ldquo;loess&amp;rdquo; function to fit the data. Essentially this fits seperate polynomial functions between various points of your data and strings them together. Often this is not appropriate and vastly overfits your data. The grey shading, by default, shows the 95% confidence interval of the fit.&lt;/p&gt;
+&lt;p&gt;We can specify a specific formula for &lt;code&gt;geom_smooth()&lt;/code&gt; but this is out of the scope of this tutorial. Instead, let&amp;rsquo;s just fit a strait line. The way we do this is by passing the argument &lt;code&gt;method=&amp;quot;lm&amp;quot;&lt;/code&gt; in &lt;code&gt;geom_smooth()&lt;/code&gt;. &amp;ldquo;lm&amp;rdquo; in this case stands for linear model:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(data=penguins,aes(x=bill_length_mm,y=bill_depth_mm,color=species))+
+  geom_point()+
+  geom_smooth(method=&amp;quot;lm&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `geom_smooth()` using formula &#39;y ~ x&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/scatter5-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;h3 id=&#34;a-side-note-on-aes&#34;&gt;A side note on &lt;code&gt;aes()&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;If you noticed, it fit a separate line and used different colors for the three species. This is because whatever mappings (i.e., whatever is in the &lt;code&gt;aes()&lt;/code&gt;) you put within the &lt;code&gt;ggplot()&lt;/code&gt; in the first line will be the default for all other layers. However, we can also specify the mappings in individual layers. For example we can the exact same graph with this code:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(data=penguins)+
+  geom_point(aes(x=bill_length_mm,y=bill_depth_mm,color=species))+
+  geom_smooth(aes(x=bill_length_mm,y=bill_depth_mm,color=species),method=&amp;quot;lm&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `geom_smooth()` using formula &#39;y ~ x&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/scatter6-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;p&gt;Since we want it to apply to all layers it makes more sense to only type out the mappings once in the &lt;code&gt;ggplot()&lt;/code&gt; function. However, if we want different aesthetic mappings to different layers it might make sense to do it this way. For example, say we only want a single line of best fit ignoring the species:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(data=penguins)+
+  geom_point(aes(x=bill_length_mm,y=bill_depth_mm,color=species))+
+  geom_smooth(aes(x=bill_length_mm,y=bill_depth_mm),method=&amp;quot;lm&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/scatter7-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;h2 id=&#34;faceted-plots-aka-subplots&#34;&gt;Faceted plots aka subplots&lt;/h2&gt;
+&lt;p&gt;One amazing thing about &lt;code&gt;ggplot2&lt;/code&gt; is that it is incredibly easy to make subplots based on variables in your data. There are two different options: &lt;code&gt;facet_wrap&lt;/code&gt; and &lt;code&gt;facet_grid&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;facet_wrap&#34;&gt;&lt;code&gt;facet_wrap&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;facet_wrap&lt;/code&gt; is most useful when we only have one categorical variable that we want to make subplots by. Using the same plot as before let&amp;rsquo;s facet based on island. We either have to do &lt;code&gt;~varname&lt;/code&gt; or &lt;code&gt;vars(varname)&lt;/code&gt; in order for ggplot to recognize it as a column name:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(data=penguins,aes(x=bill_length_mm,y=bill_depth_mm,color=species))+
+  geom_point()+
+  geom_smooth(method=&amp;quot;lm&amp;quot;)+
+  facet_wrap(~island)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/facet_wrap1-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;h3 id=&#34;facet_grid&#34;&gt;&lt;code&gt;facet_grid&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;facet_grid&lt;/code&gt; is most useful when we have two categorical variable that we want to make subplots by in a grid formation. The way it works is:&lt;br&gt;
+&lt;code&gt;facet_grid(horizontal_categorical column ~ vertical_Categorical Column)&lt;/code&gt;
+Using the same plot as before let&amp;rsquo;s facet based on island and sex:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(data=penguins,aes(x=bill_length_mm,y=bill_depth_mm,color=species))+
+  geom_point()+
+  geom_smooth(method=&amp;quot;lm&amp;quot;)+
+  facet_grid(sex~island)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/facet_wrap2-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;p&gt;If we wanted to facet by more than two variables, we can combine different combinations with &lt;code&gt;+&lt;/code&gt;. This works for both &lt;code&gt;facet_wrap&lt;/code&gt; and &lt;code&gt;facet_grid&lt;/code&gt;. For example:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(data=penguins,aes(x=bill_length_mm,y=bill_depth_mm,color=species))+
+  geom_point()+
+  geom_smooth(method=&amp;quot;lm&amp;quot;)+
+  facet_grid(year+sex~island)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/facet_wrap3-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;h2 id=&#34;other-common-graphs&#34;&gt;Other common graphs&lt;/h2&gt;
+&lt;h3 id=&#34;histogram&#34;&gt;Histogram&lt;/h3&gt;
+&lt;p&gt;Making histograms only require a variable for the x-axis.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s make a histogram of &lt;code&gt;flipper_length_mm&lt;/code&gt; with different colors for the different species. Like before we need to initialize the plot with the &lt;code&gt;ggplot()&lt;/code&gt; function:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(data=penguins,aes(x=flipper_length_mm,color=species))+
+  geom_histogram()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/histo1-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;p&gt;Two things we can notice: (1) the outlines of the bars are different colors but not the fill and (2) it&amp;rsquo;s giving a message about the number of bins.&lt;/p&gt;
+&lt;p&gt;(1) For many geoms (e.g., histogram,box_plot,violin_plot) &lt;code&gt;color&lt;/code&gt; aesthetic is the lines/borders but &lt;code&gt;fill&lt;/code&gt; aesthetics is the inside color and what we generally actually want to change.&lt;/p&gt;
+&lt;p&gt;(2) By default &lt;code&gt;geom_histogram&lt;/code&gt; breaks your data into 30 bins. Which may be too much or too less for your data. You can either change this by specifying the number of bins &lt;code&gt;bins=xx&lt;/code&gt; or by the binwidth, &lt;code&gt;binwidth =5&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(data=penguins,aes(x=flipper_length_mm,fill=species))+
+  geom_histogram(binwidth = 5)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/histo2-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;h4 id=&#34;minor-tweak-to-histograms&#34;&gt;Minor tweak to histograms&lt;/h4&gt;
+&lt;p&gt;On things I prefer to do for histograms is to add an outline to the different bars.&lt;/p&gt;
+&lt;p&gt;To add a border all we have to do is change the &lt;code&gt;color&lt;/code&gt; parameter. Previously we used the &lt;code&gt;color&lt;/code&gt; inside &lt;code&gt;aes()&lt;/code&gt; to map color to a specific variable. We can use the same parameter &lt;strong&gt;outside&lt;/strong&gt; of &lt;code&gt;aes&lt;/code&gt; and set it to a color of our choosing. This will default to all the data. This same concept works for other &lt;code&gt;aes()&lt;/code&gt; parameters as well (e.g., &lt;code&gt;shape&lt;/code&gt;,&lt;code&gt;alpha&lt;/code&gt;, &lt;code&gt;fill&lt;/code&gt;).&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(data=penguins,aes(x=flipper_length_mm,fill=species))+
+  geom_histogram(binwidth = 5,color=&amp;quot;black&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/histo3-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;h3 id=&#34;boxplot&#34;&gt;Boxplot&lt;/h3&gt;
+&lt;p&gt;Making a boxplot requires a variable for both the x-axis and the y-axis.&lt;/p&gt;
+&lt;p&gt;As an example let&amp;rsquo;s make a boxplot comparing &lt;code&gt;flipper_length_mm&lt;/code&gt; across species, but different colors for sexes. Once again, like histogram we need to use &lt;code&gt;fill&lt;/code&gt; to change the color inside the boxplot.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(data=penguins,aes(x=species,y=flipper_length_mm,fill=sex))+
+  geom_boxplot()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/box1-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;h4 id=&#34;adding-in-raw-data-with-geom_point&#34;&gt;Adding in raw data with &lt;code&gt;geom_point()&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;One criticism with boxplots is that they hide the underlying data. One way to address this is to also show the underlying data in the same graph. We can do this with &lt;code&gt;geom_point()&lt;/code&gt;. There are a few things we need to do:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Adjust the &lt;code&gt;alpha&lt;/code&gt; parameter, which controls how transparent this layer is with 0 being completely transparent and 1 being not transparent.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Make the &lt;code&gt;color&lt;/code&gt; correspond to different species like &lt;code&gt;fill&lt;/code&gt;. Since we don&amp;rsquo;t want to do this for the &lt;code&gt;boxplot&lt;/code&gt; layer, we will only apply this to the &lt;code&gt;geom_point&lt;/code&gt; layer. We can set this by putting &lt;code&gt;aes(color=sex)&lt;/code&gt; within the &lt;code&gt;geom_point()&lt;/code&gt; layer.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;We want to make the points jittered (i.e., randomly spaced out) and &amp;ldquo;dodged&amp;rdquo; (the different sexes are spaced out like the boxplot). We can accomplish this by setting &lt;code&gt;position=position_jitterdodge())&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;All together:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(data=penguins,aes(x=species,y=flipper_length_mm,fill=sex))+
+  geom_boxplot(alpha=0.4)+
+  geom_point(alpha=0.7,aes(color=sex),position=position_jitterdodge())
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/box2-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;h2 id=&#34;extra-handy-things&#34;&gt;Extra handy things&lt;/h2&gt;
+&lt;p&gt;Here are a just a few handy things to know when working with ggplot2.&lt;/p&gt;
+&lt;h3 id=&#34;saving-ggplots-as-a-variable&#34;&gt;Saving ggplots as a variable&lt;/h3&gt;
+&lt;p&gt;One of the nice features of &lt;code&gt;ggplot2&lt;/code&gt; is you can save the plots as variables and add new layers.&lt;/p&gt;
+&lt;p&gt;For example, lets save the scatter plot as the variable &lt;code&gt;plot1&lt;/code&gt;. Since we just saved it, the plot won&amp;rsquo;t actually appear.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;plot1&amp;lt;-ggplot(data=penguins,aes(x=bill_length_mm,y=bill_depth_mm,color=species))+
+  geom_point()+
+  geom_smooth(method=&amp;quot;lm&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;But we can call it later by the variable name:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;plot1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/saveplot2-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;p&gt;Or we can add new layers to it:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;plot1 +
+  facet_wrap(~island)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/saveplot3-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;h3 id=&#34;changing-labels&#34;&gt;Changing labels&lt;/h3&gt;
+&lt;p&gt;We can change the labels of our plot using the &lt;code&gt;labs&lt;/code&gt; function. Where &lt;code&gt;x&lt;/code&gt; is the label for the x-axis, &lt;code&gt;y&lt;/code&gt; is the label for the y-axis, and &lt;code&gt;color&lt;/code&gt; is the label for the colore legend.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;plot2&amp;lt;-plot1 +
+  labs(x=&amp;quot;Bill length (mm)&amp;quot;,y=&amp;quot;Bill depth (mm)&amp;quot;,color=&amp;quot;Species&amp;quot;)
+
+plot2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/labels-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;h3 id=&#34;changing-default-theme&#34;&gt;Changing default theme&lt;/h3&gt;
+&lt;p&gt;We can also change other attributes with theme. We won&amp;rsquo;t get into it in this tutorial, but there are so many things you can customize! Anything from the color/size of axis ticks to the family of font used on the labels. Luckily &lt;code&gt;ggplot2&lt;/code&gt; has some other themes, besides the default, to help get you started. Just to show a few of those:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;theme_classic&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;plot2 + theme_classic()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/themeclas-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;p&gt;&lt;code&gt;theme_dark&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;plot2 + theme_dark()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/themedar-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;p&gt;&lt;code&gt;theme_void&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;plot2 + theme_void()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/themev-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;h2 id=&#34;closing-remarks&#34;&gt;Closing remarks&lt;/h2&gt;
+&lt;p&gt;I hoped you enjoyed this tutorial. Please shoot me an email if there on any tips for improvement or if you caught a bug! Other tutorials on my website go into more customizations in ggplot2 and other topics in R.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
