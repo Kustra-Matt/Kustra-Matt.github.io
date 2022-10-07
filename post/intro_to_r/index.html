@@ -1,0 +1,2026 @@
+<!DOCTYPE html><html lang="en-us" >
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.4.0 for Hugo" />
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Matthew Kustra" />
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Introduction to R and RStudio This tutorial is designed as a short introduction into the R programming language and specifically using RStudio.
+R is a free, open source programming language originally developed to analyze data, but it has been greatly expanded to do a lot of tasks." />
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://kustra-matt.github.io/post/intro_to_r/" />
+
+  
+  
+  
+    <meta name="theme-color" content="#1565c0" />
+  
+
+  
+  
+
+  
+
+  <link rel="stylesheet" href="/css/vendor-bundle.min.f1ecf783c14edc00c9320c205831ad8e.css" media="print" onload="this.media='all'">
+
+  
+  
+  
+    
+    
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/github.min.css" crossorigin="anonymous" title="hl-light" media="print" onload="this.media='all'">
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media='all'" disabled>
+        
+      
+    
+
+    
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.min.css" integrity="" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.9b4671d2bdda42ce1dc1009a5bc56a42.css" />
+
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-40Q3S9TMJ2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'G-40Q3S9TMJ2', {});
+  gtag('set', {'cookie_flags': 'SameSite=None;Secure'});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
+  
+
+  
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+    <link rel="manifest" href="/manifest.webmanifest" />
+  
+
+  <link rel="icon" type="image/png" href="/media/icon_hu968023516251523fc9a78b9c44e7eeb6_483323_32x32_fill_lanczos_center_3.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu968023516251523fc9a78b9c44e7eeb6_483323_180x180_fill_lanczos_center_3.png" />
+
+  <link rel="canonical" href="https://kustra-matt.github.io/post/intro_to_r/" />
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary_large_image" />
+  
+  <meta property="og:site_name" content="Matt Kustra" />
+  <meta property="og:url" content="https://kustra-matt.github.io/post/intro_to_r/" />
+  <meta property="og:title" content="Intro to R | Matt Kustra" />
+  <meta property="og:description" content="Introduction to R and RStudio This tutorial is designed as a short introduction into the R programming language and specifically using RStudio.
+R is a free, open source programming language originally developed to analyze data, but it has been greatly expanded to do a lot of tasks." /><meta property="og:image" content="https://kustra-matt.github.io/post/intro_to_r/featured.png" />
+    <meta property="twitter:image" content="https://kustra-matt.github.io/post/intro_to_r/featured.png" /><meta property="og:locale" content="en-us" />
+  
+    
+      <meta
+        property="article:published_time"
+        content="2022-10-05T00:00:00&#43;00:00"
+      />
+    
+    <meta property="article:modified_time" content="2022-10-05T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://kustra-matt.github.io/post/intro_to_r/"
+  },
+  "headline": "Intro to R",
+  
+  "image": [
+    "https://kustra-matt.github.io/post/intro_to_r/featured.png"
+  ],
+  
+  "datePublished": "2022-10-05T00:00:00Z",
+  "dateModified": "2022-10-05T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Matthew Kustra"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Matt Kustra",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://kustra-matt.github.io/media/icon_hu968023516251523fc9a78b9c44e7eeb6_483323_192x192_fill_lanczos_center_3.png"
+    }
+  },
+  "description": "Introduction to R and RStudio This tutorial is designed as a short introduction into the R programming language and specifically using RStudio.\nR is a free, open source programming language originally developed to analyze data, but it has been greatly expanded to do a lot of tasks."
+}
+</script>
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  <title>Intro to R | Matt Kustra</title>
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="4cbcc4df84c81628a51aa2e08521762e" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.13d3c1ccc66961c64e937f4e854fdd1e.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header--fixed">
+  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+    <div class="container-xl">
+
+      
+      <div class="d-none d-lg-inline-flex">
+        <a class="navbar-brand" href="/">Matt Kustra</a>
+      </div>
+      
+
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+      
+      <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+        <a class="navbar-brand" href="/">Matt Kustra</a>
+      </div>
+      
+
+      
+      
+      <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+        
+        <ul class="navbar-nav d-md-inline-flex">
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#projects"><span>Research Projects</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#publications"><span>Publications</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#experience"><span>Other Projects</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link  active" href="/post/"><span>R Tutorials</span></a>
+          </li>
+
+          
+          
+
+        
+
+          
+        </ul>
+      </div>
+
+      <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+        
+        
+          
+            
+            <li class="nav-item d-none d-lg-inline-flex">
+              <a class="nav-link" href="https://twitter.com/m_kus_kus" data-toggle="tooltip" data-placement="bottom" title="Follow me on Twitter" target="_blank" rel="noopener" aria-label="Follow me on Twitter">
+                <i class="fab fa-twitter" aria-hidden="true"></i>
+              </a>
+            </li>
+          
+        
+
+        
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+        
+        <li class="nav-item dropdown theme-dropdown">
+          <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item js-set-theme-light">
+              <span>Light</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-dark">
+              <span>Dark</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-auto">
+              <span>Automatic</span>
+            </a>
+          </div>
+        </li>
+        
+
+        
+        
+
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+
+  </div>
+
+  <div class="page-body">
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<div class="article-container pt-3">
+  <h1>Intro to R</h1>
+
+  
+
+  
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Oct 5, 2022
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    19 min read
+  </span>
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+  
+
+
+
+
+
+</div>
+
+
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 453px;">
+  <div style="position: relative">
+    <img src="/post/intro_to_r/featured_hu30e1385596cf2ab661612c31d4dbdf89_183553_720x2500_fit_q75_h2_lanczos_3.webp" width="720" height="453" alt="" class="featured-image">
+    
+  </div>
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="row">
+
+      <div class="col-12 col-lg-9 article-style">
+        <h2 id="introduction-to-r-and-rstudio">Introduction to R and RStudio</h2>
+<p>This tutorial is designed as a short introduction into the R programming language and specifically using RStudio.</p>
+<p>R is a free, open source programming language originally developed to analyze data, but it has been greatly expanded to do a lot of tasks. For example, I use R to make interactive websites via the Shiny package.</p>
+<p>RStudio is an IDE (integrative development environment). IDEs are useful because they let you edit/write code but provide a ton of helpful things for you that a plain text editor does not. For example, RStudio will start suggesting certain functions as you are typing and will let you know what inputs these functions require. It will allow you to visualize plots without having to save them. It integrates with other packages allowing me to just click on a few things to publish this tutorial. I built my whole website and other tutorials all within RStudio. These are just a few of the many handful features of RStudio.</p>
+<h2 id="installing-r-and-r-studio">Installing R and R Studio</h2>
+<p>First install R from <a href="https://ftp.osuosl.org/pub/cran/" target="_blank" rel="noopener">here</a>. Then install RStudio Desktop <a href="https://www.rstudio.com/products/rstudio/download/" target="_blank" rel="noopener">here</a>.</p>
+<h2 id="rstudio">RStudio</h2>
+<p>When you first open up R studio it should look something like this:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="" srcset="
+               /post/intro_to_r/Startup_hue3a62ff24a21a24363775b269918263c_180584_ab072f5a2d94c100601b97bb59baa632.webp 400w,
+               /post/intro_to_r/Startup_hue3a62ff24a21a24363775b269918263c_180584_994a05054d48147e811526fed318e180.webp 760w,
+               /post/intro_to_r/Startup_hue3a62ff24a21a24363775b269918263c_180584_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="/post/intro_to_r/Startup_hue3a62ff24a21a24363775b269918263c_180584_ab072f5a2d94c100601b97bb59baa632.webp"
+               width="760"
+               height="483"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+
+The console on the left should have information on the current version of R. If it doesn&rsquo;t then that means RStudio can&rsquo;t find the path to R or you don&rsquo;t have R installed.</p>
+<p>Let&rsquo;s open up a new R script file to see what RStudio will normally look like. To do that, go to &ldquo;File -&gt; New File -&gt; R Script&rdquo; like this:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="" srcset="
+               /post/intro_to_r/NewFile_hu111406d2e82fd8e51b59423a0ac02428_545826_5a75e44bbdff8131c1e85e505e07382f.webp 400w,
+               /post/intro_to_r/NewFile_hu111406d2e82fd8e51b59423a0ac02428_545826_aa8ef066956a4bb02aa7b36960612cc1.webp 760w,
+               /post/intro_to_r/NewFile_hu111406d2e82fd8e51b59423a0ac02428_545826_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="/post/intro_to_r/NewFile_hu111406d2e82fd8e51b59423a0ac02428_545826_5a75e44bbdff8131c1e85e505e07382f.webp"
+               width="760"
+               height="483"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p>If you noticed there are a few other R file options. Those are from other packages that developers have integrated into RStudio. For example, this tutorial was constructing using R Markdown, a file that lets you make reports that integrate regular text and R code all in one html or pdf file (not covered in this lesson). For most coding/analyses you will be using the standard R script.</p>
+<p>To give a better sense of what an active enviornment looks like I&rsquo;m going to open up a project I&rsquo;m working on.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="" srcset="
+               /post/intro_to_r/Windows_hu849a3e9d7735df339d7ac1eb922fdbc9_1932600_3e865c8d05bccaf707e2e328cf6583f8.webp 400w,
+               /post/intro_to_r/Windows_hu849a3e9d7735df339d7ac1eb922fdbc9_1932600_259aa09b3bc8d8e7acb171650b15478a.webp 760w,
+               /post/intro_to_r/Windows_hu849a3e9d7735df339d7ac1eb922fdbc9_1932600_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="/post/intro_to_r/Windows_hu849a3e9d7735df339d7ac1eb922fdbc9_1932600_3e865c8d05bccaf707e2e328cf6583f8.webp"
+               width="760"
+               height="477"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p>RStudio has four main windows. The top left is the text editor. That&rsquo;s where you will type the code that you want to save. Typing the code will not run it! To run the code you need to go to the line with your cursor or highlight the sections you want to run. Then if you are using a mac do &ldquo;command + return&rdquo; for Windows it&rsquo;s &ldquo;Control + Enter.&rdquo;'</p>
+<p>Code you have run will now appear on the bottom left in the console. You can also directly type code and run it here but it will NOT save when you save the script! <code>&gt;</code> means R is ready for you to run code <code>+</code> means that R is still waiting for you to type something. To get out of that simply press escape.</p>
+<p>The top right panel is the environment. That&rsquo;s where you can see all the objects (which we will get into later) that are in your environment and you can use. Clicking on the objects will give you some more info, or for data frames will actually open them up in a separate window.</p>
+<p>The bottom right panel is where your plots will appear. But if you noticed it also has tabs for &ldquo;Files,&rdquo; &ldquo;Packages,&rdquo; &ldquo;Help,&rdquo; and &ldquo;Viewer.&rdquo; &ldquo;Files&rdquo; show what files are in your current working directory (more on that later), &ldquo;Packages&rdquo; shows what packages you have installed and which are currently loaded up. Packages are essentially nicely packaged code that contains useful functions other R users have made that you can use for yourself. &ldquo;Help&rdquo; contains information on how to use various functions that are either included in base R or functions from packages you have installed. To get to that you can use the <code>?</code> followed by the function name like this: <code>?FunctionName</code></p>
+<h2 id="types-of-values">Types of values</h2>
+<p>In R, like other programming languages, objects can take on a few different of types. Here are a few commonly used ones. <strong>double</strong> objects also known as <strong>numeric</strong> represent any real number (e.g., <code>1.1</code>). There are also <code>integer</code> objects that are integers i.e., they don&rsquo;t contain decimal places, however, by default <code>1</code> will be interpreted as a <strong>double</strong>. We also have <strong>logical</strong> values which are either <code>TRUE</code> or <code>FALSE</code>. <strong>character</strong> can be thought of as text objects and are donated by using double quotations ( e.g,<code>&quot;a&quot;</code>).</p>
+<p><strong>Disclaimer/clarification</strong>: Interestingly in R, all the above types are technically vectors. But please note that in this tutorial I use vector to mean anything with length greater than 1, even though in R a single number or single character is technically also a vector albeit of length 1.</p>
+<h2 id="variables">Variables</h2>
+<p>R, like other programming languages, are nice in that you can save objects as variables to use later. The way we do this is with <code>&lt;-</code>. For example:</p>
+<pre><code class="language-r">a&lt;-5
+</code></pre>
+<p>Note that if I run this line nothing prints out but it will be saved in your environment (top right panel) and it should show that it ran in the console (bottom left panel).</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="" srcset="
+               /post/intro_to_r/featured_hu30e1385596cf2ab661612c31d4dbdf89_183553_fd0b2e294509508e5cf39895b77fc81a.webp 400w,
+               /post/intro_to_r/featured_hu30e1385596cf2ab661612c31d4dbdf89_183553_b758d4969a3a7913d6d79c30a4c2eb00.webp 760w,
+               /post/intro_to_r/featured_hu30e1385596cf2ab661612c31d4dbdf89_183553_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="/post/intro_to_r/featured_hu30e1385596cf2ab661612c31d4dbdf89_183553_fd0b2e294509508e5cf39895b77fc81a.webp"
+               width="760"
+               height="478"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p>To actually print out the value there are a few ways. You can either just run the name of the variable <code>a</code>. You can use the function print, <code>print(a)</code>. Or you can put parentheses around the variable assignment <code>(a&lt;-5)</code>.</p>
+<pre><code class="language-r">a
+</code></pre>
+<pre><code>## [1] 5
+</code></pre>
+<pre><code class="language-r">print(a)
+</code></pre>
+<pre><code>## [1] 5
+</code></pre>
+<pre><code class="language-r">(a&lt;-5)
+</code></pre>
+<pre><code>## [1] 5
+</code></pre>
+<h2 id="commenting">Commenting</h2>
+<p>Now that we are starting to code it is probably important to talk about comments. A good practice when programming is to make notes. This will help keep you organized and will help others (including your future self) understand what your code is doing. In R to make a comment use <code>#</code>. Anything that occurs after <code>#</code> will not be evaluated. For example:</p>
+<pre><code class="language-r">#I'm assigning the variable a equal to 5 and printing it out
+(a&lt;-5)
+</code></pre>
+<pre><code>## [1] 5
+</code></pre>
+<h2 id="numerical-values">Numerical values</h2>
+<p>The simplest way that you can use R is as a calculator. Here is a table on the most commonly used mathematical operators:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="" srcset="
+               /post/intro_to_r/math_hu2d5da57dccde3c2169e6062752840137_367236_a6ff7548eb0bd708900015315d6d5ded.webp 400w,
+               /post/intro_to_r/math_hu2d5da57dccde3c2169e6062752840137_367236_d6e1b1aa814f996adfc109278bd124d1.webp 760w,
+               /post/intro_to_r/math_hu2d5da57dccde3c2169e6062752840137_367236_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="/post/intro_to_r/math_hu2d5da57dccde3c2169e6062752840137_367236_a6ff7548eb0bd708900015315d6d5ded.webp"
+               width="760"
+               height="225"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p>We can use these operators on variables we defined. For example:</p>
+<pre><code class="language-r">#a is being given the value 5
+a&lt;-5
+#b is being given the value 2
+b&lt;-2
+#this calculates a*b
+a*b
+</code></pre>
+<pre><code>## [1] 10
+</code></pre>
+<pre><code class="language-r">#this calculates a times b then squaring the result
+(a*b)^2
+</code></pre>
+<pre><code>## [1] 100
+</code></pre>
+<p>We can also assign the output of calculations to variables to be used later:</p>
+<pre><code class="language-r">#giving c the value of (a*b)^2
+c&lt;-(a*b)**2
+#printing out c
+c
+</code></pre>
+<pre><code>## [1] 100
+</code></pre>
+<h2 id="character-values">Character values</h2>
+<p>As discussed above characters can be thought of as text. Anything will be made a character if it is within quotations. Without quotations R will think that what you are typing is a variable and the following code will throw an error:</p>
+<pre><code class="language-r">d&lt;-hello world
+</code></pre>
+<p>This on the other hand works perfect:</p>
+<pre><code class="language-r">d&lt;-&quot;hello world&quot;
+</code></pre>
+<p>Pleasenote that the color changes! That is one of the advantages of using an IDE like RStudio. Characters will have different colors than variables, which is one way to help you keep track of them.</p>
+<h2 id="logical-values">Logical values</h2>
+<p>Logical values can be either true or false. In practice, we generally use them to help filter data or run a specific analysis based on a specific condition. In R logical values are coded as <code>TRUE</code> and <code>FALSE</code>. You may also see/use <code>T</code> or <code>F</code>, however, it is generally recommended not to use these two. This is because you can always overwrite <code>T</code> or <code>F</code> but cannot overwrite <code>TRUE</code> or <code>FALSE</code>. This can cause errors if for whatever reason <code>T</code> or <code>F</code> is overwritten but used elsewhere as a logical value. Logical values are returned whenever we do a comparison, i.e, use a relational operator. Here are the commonly used relational operators:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="" srcset="
+               /post/intro_to_r/Compare_hu5279ec3dfe0a91dd64026b159131c2d4_628224_0cbcf0b43837b0f440e1018b43631498.webp 400w,
+               /post/intro_to_r/Compare_hu5279ec3dfe0a91dd64026b159131c2d4_628224_6c2ebe4838a4ffb6bdac21a5f05f1441.webp 760w,
+               /post/intro_to_r/Compare_hu5279ec3dfe0a91dd64026b159131c2d4_628224_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="/post/intro_to_r/Compare_hu5279ec3dfe0a91dd64026b159131c2d4_628224_0cbcf0b43837b0f440e1018b43631498.webp"
+               width="760"
+               height="281"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p>Let&rsquo;s code up those examples:</p>
+<pre><code class="language-r">2&lt;3
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre>
+<pre><code class="language-r">2&gt;8
+</code></pre>
+<pre><code>## [1] FALSE
+</code></pre>
+<pre><code class="language-r">3&lt;=3
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre>
+<pre><code class="language-r">&quot;APPLE&quot;==&quot;APPLE&quot;
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre>
+<pre><code class="language-r">&quot;Mayonnaise&quot;!= &quot;Instrument&quot;
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre>
+<p>It is important to note that comparing characters is case sensitive. For example,<code>&quot;Apple&quot;==&quot;APPLE&quot;</code> returns <code>FALSE</code>.</p>
+<p>For a more in-depth tutorial go to <a href="https://kustra-matt.github.io/post/ifelse/" target="_blank" rel="noopener">Logic and if-else statements</a>.</p>
+<h2 id="vectors-of-size-greater-than-one">Vectors of size greater than one</h2>
+<p>As briefly mentioned before. All the examples above are vectors of size one. But we can also do similar things to objects that are greater than one.</p>
+<p>The simplest way to create a vector of size greater than one is with the concatenate function <code>c()</code> and this can work with any type of object:</p>
+<pre><code class="language-r">#make a numeric vector
+(NumVec&lt;-c(1,4.4,5.2))
+</code></pre>
+<pre><code>## [1] 1.0 4.4 5.2
+</code></pre>
+<pre><code class="language-r">#character vector
+CharVec&lt;-c(&quot;Apple&quot;,&quot;Orange&quot;,&quot;Peach&quot;)
+
+#logical vector
+LogicVec&lt;-c(TRUE,FALSE,TRUE)
+</code></pre>
+<p>To access a specific element in a vector we use brackets, <code>[position]</code>. For example, if I wanted to get the third element of <code>NumVec</code> I would do the following:</p>
+<pre><code class="language-r">NumVec[3]
+</code></pre>
+<pre><code>## [1] 5.2
+</code></pre>
+<p><strong>Important note</strong>: unlike other programming languages R starts indexing at 1. As in the first position is 1, other languages start indexing at 0.</p>
+<p>We can change an element in a vector using indexing:</p>
+<pre><code class="language-r">#first print out what NumVec is 
+NumVec
+</code></pre>
+<pre><code>## [1] 1.0 4.4 5.2
+</code></pre>
+<pre><code class="language-r">#Now let's change the value of the third element
+NumVec[3]&lt;-20
+
+#Let's see if it worked
+NumVec
+</code></pre>
+<pre><code>## [1]  1.0  4.4 20.0
+</code></pre>
+<p>We can perform most of our operations we discussed above on vectors of size greater than one.</p>
+<p>Using the operators with a single value and a vector will result in performing the operation of that single value with each element in the vector:</p>
+<pre><code class="language-r">#creating a new vector
+NumVec2&lt;-c(1,2,4)
+
+#adding 2 to every element
+NumVec2+2
+</code></pre>
+<pre><code>## [1] 3 4 6
+</code></pre>
+<pre><code class="language-r">#Seeing if 2 is greater than each element
+
+2 &gt; NumVec2
+</code></pre>
+<pre><code>## [1]  TRUE FALSE FALSE
+</code></pre>
+<p>If the Vectors are of the same length then it will perform the operation element by element. i.e., operation happens between the first element of each vector, then the second eleements of each vector, and so forth:</p>
+<pre><code class="language-r">#Adding the two vectors
+NumVec + NumVec2
+</code></pre>
+<pre><code>## [1]  2.0  6.4 24.0
+</code></pre>
+<pre><code class="language-r">#Comparing the two vectors
+
+NumVec &gt; NumVec2
+</code></pre>
+<pre><code>## [1] FALSE  TRUE  TRUE
+</code></pre>
+<h2 id="functions">Functions</h2>
+<p>Functions perform a specific task/calculation based on the inputs then return some output.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="" srcset="
+               /post/intro_to_r/Functions_hu188e9a82094d36f75a78645c62043471_179935_c2b9b57ad09aeacb5b21edd265f9e9b2.webp 400w,
+               /post/intro_to_r/Functions_hu188e9a82094d36f75a78645c62043471_179935_f99ecafbe266ed6e2b0efba4073b6846.webp 760w,
+               /post/intro_to_r/Functions_hu188e9a82094d36f75a78645c62043471_179935_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="/post/intro_to_r/Functions_hu188e9a82094d36f75a78645c62043471_179935_c2b9b57ad09aeacb5b21edd265f9e9b2.webp"
+               width="760"
+               height="498"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p>In R we call functions by using the name of the function followed by parentheses with the inputs: <code>functionName(input1,input2,...)</code>. The concatenate function that we used above is an example of a function. The name is &ldquo;c&rdquo; the inputs are the objects we want to store as one vector and the output is a vector with all the elements being the inputs.</p>
+<h2 id="some-useful-functions-in-base-r">Some useful functions in base R</h2>
+<p>Luckily R comes with a handful of useful functions that we don&rsquo;t need to makeup on our own or install packages that we might need. Here is a table of some useful ones:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="" srcset="
+               /post/intro_to_r/FunctionsB_hu154e8a248e071a7410b89deb4b9ad27e_617659_65ed3c1cac5a0f357e83df90ea958137.webp 400w,
+               /post/intro_to_r/FunctionsB_hu154e8a248e071a7410b89deb4b9ad27e_617659_621214ff7737d42e05bb39b85ffa955b.webp 760w,
+               /post/intro_to_r/FunctionsB_hu154e8a248e071a7410b89deb4b9ad27e_617659_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="/post/intro_to_r/FunctionsB_hu154e8a248e071a7410b89deb4b9ad27e_617659_65ed3c1cac5a0f357e83df90ea958137.webp"
+               width="760"
+               height="493"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p>Let&rsquo;s try out a few of these functions</p>
+<pre><code class="language-r">#Lets make a sequence of values from 1 to 10 at increments of 0.5
+NumVec3&lt;-seq(1,10,0.5)
+
+#One way to calculate the mean is to sum up everything
+SumNum&lt;-sum(NumVec3)
+#Then divide it by the total number or the length
+N&lt;-length(NumVec3)
+SumNum/N
+</code></pre>
+<pre><code>## [1] 5.5
+</code></pre>
+<pre><code class="language-r">#let's see if we get the same value as the default mean function
+mean(NumVec3)
+</code></pre>
+<pre><code>## [1] 5.5
+</code></pre>
+<p><code>paste()</code> is a nice function that lets us create new characters from multiple characters or numerical values.</p>
+<pre><code class="language-r">char1&lt;-&quot;Hello&quot;
+char2&lt;-&quot;World&quot;
+#sep parameter says how we want to put them together. 
+#in this case I'm saying with a space
+(char3&lt;-paste(char1,char2,sep=&quot; &quot;))
+</code></pre>
+<pre><code>## [1] &quot;Hello World&quot;
+</code></pre>
+<p>Putting together a numerical value and character can be useful for messages to yourself</p>
+<pre><code class="language-r">a&lt;-20
+b&lt;-50
+c&lt;-b/a
+#sep parameter says how we want to put them together. 
+#in this case I'm saying with a space
+paste(b,&quot;divided by&quot;,a,&quot;is =&quot;,c,sep=&quot; &quot;)
+</code></pre>
+<pre><code>## [1] &quot;50 divided by 20 is = 2.5&quot;
+</code></pre>
+<h2 id="lists">Lists</h2>
+<p>One limitation with vectors is that they all have to be the same type of objects. List is an object type that allows multiple types of objects within it. The way we make a list is with the function <code>list()</code>:</p>
+<pre><code class="language-r">#Making a list
+(mylist&lt;-list(20.5,&quot;Apple&quot;,TRUE))
+</code></pre>
+<pre><code>## [[1]]
+## [1] 20.5
+## 
+## [[2]]
+## [1] &quot;Apple&quot;
+## 
+## [[3]]
+## [1] TRUE
+</code></pre>
+<p>We can also make a named list like so:</p>
+<pre><code class="language-r">#Making a named list
+(mylistN&lt;-list(mynum=20.5,mychar=&quot;Apple&quot;,mylogic=TRUE))
+</code></pre>
+<pre><code>## $mynum
+## [1] 20.5
+## 
+## $mychar
+## [1] &quot;Apple&quot;
+## 
+## $mylogic
+## [1] TRUE
+</code></pre>
+<p>To access an element of a list you have you use double brackets <code>[[]]</code> or the <code>$</code> if it is named.</p>
+<pre><code class="language-r">#get first element
+mylist[[1]]
+</code></pre>
+<pre><code>## [1] 20.5
+</code></pre>
+<pre><code class="language-r">#get element by name
+mylistN$mynum
+</code></pre>
+<pre><code>## [1] 20.5
+</code></pre>
+<h2 id="loading-in-datachanging-directories">Loading in data/changing directories</h2>
+<p>One of the main reasons people work with R is to work with their own data. Although there are many different ways you can load data into R, the most common way is as a comma seperated file or csv. The first step is to make sure that your working directory contains the data file of interest. You can see the current working directory via <code>getwd()</code>:</p>
+<pre><code class="language-r">getwd()
+</code></pre>
+<pre><code>## [1] &quot;/Users/matthewkustra/Desktop/Website/My_Website/content/post/Intro_to_R&quot;
+</code></pre>
+<p>There are a few ways to change working directory. One way is through R Studio. You go &ldquo;Session -&gt; Set Working Directory -&gt; Choose Directory&rdquo;:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="" srcset="
+               /post/intro_to_r/Changewd_hu61e34c3439f901c1eb1f9ca78ce3cf61_780591_e8df176fce9e0bb3ff1d62823da33410.webp 400w,
+               /post/intro_to_r/Changewd_hu61e34c3439f901c1eb1f9ca78ce3cf61_780591_798dfe16f1e7bbf453acba0e5446f299.webp 760w,
+               /post/intro_to_r/Changewd_hu61e34c3439f901c1eb1f9ca78ce3cf61_780591_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="/post/intro_to_r/Changewd_hu61e34c3439f901c1eb1f9ca78ce3cf61_780591_e8df176fce9e0bb3ff1d62823da33410.webp"
+               width="760"
+               height="370"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p>This will run the <code>setwd</code> command for you. The other way is to run that yourself to the proper path:</p>
+<pre><code class="language-r">setwd(&quot;~/Desktop/Intro_to_R&quot;)
+</code></pre>
+<p>The next thing would be to load in the datafile. In base R to load a csv file you use <code>read.csv(&quot;name of file&quot;)</code> and save it as a varaible</p>
+<pre><code class="language-r">Data&lt;-read.csv(&quot;example_data.csv&quot;)
+</code></pre>
+<h2 id="dataframes">Dataframes</h2>
+<h3 id="exploratory-functions">Exploratory functions</h3>
+<p>Now that we have a dataframe loaded up into R, what can we do with it? Lots of things!</p>
+<p>Here are just a few useful functions for data frames:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="" srcset="
+               /post/intro_to_r/Dataframe_hu8ffa6c55903e770b2103f2775011637f_489614_8c46721b5f28c8c94609508f5a3d7fd4.webp 400w,
+               /post/intro_to_r/Dataframe_hu8ffa6c55903e770b2103f2775011637f_489614_175223a63d8bd03e1017f5d4ee7deb41.webp 760w,
+               /post/intro_to_r/Dataframe_hu8ffa6c55903e770b2103f2775011637f_489614_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="/post/intro_to_r/Dataframe_hu8ffa6c55903e770b2103f2775011637f_489614_8c46721b5f28c8c94609508f5a3d7fd4.webp"
+               width="760"
+               height="419"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p>One of the first functions I generally use is <code>str(dataframe)</code> which tells us how many observations (#rows) and how many variables (#columns) of our data frame. It then also gives the names of those variables/columns and what type of data they are. This is super helpful in making sure everything loaded up fine. For example, this lets us realize if an numeric column is actually numeric and not loaded up as a character because of an extra space or some other typo.</p>
+<pre><code class="language-r">str(Data)
+</code></pre>
+<pre><code>## 'data.frame':	30 obs. of  6 variables:
+##  $ site       : chr  &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; ...
+##  $ tide.height: chr  &quot;low&quot; &quot;low&quot; &quot;low&quot; &quot;low&quot; ...
+##  $ replicate  : int  1 2 3 4 5 1 2 3 4 5 ...
+##  $ mussels    : int  10 9 11 7 12 6 3 2 5 7 ...
+##  $ snails     : int  2 2 5 3 1 1 2 4 5 3 ...
+##  $ barnacles  : int  15 4 5 0 11 55 39 13 44 35 ...
+</code></pre>
+<p>We can also calculate various summary statistics on each column using <code>summary(DataFrame)</code>:</p>
+<pre><code class="language-r">summary(Data)
+</code></pre>
+<pre><code>##      site           tide.height          replicate    mussels      
+##  Length:30          Length:30          Min.   :1   Min.   : 1.000  
+##  Class :character   Class :character   1st Qu.:2   1st Qu.: 5.250  
+##  Mode  :character   Mode  :character   Median :3   Median :10.000  
+##                                        Mean   :3   Mean   : 9.667  
+##                                        3rd Qu.:4   3rd Qu.:13.500  
+##                                        Max.   :5   Max.   :20.000  
+##      snails         barnacles   
+##  Min.   : 1.000   Min.   : 0.0  
+##  1st Qu.: 2.250   1st Qu.:11.0  
+##  Median : 5.000   Median :24.0  
+##  Mean   : 6.033   Mean   :23.9  
+##  3rd Qu.: 9.000   3rd Qu.:35.0  
+##  Max.   :16.000   Max.   :55.0
+</code></pre>
+<p>If our data frame is small enough we can also open it up in R studio by clicking on the dataframe in the environment (top right panel) or by using the function <code>View(DataFrame)</code>:</p>
+<pre><code class="language-r">View(Data)
+</code></pre>
+<p>Usually I prefer to only see some of the data frame with either the <code>head</code> or <code>tail</code> functions:</p>
+<pre><code class="language-r">#for the first five
+head(Data)
+</code></pre>
+<pre><code>##   site tide.height replicate mussels snails barnacles
+## 1    A         low         1      10      2        15
+## 2    A         low         2       9      2         4
+## 3    A         low         3      11      5         5
+## 4    A         low         4       7      3         0
+## 5    A         low         5      12      1        11
+## 6    A        high         1       6      1        55
+</code></pre>
+<pre><code class="language-r">#for the last five
+tail(Data)
+</code></pre>
+<pre><code>##    site tide.height replicate mussels snails barnacles
+## 25    C         low         5       9     10        19
+## 26    C        high         1      10      5        34
+## 27    C        high         2      15      4        26
+## 28    C        high         3      16      6        35
+## 29    C        high         4      12      8        22
+## 30    C        high         5      14      1        37
+</code></pre>
+<h3 id="factors-and-accesingchanging-columns">Factors and accesing/changing columns</h3>
+<p>By exploring our data we can see that our <code>site</code>, <code>tide.height</code>, and <code>replicate</code> columns are characters and not factors. Factors behave similar to characters but have an explicit grouping to them and can be ordered. Most functions will convert characters to factors but it is often best practice to do this yourself to make sure the levels are correct and ordered properly. By default they will be ordered alphabetically.</p>
+<p>Let&rsquo;s convert them to factors with <code>factor</code> function and we will use the levels method to assign the ordering. Data frames behave like lists, and we can use the same method of <code>$</code> to access a specific column. For example to print out the <code>site</code> column we would do this:</p>
+<pre><code class="language-r">Data$site
+</code></pre>
+<pre><code>##  [1] &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot;
+## [20] &quot;B&quot; &quot;C&quot; &quot;C&quot; &quot;C&quot; &quot;C&quot; &quot;C&quot; &quot;C&quot; &quot;C&quot; &quot;C&quot; &quot;C&quot; &quot;C&quot;
+</code></pre>
+<p>In this case we are overwriting the <code>site</code>, <code>tide.height</code>, and <code>replicate</code> column with the transformed version.</p>
+<pre><code class="language-r">#tide height factor
+Data$site&lt;-factor(Data$site,levels=c(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;))
+#set tide height factors
+Data$tide.height&lt;-factor(Data$tide.height,levels=c(&quot;low&quot;,&quot;high&quot;))
+
+#tide height factor
+Data$replicate&lt;-factor(Data$replicate,levels=c(&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5&quot;))
+</code></pre>
+<p>Now let&rsquo;s run <code>summary</code> again:</p>
+<pre><code class="language-r">summary(Data)
+</code></pre>
+<pre><code>##  site   tide.height replicate    mussels           snails         barnacles   
+##  A:10   low :15     1:6       Min.   : 1.000   Min.   : 1.000   Min.   : 0.0  
+##  B:10   high:15     2:6       1st Qu.: 5.250   1st Qu.: 2.250   1st Qu.:11.0  
+##  C:10               3:6       Median :10.000   Median : 5.000   Median :24.0  
+##                     4:6       Mean   : 9.667   Mean   : 6.033   Mean   :23.9  
+##                     5:6       3rd Qu.:13.500   3rd Qu.: 9.000   3rd Qu.:35.0  
+##                               Max.   :20.000   Max.   :16.000   Max.   :55.0
+</code></pre>
+<p>Now that we converted the character columns to factors, it actually gives how many observations belong to each group of factor! This can be super helpful to confirm things loaded up properly or that you are using the right data frame.</p>
+<h3 id="subsetting-your-data">Subsetting your data</h3>
+<p>We have already talked about extracting whole columns with <code>$</code>, but what if we want to extract rows, a specific cell in our data frame, or use logic to subset our data?</p>
+<p>We will use <code>[]</code> similar to how we extracted/subsetted vectors above. However, because we now have two dimensions we will distinguish between rows and columns with a comma:<code>[row,column]</code>. So, for example if I wanted to get the value from the first row and fourth column:</p>
+<pre><code class="language-r">#let's check what it should be
+head(Data)
+</code></pre>
+<pre><code>##   site tide.height replicate mussels snails barnacles
+## 1    A         low         1      10      2        15
+## 2    A         low         2       9      2         4
+## 3    A         low         3      11      5         5
+## 4    A         low         4       7      3         0
+## 5    A         low         5      12      1        11
+## 6    A        high         1       6      1        55
+</code></pre>
+<pre><code class="language-r">#We should get 10
+Data[1,4]
+</code></pre>
+<pre><code>## [1] 10
+</code></pre>
+<pre><code class="language-r">#We can also use the name of the Column 
+Data[1,&quot;snails&quot;]
+</code></pre>
+<pre><code>## [1] 2
+</code></pre>
+<p>If we wanted to get an entire row (or column) we leave that side blank. For example, to get the entire 5th row:</p>
+<pre><code class="language-r">Data[5,]
+</code></pre>
+<pre><code>##   site tide.height replicate mussels snails barnacles
+## 5    A         low         5      12      1        11
+</code></pre>
+<p>We can also get mulitple rows if we put a vector instead of single value:</p>
+<pre><code class="language-r">#1st, 2nd, and 10th rows
+Data[c(1,2,10),]
+</code></pre>
+<pre><code>##    site tide.height replicate mussels snails barnacles
+## 1     A         low         1      10      2        15
+## 2     A         low         2       9      2         4
+## 10    A        high         5       7      3        35
+</code></pre>
+<p>The really cool thing is we can subset using logic! To do this in the row section (i.e., before the comma), rather than putting a number we put a vector of logical values . It will only return the rows that are <code>TRUE</code>. To use this feature to subset we can create a logical vector based on another column. For example let&rsquo;s just extract when the <code>tide.height</code> is &ldquo;low&rdquo;.In this case we find the rows where the <code>Data$tide.height==&quot;low&quot;</code>.</p>
+<pre><code class="language-r">#find where Data$tide.height==low
+Data$tide.height==&quot;low&quot;
+</code></pre>
+<pre><code>##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE
+## [13]  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE
+## [25]  TRUE FALSE FALSE FALSE FALSE FALSE
+</code></pre>
+<pre><code class="language-r">#We can put this inside that row section to only get low tide.height
+Data_low&lt;-Data[Data$tide.height==&quot;low&quot;,]
+
+#let's see if it works
+summary(Data_low)
+</code></pre>
+<pre><code>##  site  tide.height replicate    mussels          snails         barnacles   
+##  A:5   low :15     1:3       Min.   : 7.00   Min.   : 1.000   Min.   : 0.0  
+##  B:5   high: 0     2:3       1st Qu.: 9.50   1st Qu.: 4.000   1st Qu.: 5.5  
+##  C:5               3:3       Median :12.00   Median : 9.000   Median :11.0  
+##                    4:3       Mean   :12.33   Mean   : 8.133   Mean   :11.6  
+##                    5:3       3rd Qu.:15.00   3rd Qu.:11.000   3rd Qu.:14.0  
+##                              Max.   :20.00   Max.   :16.000   Max.   :31.0
+</code></pre>
+<h3 id="creating-new-columns">Creating new columns</h3>
+<p>It&rsquo;s super easy to add a new column. All you do is use the <code>Dataframe$NewColumn&lt;-Vector</code>. Let&rsquo;s try to make a new column with the total count of all the marine inverts.</p>
+<pre><code class="language-r">#create new column of total amount
+Data$Total&lt;-Data$mussels +Data$snails + Data$barnacles
+
+#check our data to see if it worked
+str(Data)
+</code></pre>
+<pre><code>## 'data.frame':	30 obs. of  7 variables:
+##  $ site       : Factor w/ 3 levels &quot;A&quot;,&quot;B&quot;,&quot;C&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ tide.height: Factor w/ 2 levels &quot;low&quot;,&quot;high&quot;: 1 1 1 1 1 2 2 2 2 2 ...
+##  $ replicate  : Factor w/ 5 levels &quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,..: 1 2 3 4 5 1 2 3 4 5 ...
+##  $ mussels    : int  10 9 11 7 12 6 3 2 5 7 ...
+##  $ snails     : int  2 2 5 3 1 1 2 4 5 3 ...
+##  $ barnacles  : int  15 4 5 0 11 55 39 13 44 35 ...
+##  $ Total      : int  27 15 21 10 24 62 44 19 54 45 ...
+</code></pre>
+<p>The <code>tidyverse</code> specifically <code>dplyr</code> has functions that can help with some of these data manipulations. I highly recommend using those functions when you start doing more complicated calculations, and data wrangling. But I still use the base R methods for simple things and I think it is good to know.</p>
+<h2 id="installingloading-packages">Installing/loading packages</h2>
+<p>One of the advantages of R is that there is a rich resource of packages that other R users have made. These packages contain very helpful functions including packaages that help with processing data, plotting data, making interactive websites, running complex statistical analyses, and much more.</p>
+<p>To use these packages, you first have to install the package, which you only need to do once on your computer. Then whenever, you want to use that package you have to load it up in your code.</p>
+<p>Here is an example of how to install and loadup <code>tidyverse</code> which is actually a bunch of packages that are great for data processing and making graphs.</p>
+<pre><code class="language-r">#installing packages (only need to run this once)
+install.packages(&quot;tidyverse&quot;)
+
+#load it up. Need to do this for every script. 
+library(tidyverse)
+</code></pre>
+<h2 id="closing-remarks">Closing remarks</h2>
+<p>I hoped you enjoyed this tutorial. Please shoot me an email if there on any tips for improvement or if you caught a bug! Please check out the other tutorials on my website.</p>
+ 
+      </div>
+
+      <div class="col-12 col-lg-3 docs-toc">
+        <ul class="nav toc-top">
+          <li>
+            <a href="#" id="back_to_top" class="docs-toc-title">
+              Contents
+            </a>
+          </li>
+        </ul>
+
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction-to-r-and-rstudio">Introduction to R and RStudio</a></li>
+    <li><a href="#installing-r-and-r-studio">Installing R and R Studio</a></li>
+    <li><a href="#rstudio">RStudio</a></li>
+    <li><a href="#types-of-values">Types of values</a></li>
+    <li><a href="#variables">Variables</a></li>
+    <li><a href="#commenting">Commenting</a></li>
+    <li><a href="#numerical-values">Numerical values</a></li>
+    <li><a href="#character-values">Character values</a></li>
+    <li><a href="#logical-values">Logical values</a></li>
+    <li><a href="#vectors-of-size-greater-than-one">Vectors of size greater than one</a></li>
+    <li><a href="#functions">Functions</a></li>
+    <li><a href="#some-useful-functions-in-base-r">Some useful functions in base R</a></li>
+    <li><a href="#lists">Lists</a></li>
+    <li><a href="#loading-in-datachanging-directories">Loading in data/changing directories</a></li>
+    <li><a href="#dataframes">Dataframes</a>
+      <ul>
+        <li><a href="#exploratory-functions">Exploratory functions</a></li>
+        <li><a href="#factors-and-accesingchanging-columns">Factors and accesing/changing columns</a></li>
+        <li><a href="#subsetting-your-data">Subsetting your data</a></li>
+        <li><a href="#creating-new-columns">Creating new columns</a></li>
+      </ul>
+    </li>
+    <li><a href="#installingloading-packages">Installing/loading packages</a></li>
+    <li><a href="#closing-remarks">Closing remarks</a></li>
+  </ul>
+</nav> 
+
+      </div>
+    </div>
+
+    
+
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/r/">R</a>
+  
+  <a class="badge badge-light" href="/tag/basic-programming/">Basic Programming</a>
+  
+  <a class="badge badge-light" href="/tag/intro/">Intro</a>
+  
+</div>
+
+
+
+<div class="share-box">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://kustra-matt.github.io/post/intro_to_r/&amp;text=Intro%20to%20R" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://kustra-matt.github.io/post/intro_to_r/&amp;t=Intro%20to%20R" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Intro%20to%20R&amp;body=https://kustra-matt.github.io/post/intro_to_r/" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://kustra-matt.github.io/post/intro_to_r/&amp;title=Intro%20to%20R" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=Intro%20to%20R%20https://kustra-matt.github.io/post/intro_to_r/" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://kustra-matt.github.io/post/intro_to_r/&amp;title=Intro%20to%20R" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <a href="https://kustra-matt.github.io/"><img class="avatar mr-3 avatar-circle" src="/author/matthew-kustra/avatar_hu42b16d72e766e2642cc1f920e77458fd_123421_270x270_fill_q75_lanczos_center.jpg" alt="Matthew Kustra"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://kustra-matt.github.io/">Matthew Kustra</a></h5>
+      <h6 class="card-subtitle">PhD Candidate</h6>
+      <p class="card-text">My research interests include sexual selection, speciation, and endosymbionts.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/#contact" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/m_kus_kus" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=MlvEfKAAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+        <i class="fas fa-graduation-cap"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/Kustra-Matt" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/matthew-kustra-3b3729202/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/forloop/">For Loops</a></li>
+      
+      <li><a href="/post/ifelse/">Logic and if-else statements</a></li>
+      
+      <li><a href="/post/ggplot2/">Intro to ggplot2</a></li>
+      
+      <li><a href="/post/3dplots/">3D plots with Plotly</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+
+  
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a> — the free, <a href="https://github.com/wowchemy/wowchemy-hugo-themes" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+    
+    <script src="/js/vendor-bundle.min.3d946de2e8784a477845261d87025092.js"></script>
+
+    
+    
+    
+      
+      
+        <script src="https://cdn.jsdelivr.net/gh/desandro/imagesloaded@v4.1.4/imagesloaded.pkgd.min.js" integrity="sha512-S5PZ9GxJZO16tT9r3WJp/Safn31eu8uWrzglMahDT4dsmgqWonRY9grk3j+3tfuPr9WJNsfooOR7Gi7HL5W2jw==" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/gh/metafizzy/isotope@v3.0.6/dist/isotope.pkgd.min.js" integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew==" crossorigin="anonymous"></script>
+      
+
+      
+      
+
+      
+
+      
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/highlight.min.js" integrity="sha512-Ypjm0o7jOxAd4hpdoppSEN0TQOC19UtPAqD+4s5AlXmUvbmmS/YMxYqAqarQYyxTnB6/rqip9qcxlNB/3U9Wdg==" crossorigin="anonymous"></script>
+        
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/languages/r.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/languages/python.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/languages/latex.min.js" crossorigin="anonymous"></script>
+        
+      
+
+    
+
+    
+    
+    
+      <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.min.js" integrity="" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+      
+      <script id="search-hit-fuse-template" type="text/x-template">
+        <div class="search-hit" id="summary-{{key}}">
+          <div class="search-hit-content">
+            <div class="search-hit-name">
+              <a href="{{relpermalink}}">{{title}}</a>
+              <div class="article-metadata search-hit-type">{{type}}</div>
+              <p class="search-hit-description">{{snippet}}</p>
+            </div>
+          </div>
+        </div>
+      </script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+      
+      
+      
+      
+      
+      
+      
+    
+
+    
+
+    
+    
+    
+    <script id="page-data" type="application/json">{"use_headroom":true}</script>
+
+    
+    
+      <script src="/js/wowchemy-headroom.208bf5db800f4a4e5a38cf3b67a99a51.js" type="module"></script>
+    
+    
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    <script src="/en/js/wowchemy.min.63639926e24ecfb8040ea052c1077969.js"></script>
+
+    
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
+
+</body>
+</html>

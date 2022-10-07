@@ -128,6 +128,737 @@ The variance of the distribution is $\sigma^{2}$.
     </item>
     
     <item>
+      <title>Intro to R</title>
+      <link>https://kustra-matt.github.io/post/intro_to_r/</link>
+      <pubDate>Wed, 05 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://kustra-matt.github.io/post/intro_to_r/</guid>
+      <description>&lt;h2 id=&#34;introduction-to-r-and-rstudio&#34;&gt;Introduction to R and RStudio&lt;/h2&gt;
+&lt;p&gt;This tutorial is designed as a short introduction into the R programming language and specifically using RStudio.&lt;/p&gt;
+&lt;p&gt;R is a free, open source programming language originally developed to analyze data, but it has been greatly expanded to do a lot of tasks. For example, I use R to make interactive websites via the Shiny package.&lt;/p&gt;
+&lt;p&gt;RStudio is an IDE (integrative development environment). IDEs are useful because they let you edit/write code but provide a ton of helpful things for you that a plain text editor does not. For example, RStudio will start suggesting certain functions as you are typing and will let you know what inputs these functions require. It will allow you to visualize plots without having to save them. It integrates with other packages allowing me to just click on a few things to publish this tutorial. I built my whole website and other tutorials all within RStudio. These are just a few of the many handful features of RStudio.&lt;/p&gt;
+&lt;h2 id=&#34;installing-r-and-r-studio&#34;&gt;Installing R and R Studio&lt;/h2&gt;
+&lt;p&gt;First install R from &lt;a href=&#34;https://ftp.osuosl.org/pub/cran/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;. Then install RStudio Desktop &lt;a href=&#34;https://www.rstudio.com/products/rstudio/download/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;rstudio&#34;&gt;RStudio&lt;/h2&gt;
+&lt;p&gt;When you first open up R studio it should look something like this:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /post/intro_to_r/Startup_hue3a62ff24a21a24363775b269918263c_180584_ab072f5a2d94c100601b97bb59baa632.webp 400w,
+               /post/intro_to_r/Startup_hue3a62ff24a21a24363775b269918263c_180584_994a05054d48147e811526fed318e180.webp 760w,
+               /post/intro_to_r/Startup_hue3a62ff24a21a24363775b269918263c_180584_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://kustra-matt.github.io/post/intro_to_r/Startup_hue3a62ff24a21a24363775b269918263c_180584_ab072f5a2d94c100601b97bb59baa632.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;483&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+
+The console on the left should have information on the current version of R. If it doesn&amp;rsquo;t then that means RStudio can&amp;rsquo;t find the path to R or you don&amp;rsquo;t have R installed.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s open up a new R script file to see what RStudio will normally look like. To do that, go to &amp;ldquo;File -&amp;gt; New File -&amp;gt; R Script&amp;rdquo; like this:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /post/intro_to_r/NewFile_hu111406d2e82fd8e51b59423a0ac02428_545826_5a75e44bbdff8131c1e85e505e07382f.webp 400w,
+               /post/intro_to_r/NewFile_hu111406d2e82fd8e51b59423a0ac02428_545826_aa8ef066956a4bb02aa7b36960612cc1.webp 760w,
+               /post/intro_to_r/NewFile_hu111406d2e82fd8e51b59423a0ac02428_545826_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://kustra-matt.github.io/post/intro_to_r/NewFile_hu111406d2e82fd8e51b59423a0ac02428_545826_5a75e44bbdff8131c1e85e505e07382f.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;483&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;If you noticed there are a few other R file options. Those are from other packages that developers have integrated into RStudio. For example, this tutorial was constructing using R Markdown, a file that lets you make reports that integrate regular text and R code all in one html or pdf file (not covered in this lesson). For most coding/analyses you will be using the standard R script.&lt;/p&gt;
+&lt;p&gt;To give a better sense of what an active enviornment looks like I&amp;rsquo;m going to open up a project I&amp;rsquo;m working on.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /post/intro_to_r/Windows_hu849a3e9d7735df339d7ac1eb922fdbc9_1932600_3e865c8d05bccaf707e2e328cf6583f8.webp 400w,
+               /post/intro_to_r/Windows_hu849a3e9d7735df339d7ac1eb922fdbc9_1932600_259aa09b3bc8d8e7acb171650b15478a.webp 760w,
+               /post/intro_to_r/Windows_hu849a3e9d7735df339d7ac1eb922fdbc9_1932600_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://kustra-matt.github.io/post/intro_to_r/Windows_hu849a3e9d7735df339d7ac1eb922fdbc9_1932600_3e865c8d05bccaf707e2e328cf6583f8.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;477&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;RStudio has four main windows. The top left is the text editor. That&amp;rsquo;s where you will type the code that you want to save. Typing the code will not run it! To run the code you need to go to the line with your cursor or highlight the sections you want to run. Then if you are using a mac do &amp;ldquo;command + return&amp;rdquo; for Windows it&amp;rsquo;s &amp;ldquo;Control + Enter.&amp;rdquo;&#39;&lt;/p&gt;
+&lt;p&gt;Code you have run will now appear on the bottom left in the console. You can also directly type code and run it here but it will NOT save when you save the script! &lt;code&gt;&amp;gt;&lt;/code&gt; means R is ready for you to run code &lt;code&gt;+&lt;/code&gt; means that R is still waiting for you to type something. To get out of that simply press escape.&lt;/p&gt;
+&lt;p&gt;The top right panel is the environment. That&amp;rsquo;s where you can see all the objects (which we will get into later) that are in your environment and you can use. Clicking on the objects will give you some more info, or for data frames will actually open them up in a separate window.&lt;/p&gt;
+&lt;p&gt;The bottom right panel is where your plots will appear. But if you noticed it also has tabs for &amp;ldquo;Files,&amp;rdquo; &amp;ldquo;Packages,&amp;rdquo; &amp;ldquo;Help,&amp;rdquo; and &amp;ldquo;Viewer.&amp;rdquo; &amp;ldquo;Files&amp;rdquo; show what files are in your current working directory (more on that later), &amp;ldquo;Packages&amp;rdquo; shows what packages you have installed and which are currently loaded up. Packages are essentially nicely packaged code that contains useful functions other R users have made that you can use for yourself. &amp;ldquo;Help&amp;rdquo; contains information on how to use various functions that are either included in base R or functions from packages you have installed. To get to that you can use the &lt;code&gt;?&lt;/code&gt; followed by the function name like this: &lt;code&gt;?FunctionName&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;types-of-values&#34;&gt;Types of values&lt;/h2&gt;
+&lt;p&gt;In R, like other programming languages, objects can take on a few different of types. Here are a few commonly used ones. &lt;strong&gt;double&lt;/strong&gt; objects also known as &lt;strong&gt;numeric&lt;/strong&gt; represent any real number (e.g., &lt;code&gt;1.1&lt;/code&gt;). There are also &lt;code&gt;integer&lt;/code&gt; objects that are integers i.e., they don&amp;rsquo;t contain decimal places, however, by default &lt;code&gt;1&lt;/code&gt; will be interpreted as a &lt;strong&gt;double&lt;/strong&gt;. We also have &lt;strong&gt;logical&lt;/strong&gt; values which are either &lt;code&gt;TRUE&lt;/code&gt; or &lt;code&gt;FALSE&lt;/code&gt;. &lt;strong&gt;character&lt;/strong&gt; can be thought of as text objects and are donated by using double quotations ( e.g,&lt;code&gt;&amp;quot;a&amp;quot;&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Disclaimer/clarification&lt;/strong&gt;: Interestingly in R, all the above types are technically vectors. But please note that in this tutorial I use vector to mean anything with length greater than 1, even though in R a single number or single character is technically also a vector albeit of length 1.&lt;/p&gt;
+&lt;h2 id=&#34;variables&#34;&gt;Variables&lt;/h2&gt;
+&lt;p&gt;R, like other programming languages, are nice in that you can save objects as variables to use later. The way we do this is with &lt;code&gt;&amp;lt;-&lt;/code&gt;. For example:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;a&amp;lt;-5
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note that if I run this line nothing prints out but it will be saved in your environment (top right panel) and it should show that it ran in the console (bottom left panel).&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /post/intro_to_r/featured_hu30e1385596cf2ab661612c31d4dbdf89_183553_fd0b2e294509508e5cf39895b77fc81a.webp 400w,
+               /post/intro_to_r/featured_hu30e1385596cf2ab661612c31d4dbdf89_183553_b758d4969a3a7913d6d79c30a4c2eb00.webp 760w,
+               /post/intro_to_r/featured_hu30e1385596cf2ab661612c31d4dbdf89_183553_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://kustra-matt.github.io/post/intro_to_r/featured_hu30e1385596cf2ab661612c31d4dbdf89_183553_fd0b2e294509508e5cf39895b77fc81a.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;478&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;To actually print out the value there are a few ways. You can either just run the name of the variable &lt;code&gt;a&lt;/code&gt;. You can use the function print, &lt;code&gt;print(a)&lt;/code&gt;. Or you can put parentheses around the variable assignment &lt;code&gt;(a&amp;lt;-5)&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;a
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 5
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;print(a)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 5
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;(a&amp;lt;-5)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 5
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;commenting&#34;&gt;Commenting&lt;/h2&gt;
+&lt;p&gt;Now that we are starting to code it is probably important to talk about comments. A good practice when programming is to make notes. This will help keep you organized and will help others (including your future self) understand what your code is doing. In R to make a comment use &lt;code&gt;#&lt;/code&gt;. Anything that occurs after &lt;code&gt;#&lt;/code&gt; will not be evaluated. For example:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#I&#39;m assigning the variable a equal to 5 and printing it out
+(a&amp;lt;-5)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 5
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;numerical-values&#34;&gt;Numerical values&lt;/h2&gt;
+&lt;p&gt;The simplest way that you can use R is as a calculator. Here is a table on the most commonly used mathematical operators:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /post/intro_to_r/math_hu2d5da57dccde3c2169e6062752840137_367236_a6ff7548eb0bd708900015315d6d5ded.webp 400w,
+               /post/intro_to_r/math_hu2d5da57dccde3c2169e6062752840137_367236_d6e1b1aa814f996adfc109278bd124d1.webp 760w,
+               /post/intro_to_r/math_hu2d5da57dccde3c2169e6062752840137_367236_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://kustra-matt.github.io/post/intro_to_r/math_hu2d5da57dccde3c2169e6062752840137_367236_a6ff7548eb0bd708900015315d6d5ded.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;225&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;We can use these operators on variables we defined. For example:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#a is being given the value 5
+a&amp;lt;-5
+#b is being given the value 2
+b&amp;lt;-2
+#this calculates a*b
+a*b
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 10
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#this calculates a times b then squaring the result
+(a*b)^2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 100
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can also assign the output of calculations to variables to be used later:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#giving c the value of (a*b)^2
+c&amp;lt;-(a*b)**2
+#printing out c
+c
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 100
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;character-values&#34;&gt;Character values&lt;/h2&gt;
+&lt;p&gt;As discussed above characters can be thought of as text. Anything will be made a character if it is within quotations. Without quotations R will think that what you are typing is a variable and the following code will throw an error:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;d&amp;lt;-hello world
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This on the other hand works perfect:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;d&amp;lt;-&amp;quot;hello world&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Pleasenote that the color changes! That is one of the advantages of using an IDE like RStudio. Characters will have different colors than variables, which is one way to help you keep track of them.&lt;/p&gt;
+&lt;h2 id=&#34;logical-values&#34;&gt;Logical values&lt;/h2&gt;
+&lt;p&gt;Logical values can be either true or false. In practice, we generally use them to help filter data or run a specific analysis based on a specific condition. In R logical values are coded as &lt;code&gt;TRUE&lt;/code&gt; and &lt;code&gt;FALSE&lt;/code&gt;. You may also see/use &lt;code&gt;T&lt;/code&gt; or &lt;code&gt;F&lt;/code&gt;, however, it is generally recommended not to use these two. This is because you can always overwrite &lt;code&gt;T&lt;/code&gt; or &lt;code&gt;F&lt;/code&gt; but cannot overwrite &lt;code&gt;TRUE&lt;/code&gt; or &lt;code&gt;FALSE&lt;/code&gt;. This can cause errors if for whatever reason &lt;code&gt;T&lt;/code&gt; or &lt;code&gt;F&lt;/code&gt; is overwritten but used elsewhere as a logical value. Logical values are returned whenever we do a comparison, i.e, use a relational operator. Here are the commonly used relational operators:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /post/intro_to_r/Compare_hu5279ec3dfe0a91dd64026b159131c2d4_628224_0cbcf0b43837b0f440e1018b43631498.webp 400w,
+               /post/intro_to_r/Compare_hu5279ec3dfe0a91dd64026b159131c2d4_628224_6c2ebe4838a4ffb6bdac21a5f05f1441.webp 760w,
+               /post/intro_to_r/Compare_hu5279ec3dfe0a91dd64026b159131c2d4_628224_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://kustra-matt.github.io/post/intro_to_r/Compare_hu5279ec3dfe0a91dd64026b159131c2d4_628224_0cbcf0b43837b0f440e1018b43631498.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;281&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s code up those examples:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;2&amp;lt;3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;2&amp;gt;8
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;3&amp;lt;=3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;&amp;quot;APPLE&amp;quot;==&amp;quot;APPLE&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;&amp;quot;Mayonnaise&amp;quot;!= &amp;quot;Instrument&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It is important to note that comparing characters is case sensitive. For example,&lt;code&gt;&amp;quot;Apple&amp;quot;==&amp;quot;APPLE&amp;quot;&lt;/code&gt; returns &lt;code&gt;FALSE&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;For a more in-depth tutorial go to &lt;a href=&#34;https://kustra-matt.github.io/post/ifelse/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Logic and if-else statements&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;vectors-of-size-greater-than-one&#34;&gt;Vectors of size greater than one&lt;/h2&gt;
+&lt;p&gt;As briefly mentioned before. All the examples above are vectors of size one. But we can also do similar things to objects that are greater than one.&lt;/p&gt;
+&lt;p&gt;The simplest way to create a vector of size greater than one is with the concatenate function &lt;code&gt;c()&lt;/code&gt; and this can work with any type of object:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#make a numeric vector
+(NumVec&amp;lt;-c(1,4.4,5.2))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1.0 4.4 5.2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#character vector
+CharVec&amp;lt;-c(&amp;quot;Apple&amp;quot;,&amp;quot;Orange&amp;quot;,&amp;quot;Peach&amp;quot;)
+
+#logical vector
+LogicVec&amp;lt;-c(TRUE,FALSE,TRUE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To access a specific element in a vector we use brackets, &lt;code&gt;[position]&lt;/code&gt;. For example, if I wanted to get the third element of &lt;code&gt;NumVec&lt;/code&gt; I would do the following:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;NumVec[3]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 5.2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Important note&lt;/strong&gt;: unlike other programming languages R starts indexing at 1. As in the first position is 1, other languages start indexing at 0.&lt;/p&gt;
+&lt;p&gt;We can change an element in a vector using indexing:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#first print out what NumVec is 
+NumVec
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1.0 4.4 5.2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#Now let&#39;s change the value of the third element
+NumVec[3]&amp;lt;-20
+
+#Let&#39;s see if it worked
+NumVec
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1]  1.0  4.4 20.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can perform most of our operations we discussed above on vectors of size greater than one.&lt;/p&gt;
+&lt;p&gt;Using the operators with a single value and a vector will result in performing the operation of that single value with each element in the vector:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#creating a new vector
+NumVec2&amp;lt;-c(1,2,4)
+
+#adding 2 to every element
+NumVec2+2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 3 4 6
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#Seeing if 2 is greater than each element
+
+2 &amp;gt; NumVec2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1]  TRUE FALSE FALSE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If the Vectors are of the same length then it will perform the operation element by element. i.e., operation happens between the first element of each vector, then the second eleements of each vector, and so forth:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#Adding the two vectors
+NumVec + NumVec2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1]  2.0  6.4 24.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#Comparing the two vectors
+
+NumVec &amp;gt; NumVec2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE  TRUE  TRUE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;functions&#34;&gt;Functions&lt;/h2&gt;
+&lt;p&gt;Functions perform a specific task/calculation based on the inputs then return some output.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /post/intro_to_r/Functions_hu188e9a82094d36f75a78645c62043471_179935_c2b9b57ad09aeacb5b21edd265f9e9b2.webp 400w,
+               /post/intro_to_r/Functions_hu188e9a82094d36f75a78645c62043471_179935_f99ecafbe266ed6e2b0efba4073b6846.webp 760w,
+               /post/intro_to_r/Functions_hu188e9a82094d36f75a78645c62043471_179935_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://kustra-matt.github.io/post/intro_to_r/Functions_hu188e9a82094d36f75a78645c62043471_179935_c2b9b57ad09aeacb5b21edd265f9e9b2.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;498&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;In R we call functions by using the name of the function followed by parentheses with the inputs: &lt;code&gt;functionName(input1,input2,...)&lt;/code&gt;. The concatenate function that we used above is an example of a function. The name is &amp;ldquo;c&amp;rdquo; the inputs are the objects we want to store as one vector and the output is a vector with all the elements being the inputs.&lt;/p&gt;
+&lt;h2 id=&#34;some-useful-functions-in-base-r&#34;&gt;Some useful functions in base R&lt;/h2&gt;
+&lt;p&gt;Luckily R comes with a handful of useful functions that we don&amp;rsquo;t need to makeup on our own or install packages that we might need. Here is a table of some useful ones:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /post/intro_to_r/FunctionsB_hu154e8a248e071a7410b89deb4b9ad27e_617659_65ed3c1cac5a0f357e83df90ea958137.webp 400w,
+               /post/intro_to_r/FunctionsB_hu154e8a248e071a7410b89deb4b9ad27e_617659_621214ff7737d42e05bb39b85ffa955b.webp 760w,
+               /post/intro_to_r/FunctionsB_hu154e8a248e071a7410b89deb4b9ad27e_617659_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://kustra-matt.github.io/post/intro_to_r/FunctionsB_hu154e8a248e071a7410b89deb4b9ad27e_617659_65ed3c1cac5a0f357e83df90ea958137.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;493&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s try out a few of these functions&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#Lets make a sequence of values from 1 to 10 at increments of 0.5
+NumVec3&amp;lt;-seq(1,10,0.5)
+
+#One way to calculate the mean is to sum up everything
+SumNum&amp;lt;-sum(NumVec3)
+#Then divide it by the total number or the length
+N&amp;lt;-length(NumVec3)
+SumNum/N
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 5.5
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#let&#39;s see if we get the same value as the default mean function
+mean(NumVec3)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 5.5
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;paste()&lt;/code&gt; is a nice function that lets us create new characters from multiple characters or numerical values.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;char1&amp;lt;-&amp;quot;Hello&amp;quot;
+char2&amp;lt;-&amp;quot;World&amp;quot;
+#sep parameter says how we want to put them together. 
+#in this case I&#39;m saying with a space
+(char3&amp;lt;-paste(char1,char2,sep=&amp;quot; &amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Hello World&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Putting together a numerical value and character can be useful for messages to yourself&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;a&amp;lt;-20
+b&amp;lt;-50
+c&amp;lt;-b/a
+#sep parameter says how we want to put them together. 
+#in this case I&#39;m saying with a space
+paste(b,&amp;quot;divided by&amp;quot;,a,&amp;quot;is =&amp;quot;,c,sep=&amp;quot; &amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;50 divided by 20 is = 2.5&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;lists&#34;&gt;Lists&lt;/h2&gt;
+&lt;p&gt;One limitation with vectors is that they all have to be the same type of objects. List is an object type that allows multiple types of objects within it. The way we make a list is with the function &lt;code&gt;list()&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#Making a list
+(mylist&amp;lt;-list(20.5,&amp;quot;Apple&amp;quot;,TRUE))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [[1]]
+## [1] 20.5
+## 
+## [[2]]
+## [1] &amp;quot;Apple&amp;quot;
+## 
+## [[3]]
+## [1] TRUE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can also make a named list like so:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#Making a named list
+(mylistN&amp;lt;-list(mynum=20.5,mychar=&amp;quot;Apple&amp;quot;,mylogic=TRUE))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $mynum
+## [1] 20.5
+## 
+## $mychar
+## [1] &amp;quot;Apple&amp;quot;
+## 
+## $mylogic
+## [1] TRUE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To access an element of a list you have you use double brackets &lt;code&gt;[[]]&lt;/code&gt; or the &lt;code&gt;$&lt;/code&gt; if it is named.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#get first element
+mylist[[1]]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 20.5
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#get element by name
+mylistN$mynum
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 20.5
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;loading-in-datachanging-directories&#34;&gt;Loading in data/changing directories&lt;/h2&gt;
+&lt;p&gt;One of the main reasons people work with R is to work with their own data. Although there are many different ways you can load data into R, the most common way is as a comma seperated file or csv. The first step is to make sure that your working directory contains the data file of interest. You can see the current working directory via &lt;code&gt;getwd()&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;getwd()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;/Users/matthewkustra/Desktop/Website/My_Website/content/post/Intro_to_R&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There are a few ways to change working directory. One way is through R Studio. You go &amp;ldquo;Session -&amp;gt; Set Working Directory -&amp;gt; Choose Directory&amp;rdquo;:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /post/intro_to_r/Changewd_hu61e34c3439f901c1eb1f9ca78ce3cf61_780591_e8df176fce9e0bb3ff1d62823da33410.webp 400w,
+               /post/intro_to_r/Changewd_hu61e34c3439f901c1eb1f9ca78ce3cf61_780591_798dfe16f1e7bbf453acba0e5446f299.webp 760w,
+               /post/intro_to_r/Changewd_hu61e34c3439f901c1eb1f9ca78ce3cf61_780591_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://kustra-matt.github.io/post/intro_to_r/Changewd_hu61e34c3439f901c1eb1f9ca78ce3cf61_780591_e8df176fce9e0bb3ff1d62823da33410.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;370&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;This will run the &lt;code&gt;setwd&lt;/code&gt; command for you. The other way is to run that yourself to the proper path:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;setwd(&amp;quot;~/Desktop/Intro_to_R&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The next thing would be to load in the datafile. In base R to load a csv file you use &lt;code&gt;read.csv(&amp;quot;name of file&amp;quot;)&lt;/code&gt; and save it as a varaible&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;Data&amp;lt;-read.csv(&amp;quot;example_data.csv&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;dataframes&#34;&gt;Dataframes&lt;/h2&gt;
+&lt;h3 id=&#34;exploratory-functions&#34;&gt;Exploratory functions&lt;/h3&gt;
+&lt;p&gt;Now that we have a dataframe loaded up into R, what can we do with it? Lots of things!&lt;/p&gt;
+&lt;p&gt;Here are just a few useful functions for data frames:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /post/intro_to_r/Dataframe_hu8ffa6c55903e770b2103f2775011637f_489614_8c46721b5f28c8c94609508f5a3d7fd4.webp 400w,
+               /post/intro_to_r/Dataframe_hu8ffa6c55903e770b2103f2775011637f_489614_175223a63d8bd03e1017f5d4ee7deb41.webp 760w,
+               /post/intro_to_r/Dataframe_hu8ffa6c55903e770b2103f2775011637f_489614_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://kustra-matt.github.io/post/intro_to_r/Dataframe_hu8ffa6c55903e770b2103f2775011637f_489614_8c46721b5f28c8c94609508f5a3d7fd4.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;419&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;One of the first functions I generally use is &lt;code&gt;str(dataframe)&lt;/code&gt; which tells us how many observations (#rows) and how many variables (#columns) of our data frame. It then also gives the names of those variables/columns and what type of data they are. This is super helpful in making sure everything loaded up fine. For example, this lets us realize if an numeric column is actually numeric and not loaded up as a character because of an extra space or some other typo.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;str(Data)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &#39;data.frame&#39;:	30 obs. of  6 variables:
+##  $ site       : chr  &amp;quot;A&amp;quot; &amp;quot;A&amp;quot; &amp;quot;A&amp;quot; &amp;quot;A&amp;quot; ...
+##  $ tide.height: chr  &amp;quot;low&amp;quot; &amp;quot;low&amp;quot; &amp;quot;low&amp;quot; &amp;quot;low&amp;quot; ...
+##  $ replicate  : int  1 2 3 4 5 1 2 3 4 5 ...
+##  $ mussels    : int  10 9 11 7 12 6 3 2 5 7 ...
+##  $ snails     : int  2 2 5 3 1 1 2 4 5 3 ...
+##  $ barnacles  : int  15 4 5 0 11 55 39 13 44 35 ...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can also calculate various summary statistics on each column using &lt;code&gt;summary(DataFrame)&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;summary(Data)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      site           tide.height          replicate    mussels      
+##  Length:30          Length:30          Min.   :1   Min.   : 1.000  
+##  Class :character   Class :character   1st Qu.:2   1st Qu.: 5.250  
+##  Mode  :character   Mode  :character   Median :3   Median :10.000  
+##                                        Mean   :3   Mean   : 9.667  
+##                                        3rd Qu.:4   3rd Qu.:13.500  
+##                                        Max.   :5   Max.   :20.000  
+##      snails         barnacles   
+##  Min.   : 1.000   Min.   : 0.0  
+##  1st Qu.: 2.250   1st Qu.:11.0  
+##  Median : 5.000   Median :24.0  
+##  Mean   : 6.033   Mean   :23.9  
+##  3rd Qu.: 9.000   3rd Qu.:35.0  
+##  Max.   :16.000   Max.   :55.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If our data frame is small enough we can also open it up in R studio by clicking on the dataframe in the environment (top right panel) or by using the function &lt;code&gt;View(DataFrame)&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;View(Data)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Usually I prefer to only see some of the data frame with either the &lt;code&gt;head&lt;/code&gt; or &lt;code&gt;tail&lt;/code&gt; functions:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#for the first five
+head(Data)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   site tide.height replicate mussels snails barnacles
+## 1    A         low         1      10      2        15
+## 2    A         low         2       9      2         4
+## 3    A         low         3      11      5         5
+## 4    A         low         4       7      3         0
+## 5    A         low         5      12      1        11
+## 6    A        high         1       6      1        55
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#for the last five
+tail(Data)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    site tide.height replicate mussels snails barnacles
+## 25    C         low         5       9     10        19
+## 26    C        high         1      10      5        34
+## 27    C        high         2      15      4        26
+## 28    C        high         3      16      6        35
+## 29    C        high         4      12      8        22
+## 30    C        high         5      14      1        37
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;factors-and-accesingchanging-columns&#34;&gt;Factors and accesing/changing columns&lt;/h3&gt;
+&lt;p&gt;By exploring our data we can see that our &lt;code&gt;site&lt;/code&gt;, &lt;code&gt;tide.height&lt;/code&gt;, and &lt;code&gt;replicate&lt;/code&gt; columns are characters and not factors. Factors behave similar to characters but have an explicit grouping to them and can be ordered. Most functions will convert characters to factors but it is often best practice to do this yourself to make sure the levels are correct and ordered properly. By default they will be ordered alphabetically.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s convert them to factors with &lt;code&gt;factor&lt;/code&gt; function and we will use the levels method to assign the ordering. Data frames behave like lists, and we can use the same method of &lt;code&gt;$&lt;/code&gt; to access a specific column. For example to print out the &lt;code&gt;site&lt;/code&gt; column we would do this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;Data$site
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;A&amp;quot; &amp;quot;A&amp;quot; &amp;quot;A&amp;quot; &amp;quot;A&amp;quot; &amp;quot;A&amp;quot; &amp;quot;A&amp;quot; &amp;quot;A&amp;quot; &amp;quot;A&amp;quot; &amp;quot;A&amp;quot; &amp;quot;A&amp;quot; &amp;quot;B&amp;quot; &amp;quot;B&amp;quot; &amp;quot;B&amp;quot; &amp;quot;B&amp;quot; &amp;quot;B&amp;quot; &amp;quot;B&amp;quot; &amp;quot;B&amp;quot; &amp;quot;B&amp;quot; &amp;quot;B&amp;quot;
+## [20] &amp;quot;B&amp;quot; &amp;quot;C&amp;quot; &amp;quot;C&amp;quot; &amp;quot;C&amp;quot; &amp;quot;C&amp;quot; &amp;quot;C&amp;quot; &amp;quot;C&amp;quot; &amp;quot;C&amp;quot; &amp;quot;C&amp;quot; &amp;quot;C&amp;quot; &amp;quot;C&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In this case we are overwriting the &lt;code&gt;site&lt;/code&gt;, &lt;code&gt;tide.height&lt;/code&gt;, and &lt;code&gt;replicate&lt;/code&gt; column with the transformed version.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#tide height factor
+Data$site&amp;lt;-factor(Data$site,levels=c(&amp;quot;A&amp;quot;,&amp;quot;B&amp;quot;,&amp;quot;C&amp;quot;))
+#set tide height factors
+Data$tide.height&amp;lt;-factor(Data$tide.height,levels=c(&amp;quot;low&amp;quot;,&amp;quot;high&amp;quot;))
+
+#tide height factor
+Data$replicate&amp;lt;-factor(Data$replicate,levels=c(&amp;quot;1&amp;quot;,&amp;quot;2&amp;quot;,&amp;quot;3&amp;quot;,&amp;quot;4&amp;quot;,&amp;quot;5&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now let&amp;rsquo;s run &lt;code&gt;summary&lt;/code&gt; again:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;summary(Data)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  site   tide.height replicate    mussels           snails         barnacles   
+##  A:10   low :15     1:6       Min.   : 1.000   Min.   : 1.000   Min.   : 0.0  
+##  B:10   high:15     2:6       1st Qu.: 5.250   1st Qu.: 2.250   1st Qu.:11.0  
+##  C:10               3:6       Median :10.000   Median : 5.000   Median :24.0  
+##                     4:6       Mean   : 9.667   Mean   : 6.033   Mean   :23.9  
+##                     5:6       3rd Qu.:13.500   3rd Qu.: 9.000   3rd Qu.:35.0  
+##                               Max.   :20.000   Max.   :16.000   Max.   :55.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now that we converted the character columns to factors, it actually gives how many observations belong to each group of factor! This can be super helpful to confirm things loaded up properly or that you are using the right data frame.&lt;/p&gt;
+&lt;h3 id=&#34;subsetting-your-data&#34;&gt;Subsetting your data&lt;/h3&gt;
+&lt;p&gt;We have already talked about extracting whole columns with &lt;code&gt;$&lt;/code&gt;, but what if we want to extract rows, a specific cell in our data frame, or use logic to subset our data?&lt;/p&gt;
+&lt;p&gt;We will use &lt;code&gt;[]&lt;/code&gt; similar to how we extracted/subsetted vectors above. However, because we now have two dimensions we will distinguish between rows and columns with a comma:&lt;code&gt;[row,column]&lt;/code&gt;. So, for example if I wanted to get the value from the first row and fourth column:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#let&#39;s check what it should be
+head(Data)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   site tide.height replicate mussels snails barnacles
+## 1    A         low         1      10      2        15
+## 2    A         low         2       9      2         4
+## 3    A         low         3      11      5         5
+## 4    A         low         4       7      3         0
+## 5    A         low         5      12      1        11
+## 6    A        high         1       6      1        55
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#We should get 10
+Data[1,4]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 10
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#We can also use the name of the Column 
+Data[1,&amp;quot;snails&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If we wanted to get an entire row (or column) we leave that side blank. For example, to get the entire 5th row:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;Data[5,]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   site tide.height replicate mussels snails barnacles
+## 5    A         low         5      12      1        11
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can also get mulitple rows if we put a vector instead of single value:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#1st, 2nd, and 10th rows
+Data[c(1,2,10),]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    site tide.height replicate mussels snails barnacles
+## 1     A         low         1      10      2        15
+## 2     A         low         2       9      2         4
+## 10    A        high         5       7      3        35
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The really cool thing is we can subset using logic! To do this in the row section (i.e., before the comma), rather than putting a number we put a vector of logical values . It will only return the rows that are &lt;code&gt;TRUE&lt;/code&gt;. To use this feature to subset we can create a logical vector based on another column. For example let&amp;rsquo;s just extract when the &lt;code&gt;tide.height&lt;/code&gt; is &amp;ldquo;low&amp;rdquo;.In this case we find the rows where the &lt;code&gt;Data$tide.height==&amp;quot;low&amp;quot;&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#find where Data$tide.height==low
+Data$tide.height==&amp;quot;low&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE
+## [13]  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE
+## [25]  TRUE FALSE FALSE FALSE FALSE FALSE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#We can put this inside that row section to only get low tide.height
+Data_low&amp;lt;-Data[Data$tide.height==&amp;quot;low&amp;quot;,]
+
+#let&#39;s see if it works
+summary(Data_low)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  site  tide.height replicate    mussels          snails         barnacles   
+##  A:5   low :15     1:3       Min.   : 7.00   Min.   : 1.000   Min.   : 0.0  
+##  B:5   high: 0     2:3       1st Qu.: 9.50   1st Qu.: 4.000   1st Qu.: 5.5  
+##  C:5               3:3       Median :12.00   Median : 9.000   Median :11.0  
+##                    4:3       Mean   :12.33   Mean   : 8.133   Mean   :11.6  
+##                    5:3       3rd Qu.:15.00   3rd Qu.:11.000   3rd Qu.:14.0  
+##                              Max.   :20.00   Max.   :16.000   Max.   :31.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;creating-new-columns&#34;&gt;Creating new columns&lt;/h3&gt;
+&lt;p&gt;It&amp;rsquo;s super easy to add a new column. All you do is use the &lt;code&gt;Dataframe$NewColumn&amp;lt;-Vector&lt;/code&gt;. Let&amp;rsquo;s try to make a new column with the total count of all the marine inverts.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#create new column of total amount
+Data$Total&amp;lt;-Data$mussels +Data$snails + Data$barnacles
+
+#check our data to see if it worked
+str(Data)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &#39;data.frame&#39;:	30 obs. of  7 variables:
+##  $ site       : Factor w/ 3 levels &amp;quot;A&amp;quot;,&amp;quot;B&amp;quot;,&amp;quot;C&amp;quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ tide.height: Factor w/ 2 levels &amp;quot;low&amp;quot;,&amp;quot;high&amp;quot;: 1 1 1 1 1 2 2 2 2 2 ...
+##  $ replicate  : Factor w/ 5 levels &amp;quot;1&amp;quot;,&amp;quot;2&amp;quot;,&amp;quot;3&amp;quot;,&amp;quot;4&amp;quot;,..: 1 2 3 4 5 1 2 3 4 5 ...
+##  $ mussels    : int  10 9 11 7 12 6 3 2 5 7 ...
+##  $ snails     : int  2 2 5 3 1 1 2 4 5 3 ...
+##  $ barnacles  : int  15 4 5 0 11 55 39 13 44 35 ...
+##  $ Total      : int  27 15 21 10 24 62 44 19 54 45 ...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;tidyverse&lt;/code&gt; specifically &lt;code&gt;dplyr&lt;/code&gt; has functions that can help with some of these data manipulations. I highly recommend using those functions when you start doing more complicated calculations, and data wrangling. But I still use the base R methods for simple things and I think it is good to know.&lt;/p&gt;
+&lt;h2 id=&#34;installingloading-packages&#34;&gt;Installing/loading packages&lt;/h2&gt;
+&lt;p&gt;One of the advantages of R is that there is a rich resource of packages that other R users have made. These packages contain very helpful functions including packaages that help with processing data, plotting data, making interactive websites, running complex statistical analyses, and much more.&lt;/p&gt;
+&lt;p&gt;To use these packages, you first have to install the package, which you only need to do once on your computer. Then whenever, you want to use that package you have to load it up in your code.&lt;/p&gt;
+&lt;p&gt;Here is an example of how to install and loadup &lt;code&gt;tidyverse&lt;/code&gt; which is actually a bunch of packages that are great for data processing and making graphs.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#installing packages (only need to run this once)
+install.packages(&amp;quot;tidyverse&amp;quot;)
+
+#load it up. Need to do this for every script. 
+library(tidyverse)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;closing-remarks&#34;&gt;Closing remarks&lt;/h2&gt;
+&lt;p&gt;I hoped you enjoyed this tutorial. Please shoot me an email if there on any tips for improvement or if you caught a bug! Please check out the other tutorials on my website.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>On the spread of microbes that manipulate reproduction in marine invertebrates</title>
+      <link>https://kustra-matt.github.io/publication/kustra-carrier-2022/</link>
+      <pubDate>Mon, 08 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>https://kustra-matt.github.io/publication/kustra-carrier-2022/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Alternative reproductive tactics</title>
       <link>https://kustra-matt.github.io/project/art/</link>
       <pubDate>Thu, 17 Mar 2022 00:00:00 +0000</pubDate>
