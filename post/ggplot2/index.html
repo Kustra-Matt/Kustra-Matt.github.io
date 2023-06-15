@@ -60,7 +60,7 @@
   
     
   
-  <meta name="description" content="&lsquo;ggplot2&rsquo; is a popular graphing package for the R programming language. Once you&rsquo;ve learned the logic and the general grammar of &ldquo;ggplot2&rdquo; it becomes easy to make publication ready graphs. Unfortunately, the learning curve can be pretty steep, especially if you are used to using basic R plots." />
+  <meta name="description" content="Getting ready Loading up and checking the data Making our first ggplot2 graph  Initializing ggplot2 Adding geoms (making a scatter plot) Color aesthetics Adding another geom (a line of best fit) A side note on aes()  Faceted plots aka subplots  facet_wrap facet_grid  Other common graphs  Histogram Boxplot  Extra handy things  Saving ggplots as a variable Changing labels Changing default theme  Closing remarks   ‘ggplot2’ is a popular graphing package for the R programming language." />
 
   
   <link rel="alternate" hreflang="en-us" href="https://kustra-matt.github.io/post/ggplot2/" />
@@ -339,7 +339,7 @@
   <meta property="og:site_name" content="Matt Kustra" />
   <meta property="og:url" content="https://kustra-matt.github.io/post/ggplot2/" />
   <meta property="og:title" content="Intro to ggplot2 | Matt Kustra" />
-  <meta property="og:description" content="&lsquo;ggplot2&rsquo; is a popular graphing package for the R programming language. Once you&rsquo;ve learned the logic and the general grammar of &ldquo;ggplot2&rdquo; it becomes easy to make publication ready graphs. Unfortunately, the learning curve can be pretty steep, especially if you are used to using basic R plots." /><meta property="og:image" content="https://kustra-matt.github.io/post/ggplot2/featured.png" />
+  <meta property="og:description" content="Getting ready Loading up and checking the data Making our first ggplot2 graph  Initializing ggplot2 Adding geoms (making a scatter plot) Color aesthetics Adding another geom (a line of best fit) A side note on aes()  Faceted plots aka subplots  facet_wrap facet_grid  Other common graphs  Histogram Boxplot  Extra handy things  Saving ggplots as a variable Changing labels Changing default theme  Closing remarks   ‘ggplot2’ is a popular graphing package for the R programming language." /><meta property="og:image" content="https://kustra-matt.github.io/post/ggplot2/featured.png" />
     <meta property="twitter:image" content="https://kustra-matt.github.io/post/ggplot2/featured.png" /><meta property="og:locale" content="en-us" />
   
     
@@ -396,7 +396,7 @@
       "url": "https://kustra-matt.github.io/media/icon_hu968023516251523fc9a78b9c44e7eeb6_483323_192x192_fill_lanczos_center_3.png"
     }
   },
-  "description": "\u0026lsquo;ggplot2\u0026rsquo; is a popular graphing package for the R programming language. Once you\u0026rsquo;ve learned the logic and the general grammar of \u0026ldquo;ggplot2\u0026rdquo; it becomes easy to make publication ready graphs. Unfortunately, the learning curve can be pretty steep, especially if you are used to using basic R plots."
+  "description": "Getting ready Loading up and checking the data Making our first ggplot2 graph  Initializing ggplot2 Adding geoms (making a scatter plot) Color aesthetics Adding another geom (a line of best fit) A side note on aes()  Faceted plots aka subplots  facet_wrap facet_grid  Other common graphs  Histogram Boxplot  Extra handy things  Saving ggplots as a variable Changing labels Changing default theme  Closing remarks   ‘ggplot2’ is a popular graphing package for the R programming language."
 }
 </script>
 
@@ -416,7 +416,7 @@
 </head>
 
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="cd670465527bd19992bc73e46821eb73" >
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="6f8e63a5d96a9b57ad0541683078aedb" >
 
   
   
@@ -812,21 +812,55 @@
     <div class="row">
 
       <div class="col-12 col-lg-9 article-style">
-        <p>&lsquo;<a href="https://ggplot2.tidyverse.org/" target="_blank" rel="noopener">ggplot2</a>&rsquo; is a popular graphing package for the R programming language. Once you&rsquo;ve learned the logic and the general grammar of &ldquo;ggplot2&rdquo; it becomes easy to make publication ready graphs. Unfortunately, the learning curve can be pretty steep, especially if you are used to using basic R plots. This is a tutorial to help you get started making graphs in &lsquo;ggplot2&rsquo; and help get through some of the learning curve.</p>
-<h2 id="getting-ready">Getting ready</h2>
-<p>First, let&rsquo;s install the required packages for this tutorial. We will need to install <code>ggplot2</code> and the <code>palmerpenguins</code> packages. The &lsquo;palmerpenguins&rsquo; package has a great dataset we will be using for this tutorial.</p>
-<pre><code class="language-r">install.packages(&quot;ggplot2&quot;)
-install.packages(&quot;palmerpenguins&quot;)
-</code></pre>
+        
+
+<div id="TOC">
+<ul>
+<li><a href="#getting-ready">Getting ready</a></li>
+<li><a href="#loading-up-and-checking-the-data">Loading up and checking the data</a></li>
+<li><a href="#making-our-first-ggplot2-graph">Making our first <code>ggplot2</code> graph</a>
+<ul>
+<li><a href="#initializing-ggplot2">Initializing <code>ggplot2</code></a></li>
+<li><a href="#adding-geoms-making-a-scatter-plot">Adding geoms (making a scatter plot)</a></li>
+<li><a href="#color-aesthetics">Color aesthetics</a></li>
+<li><a href="#adding-another-geom-a-line-of-best-fit">Adding another geom (a line of best fit)</a></li>
+<li><a href="#a-side-note-on-aes">A side note on <code>aes()</code></a></li>
+</ul></li>
+<li><a href="#faceted-plots-aka-subplots">Faceted plots aka subplots</a>
+<ul>
+<li><a href="#facet_wrap"><code>facet_wrap</code></a></li>
+<li><a href="#facet_grid"><code>facet_grid</code></a></li>
+</ul></li>
+<li><a href="#other-common-graphs">Other common graphs</a>
+<ul>
+<li><a href="#histogram">Histogram</a></li>
+<li><a href="#boxplot">Boxplot</a></li>
+</ul></li>
+<li><a href="#extra-handy-things">Extra handy things</a>
+<ul>
+<li><a href="#saving-ggplots-as-a-variable">Saving ggplots as a variable</a></li>
+<li><a href="#changing-labels">Changing labels</a></li>
+<li><a href="#changing-default-theme">Changing default theme</a></li>
+</ul></li>
+<li><a href="#closing-remarks">Closing remarks</a></li>
+</ul>
+</div>
+
+<p>‘<a href="https://ggplot2.tidyverse.org/">ggplot2</a>’ is a popular graphing package for the R programming language. Once you’ve learned the logic and the general grammar of “ggplot2” it becomes easy to make publication ready graphs. Unfortunately, the learning curve can be pretty steep, especially if you are used to using basic R plots. This is a tutorial to help you get started making graphs in ‘ggplot2’ and help get through some of the learning curve.</p>
+<div id="getting-ready" class="section level2">
+<h2>Getting ready</h2>
+<p>First, let’s install the required packages for this tutorial. We will need to install <code>ggplot2</code> and the <code>palmerpenguins</code> packages. The ‘palmerpenguins’ package has a great dataset we will be using for this tutorial.</p>
+<pre class="r"><code>install.packages(&quot;ggplot2&quot;)
+install.packages(&quot;palmerpenguins&quot;)</code></pre>
 <p>Next we need to load up the packages.</p>
-<pre><code class="language-r">library(ggplot2)
-library(palmerpenguins)
-</code></pre>
-<h2 id="loading-up-and-checking-the-data">Loading up and checking the data</h2>
-<p>Unlike plotting with base R. <code>ggplot2</code> requires data frames to make graphs. For this tutorial we will use the penguin dataset from the package &lsquo;palmerpenguins.&rsquo;
-Let&rsquo;s get some info about the data set, using <code>str</code> function which tells us each column, type of data and starts printing out columns.</p>
-<pre><code class="language-r">str(penguins)
-</code></pre>
+<pre class="r"><code>library(ggplot2)
+library(palmerpenguins)</code></pre>
+</div>
+<div id="loading-up-and-checking-the-data" class="section level2">
+<h2>Loading up and checking the data</h2>
+<p>Unlike plotting with base R. <code>ggplot2</code> requires data frames to make graphs. For this tutorial we will use the penguin dataset from the package ‘palmerpenguins.’
+Let’s get some info about the data set, using <code>str</code> function which tells us each column, type of data and starts printing out columns.</p>
+<pre class="r"><code>str(penguins)</code></pre>
 <pre><code>## tibble [333 × 8] (S3: tbl_df/tbl/data.frame)
 ##  $ species          : Factor w/ 3 levels &quot;Adelie&quot;,&quot;Chinstrap&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ island           : Factor w/ 3 levels &quot;Biscoe&quot;,&quot;Dream&quot;,..: 3 3 3 3 3 3 3 3 3 3 ...
@@ -835,183 +869,191 @@ Let&rsquo;s get some info about the data set, using <code>str</code> function wh
 ##  $ flipper_length_mm: int [1:333] 181 186 195 193 190 181 195 182 191 198 ...
 ##  $ body_mass_g      : int [1:333] 3750 3800 3250 3450 3650 3625 4675 3200 3800 4400 ...
 ##  $ sex              : Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 2 1 1 1 2 1 2 1 2 2 ...
-##  $ year             : int [1:333] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...
-</code></pre>
-<h2 id="making-our-first-ggplot2-graph">Making our first <code>ggplot2</code> graph</h2>
+##  $ year             : int [1:333] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...</code></pre>
+</div>
+<div id="making-our-first-ggplot2-graph" class="section level2">
+<h2>Making our first <code>ggplot2</code> graph</h2>
 <p>In this section we will make our first <code>ggplot2</code> graph! For simplicity we will to a scatter plot of <code>bill_length_mm</code> and <code>bill_depth_mm</code> to see the relationship of these two variables.</p>
-<h3 id="initializing-ggplot2">Initializing <code>ggplot2</code></h3>
+<div id="initializing-ggplot2" class="section level3">
+<h3>Initializing <code>ggplot2</code></h3>
 <p>The first step of making a plot with <code>ggplot2</code> is to initialize the plot with the function <code>ggplot()</code>. The first argument of the <code>ggplot()</code> function is the dataframe you are using and the second argument defines how you want to map the columns to various components of the graph (e.g., which column will be the x-axis).</p>
 <p>For example to make a scatter plot of <code>bill_length_mm</code> and <code>bill_depth_mm</code>:</p>
-<pre><code class="language-r">ggplot(data=penguins,aes(x=bill_length_mm,y=bill_depth_mm))
-</code></pre>
-<img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/scatter1-1.png" width="672" />
-<p>But it looks empty! Exactly, that&rsquo;s because we haven&rsquo;t actually specified what we want to plot. The <code>ggplot</code> function just gives us the set up, we have to tell R what we want to plot.</p>
-<h3 id="adding-geoms-making-a-scatter-plot">Adding geoms (making a scatter plot)</h3>
-<p>To actually visualize our data using <code>ggplot2</code>, we need to use &ldquo;geoms&rdquo;. Geoms are ways to visually represent our data and <code>ggplot2</code> has many different options. <a href="https://github.com/rstudio/cheatsheets/blob/main/data-visualization-2.1.pdf" target="_blank" rel="noopener">Here</a> is a great resource to see some of the possibilities.</p>
+<pre class="r"><code>ggplot(data=penguins,aes(x=bill_length_mm,y=bill_depth_mm))</code></pre>
+<p><img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/scatter1-1.png" width="672" /></p>
+<p>But it looks empty! Exactly, that’s because we haven’t actually specified what we want to plot. The <code>ggplot</code> function just gives us the set up, we have to tell R what we want to plot.</p>
+</div>
+<div id="adding-geoms-making-a-scatter-plot" class="section level3">
+<h3>Adding geoms (making a scatter plot)</h3>
+<p>To actually visualize our data using <code>ggplot2</code>, we need to use “geoms”. Geoms are ways to visually represent our data and <code>ggplot2</code> has many different options. <a href="https://github.com/rstudio/cheatsheets/blob/main/data-visualization-2.1.pdf">Here</a> is a great resource to see some of the possibilities.</p>
 <p>In our case, since we want to make a scatter plot, we just need to add <code>geom_point()</code>:</p>
-<pre><code class="language-r">ggplot(data=penguins,aes(x=bill_length_mm,y=bill_depth_mm))+
-  geom_point()
-</code></pre>
-<img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/scatter2-1.png" width="672" />
-<h3 id="color-aesthetics">Color aesthetics</h3>
+<pre class="r"><code>ggplot(data=penguins,aes(x=bill_length_mm,y=bill_depth_mm))+
+  geom_point()</code></pre>
+<p><img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/scatter2-1.png" width="672" /></p>
+</div>
+<div id="color-aesthetics" class="section level3">
+<h3>Color aesthetics</h3>
 <p>It looks like we have three different clusters. Looking back at the data maybe these three different clusters represent the three different species in our data set?</p>
 <p>One way we could visualize this is by giving each species a different color, using the <code>color</code> parameter. Since, we are matching some sort of aesthetic to a variable in our data frame it has to go <strong>inside</strong> <code>aes()</code> like so:</p>
-<pre><code class="language-r">ggplot(data=penguins,aes(x=bill_length_mm,y=bill_depth_mm,color=species))+
-  geom_point()
-</code></pre>
-<img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/scatter3-1.png" width="672" />
-<h3 id="adding-another-geom-a-line-of-best-fit">Adding another geom (a line of best fit)</h3>
+<pre class="r"><code>ggplot(data=penguins,aes(x=bill_length_mm,y=bill_depth_mm,color=species))+
+  geom_point()</code></pre>
+<p><img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/scatter3-1.png" width="672" /></p>
+</div>
+<div id="adding-another-geom-a-line-of-best-fit" class="section level3">
+<h3>Adding another geom (a line of best fit)</h3>
 <p>A cool thing with <code>ggplot2</code> is that it is very easy to add more layers. All we have to do is another <code>+ geom_xxx</code>. A logical next step for this scatter plot is to add a line of best fit using the <code>geom_smooth()</code>:</p>
-<pre><code class="language-r">ggplot(data=penguins,aes(x=bill_length_mm,y=bill_depth_mm,color=species))+
+<pre class="r"><code>ggplot(data=penguins,aes(x=bill_length_mm,y=bill_depth_mm,color=species))+
   geom_point()+
-  geom_smooth()
-</code></pre>
-<pre><code>## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
-</code></pre>
-<img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/scatter4-1.png" width="672" />
-<p>It looks a little weird. That&rsquo;s because by default <code>geom_smooth</code> uses a &ldquo;loess&rdquo; function to fit the data. Essentially this fits seperate polynomial functions between various points of your data and strings them together. Often this is not appropriate and vastly overfits your data. The grey shading, by default, shows the 95% confidence interval of the fit.</p>
-<p>We can specify a specific formula for <code>geom_smooth()</code> but this is out of the scope of this tutorial. Instead, let&rsquo;s just fit a strait line. The way we do this is by passing the argument <code>method=&quot;lm&quot;</code> in <code>geom_smooth()</code>. &ldquo;lm&rdquo; in this case stands for linear model:</p>
-<pre><code class="language-r">ggplot(data=penguins,aes(x=bill_length_mm,y=bill_depth_mm,color=species))+
+  geom_smooth()</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula = &#39;y ~ x&#39;</code></pre>
+<p><img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/scatter4-1.png" width="672" /></p>
+<p>It looks a little weird. That’s because by default <code>geom_smooth</code> uses a “loess” function to fit the data. Essentially this fits seperate polynomial functions between various points of your data and strings them together. Often this is not appropriate and vastly overfits your data. The grey shading, by default, shows the 95% confidence interval of the fit.</p>
+<p>We can specify a specific formula for <code>geom_smooth()</code> but this is out of the scope of this tutorial. Instead, let’s just fit a strait line. The way we do this is by passing the argument <code>method="lm"</code> in <code>geom_smooth()</code>. “lm” in this case stands for linear model:</p>
+<pre class="r"><code>ggplot(data=penguins,aes(x=bill_length_mm,y=bill_depth_mm,color=species))+
   geom_point()+
-  geom_smooth(method=&quot;lm&quot;)
-</code></pre>
-<pre><code>## `geom_smooth()` using formula 'y ~ x'
-</code></pre>
-<img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/scatter5-1.png" width="672" />
-<h3 id="a-side-note-on-aes">A side note on <code>aes()</code></h3>
+  geom_smooth(method=&quot;lm&quot;)</code></pre>
+<pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
+<p><img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/scatter5-1.png" width="672" /></p>
+</div>
+<div id="a-side-note-on-aes" class="section level3">
+<h3>A side note on <code>aes()</code></h3>
 <p>If you noticed, it fit a separate line and used different colors for the three species. This is because whatever mappings (i.e., whatever is in the <code>aes()</code>) you put within the <code>ggplot()</code> in the first line will be the default for all other layers. However, we can also specify the mappings in individual layers. For example we can the exact same graph with this code:</p>
-<pre><code class="language-r">ggplot(data=penguins)+
+<pre class="r"><code>ggplot(data=penguins)+
   geom_point(aes(x=bill_length_mm,y=bill_depth_mm,color=species))+
-  geom_smooth(aes(x=bill_length_mm,y=bill_depth_mm,color=species),method=&quot;lm&quot;)
-</code></pre>
-<pre><code>## `geom_smooth()` using formula 'y ~ x'
-</code></pre>
-<img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/scatter6-1.png" width="672" />
+  geom_smooth(aes(x=bill_length_mm,y=bill_depth_mm,color=species),method=&quot;lm&quot;)</code></pre>
+<pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
+<p><img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/scatter6-1.png" width="672" /></p>
 <p>Since we want it to apply to all layers it makes more sense to only type out the mappings once in the <code>ggplot()</code> function. However, if we want different aesthetic mappings to different layers it might make sense to do it this way. For example, say we only want a single line of best fit ignoring the species:</p>
-<pre><code class="language-r">ggplot(data=penguins)+
+<pre class="r"><code>ggplot(data=penguins)+
   geom_point(aes(x=bill_length_mm,y=bill_depth_mm,color=species))+
-  geom_smooth(aes(x=bill_length_mm,y=bill_depth_mm),method=&quot;lm&quot;)
-</code></pre>
-<img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/scatter7-1.png" width="672" />
-<h2 id="faceted-plots-aka-subplots">Faceted plots aka subplots</h2>
+  geom_smooth(aes(x=bill_length_mm,y=bill_depth_mm),method=&quot;lm&quot;)</code></pre>
+<p><img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/scatter7-1.png" width="672" /></p>
+</div>
+</div>
+<div id="faceted-plots-aka-subplots" class="section level2">
+<h2>Faceted plots aka subplots</h2>
 <p>One amazing thing about <code>ggplot2</code> is that it is incredibly easy to make subplots based on variables in your data. There are two different options: <code>facet_wrap</code> and <code>facet_grid</code></p>
-<h3 id="facet_wrap"><code>facet_wrap</code></h3>
-<p><code>facet_wrap</code> is most useful when we only have one categorical variable that we want to make subplots by. Using the same plot as before let&rsquo;s facet based on island. We either have to do <code>~varname</code> or <code>vars(varname)</code> in order for ggplot to recognize it as a column name:</p>
-<pre><code class="language-r">ggplot(data=penguins,aes(x=bill_length_mm,y=bill_depth_mm,color=species))+
+<div id="facet_wrap" class="section level3">
+<h3><code>facet_wrap</code></h3>
+<p><code>facet_wrap</code> is most useful when we only have one categorical variable that we want to make subplots by. Using the same plot as before let’s facet based on island. We either have to do <code>~varname</code> or <code>vars(varname)</code> in order for ggplot to recognize it as a column name:</p>
+<pre class="r"><code>ggplot(data=penguins,aes(x=bill_length_mm,y=bill_depth_mm,color=species))+
   geom_point()+
   geom_smooth(method=&quot;lm&quot;)+
-  facet_wrap(~island)
-</code></pre>
-<img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/facet_wrap1-1.png" width="672" />
-<h3 id="facet_grid"><code>facet_grid</code></h3>
-<p><code>facet_grid</code> is most useful when we have two categorical variable that we want to make subplots by in a grid formation. The way it works is:<br>
+  facet_wrap(~island)</code></pre>
+<p><img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/facet_wrap1-1.png" width="672" /></p>
+</div>
+<div id="facet_grid" class="section level3">
+<h3><code>facet_grid</code></h3>
+<p><code>facet_grid</code> is most useful when we have two categorical variable that we want to make subplots by in a grid formation. The way it works is:<br />
 <code>facet_grid(horizontal_categorical column ~ vertical_Categorical Column)</code>
-Using the same plot as before let&rsquo;s facet based on island and sex:</p>
-<pre><code class="language-r">ggplot(data=penguins,aes(x=bill_length_mm,y=bill_depth_mm,color=species))+
+Using the same plot as before let’s facet based on island and sex:</p>
+<pre class="r"><code>ggplot(data=penguins,aes(x=bill_length_mm,y=bill_depth_mm,color=species))+
   geom_point()+
   geom_smooth(method=&quot;lm&quot;)+
-  facet_grid(sex~island)
-</code></pre>
-<img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/facet_wrap2-1.png" width="672" />
+  facet_grid(sex~island)</code></pre>
+<p><img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/facet_wrap2-1.png" width="672" /></p>
 <p>If we wanted to facet by more than two variables, we can combine different combinations with <code>+</code>. This works for both <code>facet_wrap</code> and <code>facet_grid</code>. For example:</p>
-<pre><code class="language-r">ggplot(data=penguins,aes(x=bill_length_mm,y=bill_depth_mm,color=species))+
+<pre class="r"><code>ggplot(data=penguins,aes(x=bill_length_mm,y=bill_depth_mm,color=species))+
   geom_point()+
   geom_smooth(method=&quot;lm&quot;)+
-  facet_grid(year+sex~island)
-</code></pre>
-<img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/facet_wrap3-1.png" width="672" />
-<h2 id="other-common-graphs">Other common graphs</h2>
-<h3 id="histogram">Histogram</h3>
+  facet_grid(year+sex~island)</code></pre>
+<p><img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/facet_wrap3-1.png" width="672" /></p>
+</div>
+</div>
+<div id="other-common-graphs" class="section level2">
+<h2>Other common graphs</h2>
+<div id="histogram" class="section level3">
+<h3>Histogram</h3>
 <p>Making histograms only require a variable for the x-axis.</p>
-<p>Let&rsquo;s make a histogram of <code>flipper_length_mm</code> with different colors for the different species. Like before we need to initialize the plot with the <code>ggplot()</code> function:</p>
-<pre><code class="language-r">ggplot(data=penguins,aes(x=flipper_length_mm,color=species))+
-  geom_histogram()
-</code></pre>
-<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-</code></pre>
-<img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/histo1-1.png" width="672" />
-<p>Two things we can notice: (1) the outlines of the bars are different colors but not the fill and (2) it&rsquo;s giving a message about the number of bins.</p>
-<p>(1) For many geoms (e.g., histogram,box_plot,violin_plot) <code>color</code> aesthetic is the lines/borders but <code>fill</code> aesthetics is the inside color and what we generally actually want to change.</p>
-<p>(2) By default <code>geom_histogram</code> breaks your data into 30 bins. Which may be too much or too less for your data. You can either change this by specifying the number of bins <code>bins=xx</code> or by the binwidth, <code>binwidth =5</code>.</p>
-<pre><code class="language-r">ggplot(data=penguins,aes(x=flipper_length_mm,fill=species))+
-  geom_histogram(binwidth = 5)
-</code></pre>
-<img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/histo2-1.png" width="672" />
-<h4 id="minor-tweak-to-histograms">Minor tweak to histograms</h4>
+<p>Let’s make a histogram of <code>flipper_length_mm</code> with different colors for the different species. Like before we need to initialize the plot with the <code>ggplot()</code> function:</p>
+<pre class="r"><code>ggplot(data=penguins,aes(x=flipper_length_mm,color=species))+
+  geom_histogram()</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/histo1-1.png" width="672" /></p>
+<p>Two things we can notice: (1) the outlines of the bars are different colors but not the fill and (2) it’s giving a message about the number of bins.</p>
+<ol style="list-style-type: decimal">
+<li><p>For many geoms (e.g., histogram,box_plot,violin_plot) <code>color</code> aesthetic is the lines/borders but <code>fill</code> aesthetics is the inside color and what we generally actually want to change.</p></li>
+<li><p>By default <code>geom_histogram</code> breaks your data into 30 bins. Which may be too much or too less for your data. You can either change this by specifying the number of bins <code>bins=xx</code> or by the binwidth, <code>binwidth =5</code>.</p></li>
+</ol>
+<pre class="r"><code>ggplot(data=penguins,aes(x=flipper_length_mm,fill=species))+
+  geom_histogram(binwidth = 5)</code></pre>
+<p><img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/histo2-1.png" width="672" /></p>
+<div id="minor-tweak-to-histograms" class="section level4">
+<h4>Minor tweak to histograms</h4>
 <p>On things I prefer to do for histograms is to add an outline to the different bars.</p>
 <p>To add a border all we have to do is change the <code>color</code> parameter. Previously we used the <code>color</code> inside <code>aes()</code> to map color to a specific variable. We can use the same parameter <strong>outside</strong> of <code>aes</code> and set it to a color of our choosing. This will default to all the data. This same concept works for other <code>aes()</code> parameters as well (e.g., <code>shape</code>,<code>alpha</code>, <code>fill</code>).</p>
-<pre><code class="language-r">ggplot(data=penguins,aes(x=flipper_length_mm,fill=species))+
-  geom_histogram(binwidth = 5,color=&quot;black&quot;)
-</code></pre>
-<img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/histo3-1.png" width="672" />
-<h3 id="boxplot">Boxplot</h3>
+<pre class="r"><code>ggplot(data=penguins,aes(x=flipper_length_mm,fill=species))+
+  geom_histogram(binwidth = 5,color=&quot;black&quot;)</code></pre>
+<p><img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/histo3-1.png" width="672" /></p>
+</div>
+</div>
+<div id="boxplot" class="section level3">
+<h3>Boxplot</h3>
 <p>Making a boxplot requires a variable for both the x-axis and the y-axis.</p>
-<p>As an example let&rsquo;s make a boxplot comparing <code>flipper_length_mm</code> across species, but different colors for sexes. Once again, like histogram we need to use <code>fill</code> to change the color inside the boxplot.</p>
-<pre><code class="language-r">ggplot(data=penguins,aes(x=species,y=flipper_length_mm,fill=sex))+
-  geom_boxplot()
-</code></pre>
-<img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/box1-1.png" width="672" />
-<h4 id="adding-in-raw-data-with-geom_point">Adding in raw data with <code>geom_point()</code></h4>
+<p>As an example let’s make a boxplot comparing <code>flipper_length_mm</code> across species, but different colors for sexes. Once again, like histogram we need to use <code>fill</code> to change the color inside the boxplot.</p>
+<pre class="r"><code>ggplot(data=penguins,aes(x=species,y=flipper_length_mm,fill=sex))+
+  geom_boxplot()</code></pre>
+<p><img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/box1-1.png" width="672" /></p>
+<div id="adding-in-raw-data-with-geom_point" class="section level4">
+<h4>Adding in raw data with <code>geom_point()</code></h4>
 <p>One criticism with boxplots is that they hide the underlying data. One way to address this is to also show the underlying data in the same graph. We can do this with <code>geom_point()</code>. There are a few things we need to do:</p>
-<ol>
-<li>
-<p>Adjust the <code>alpha</code> parameter, which controls how transparent this layer is with 0 being completely transparent and 1 being not transparent.</p>
-</li>
-<li>
-<p>Make the <code>color</code> correspond to different species like <code>fill</code>. Since we don&rsquo;t want to do this for the <code>boxplot</code> layer, we will only apply this to the <code>geom_point</code> layer. We can set this by putting <code>aes(color=sex)</code> within the <code>geom_point()</code> layer.</p>
-</li>
-<li>
-<p>We want to make the points jittered (i.e., randomly spaced out) and &ldquo;dodged&rdquo; (the different sexes are spaced out like the boxplot). We can accomplish this by setting <code>position=position_jitterdodge())</code></p>
-</li>
+<ol style="list-style-type: decimal">
+<li><p>Adjust the <code>alpha</code> parameter, which controls how transparent this layer is with 0 being completely transparent and 1 being not transparent.</p></li>
+<li><p>Make the <code>color</code> correspond to different species like <code>fill</code>. Since we don’t want to do this for the <code>boxplot</code> layer, we will only apply this to the <code>geom_point</code> layer. We can set this by putting <code>aes(color=sex)</code> within the <code>geom_point()</code> layer.</p></li>
+<li><p>We want to make the points jittered (i.e., randomly spaced out) and “dodged” (the different sexes are spaced out like the boxplot). We can accomplish this by setting <code>position=position_jitterdodge())</code></p></li>
 </ol>
 <p>All together:</p>
-<pre><code class="language-r">ggplot(data=penguins,aes(x=species,y=flipper_length_mm,fill=sex))+
+<pre class="r"><code>ggplot(data=penguins,aes(x=species,y=flipper_length_mm,fill=sex))+
   geom_boxplot(alpha=0.4)+
-  geom_point(alpha=0.7,aes(color=sex),position=position_jitterdodge())
-</code></pre>
-<img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/box2-1.png" width="672" />
-<h2 id="extra-handy-things">Extra handy things</h2>
+  geom_point(alpha=0.7,aes(color=sex),position=position_jitterdodge())</code></pre>
+<p><img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/box2-1.png" width="672" /></p>
+</div>
+</div>
+</div>
+<div id="extra-handy-things" class="section level2">
+<h2>Extra handy things</h2>
 <p>Here are a just a few handy things to know when working with ggplot2.</p>
-<h3 id="saving-ggplots-as-a-variable">Saving ggplots as a variable</h3>
+<div id="saving-ggplots-as-a-variable" class="section level3">
+<h3>Saving ggplots as a variable</h3>
 <p>One of the nice features of <code>ggplot2</code> is you can save the plots as variables and add new layers.</p>
-<p>For example, lets save the scatter plot as the variable <code>plot1</code>. Since we just saved it, the plot won&rsquo;t actually appear.</p>
-<pre><code class="language-r">plot1&lt;-ggplot(data=penguins,aes(x=bill_length_mm,y=bill_depth_mm,color=species))+
+<p>For example, lets save the scatter plot as the variable <code>plot1</code>. Since we just saved it, the plot won’t actually appear.</p>
+<pre class="r"><code>plot1&lt;-ggplot(data=penguins,aes(x=bill_length_mm,y=bill_depth_mm,color=species))+
   geom_point()+
-  geom_smooth(method=&quot;lm&quot;)
-</code></pre>
+  geom_smooth(method=&quot;lm&quot;)</code></pre>
 <p>But we can call it later by the variable name:</p>
-<pre><code class="language-r">plot1
-</code></pre>
-<img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/saveplot2-1.png" width="672" />
+<pre class="r"><code>plot1</code></pre>
+<p><img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/saveplot2-1.png" width="672" /></p>
 <p>Or we can add new layers to it:</p>
-<pre><code class="language-r">plot1 +
-  facet_wrap(~island)
-</code></pre>
-<img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/saveplot3-1.png" width="672" />
-<h3 id="changing-labels">Changing labels</h3>
+<pre class="r"><code>plot1 +
+  facet_wrap(~island)</code></pre>
+<p><img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/saveplot3-1.png" width="672" /></p>
+</div>
+<div id="changing-labels" class="section level3">
+<h3>Changing labels</h3>
 <p>We can change the labels of our plot using the <code>labs</code> function. Where <code>x</code> is the label for the x-axis, <code>y</code> is the label for the y-axis, and <code>color</code> is the label for the colore legend.</p>
-<pre><code class="language-r">plot2&lt;-plot1 +
+<pre class="r"><code>plot2&lt;-plot1 +
   labs(x=&quot;Bill length (mm)&quot;,y=&quot;Bill depth (mm)&quot;,color=&quot;Species&quot;)
 
-plot2
-</code></pre>
-<img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/labels-1.png" width="672" />
-<h3 id="changing-default-theme">Changing default theme</h3>
-<p>We can also change other attributes with theme. We won&rsquo;t get into it in this tutorial, but there are so many things you can customize! Anything from the color/size of axis ticks to the family of font used on the labels. Luckily <code>ggplot2</code> has some other themes, besides the default, to help get you started. Just to show a few of those:</p>
+plot2</code></pre>
+<p><img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/labels-1.png" width="672" /></p>
+</div>
+<div id="changing-default-theme" class="section level3">
+<h3>Changing default theme</h3>
+<p>We can also change other attributes with theme. We won’t get into it in this tutorial, but there are so many things you can customize! Anything from the color/size of axis ticks to the family of font used on the labels. Luckily <code>ggplot2</code> has some other themes, besides the default, to help get you started. Just to show a few of those:</p>
 <p><code>theme_classic</code></p>
-<pre><code class="language-r">plot2 + theme_classic()
-</code></pre>
-<img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/themeclas-1.png" width="672" />
+<pre class="r"><code>plot2 + theme_classic()</code></pre>
+<p><img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/themeclas-1.png" width="672" /></p>
 <p><code>theme_dark</code>:</p>
-<pre><code class="language-r">plot2 + theme_dark()
-</code></pre>
-<img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/themedar-1.png" width="672" />
+<pre class="r"><code>plot2 + theme_dark()</code></pre>
+<p><img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/themedar-1.png" width="672" /></p>
 <p><code>theme_void</code>:</p>
-<pre><code class="language-r">plot2 + theme_void()
-</code></pre>
-<img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/themev-1.png" width="672" />
-<h2 id="closing-remarks">Closing remarks</h2>
+<pre class="r"><code>plot2 + theme_void()</code></pre>
+<p><img src="https://kustra-matt.github.io/post/ggplot2/index.en_files/figure-html/themev-1.png" width="672" /></p>
+</div>
+</div>
+<div id="closing-remarks" class="section level2">
+<h2>Closing remarks</h2>
 <p>I hoped you enjoyed this tutorial. Please shoot me an email if there on any tips for improvement or if you caught a bug! Other tutorials on my website go into more customizations in ggplot2 and other topics in R.</p>
+</div>
  
       </div>
 
@@ -1024,41 +1066,7 @@ plot2
           </li>
         </ul>
 
-        <nav id="TableOfContents">
-  <ul>
-    <li><a href="#getting-ready">Getting ready</a></li>
-    <li><a href="#loading-up-and-checking-the-data">Loading up and checking the data</a></li>
-    <li><a href="#making-our-first-ggplot2-graph">Making our first <code>ggplot2</code> graph</a>
-      <ul>
-        <li><a href="#initializing-ggplot2">Initializing <code>ggplot2</code></a></li>
-        <li><a href="#adding-geoms-making-a-scatter-plot">Adding geoms (making a scatter plot)</a></li>
-        <li><a href="#color-aesthetics">Color aesthetics</a></li>
-        <li><a href="#adding-another-geom-a-line-of-best-fit">Adding another geom (a line of best fit)</a></li>
-        <li><a href="#a-side-note-on-aes">A side note on <code>aes()</code></a></li>
-      </ul>
-    </li>
-    <li><a href="#faceted-plots-aka-subplots">Faceted plots aka subplots</a>
-      <ul>
-        <li><a href="#facet_wrap"><code>facet_wrap</code></a></li>
-        <li><a href="#facet_grid"><code>facet_grid</code></a></li>
-      </ul>
-    </li>
-    <li><a href="#other-common-graphs">Other common graphs</a>
-      <ul>
-        <li><a href="#histogram">Histogram</a></li>
-        <li><a href="#boxplot">Boxplot</a></li>
-      </ul>
-    </li>
-    <li><a href="#extra-handy-things">Extra handy things</a>
-      <ul>
-        <li><a href="#saving-ggplots-as-a-variable">Saving ggplots as a variable</a></li>
-        <li><a href="#changing-labels">Changing labels</a></li>
-        <li><a href="#changing-default-theme">Changing default theme</a></li>
-      </ul>
-    </li>
-    <li><a href="#closing-remarks">Closing remarks</a></li>
-  </ul>
-</nav> 
+         
 
       </div>
     </div>

@@ -60,7 +60,7 @@
   
     
   
-  <meta name="description" content="This tutorial is designed to help understand logic in R and use that logic to write conditional statements (i.e., if-else statements). These programming skills are essential for doing more complex analyses in R and are useful for working in other programming language." />
+  <meta name="description" content="Logical values Relational operators  NA and logic Other is.x() functions  Logical operators Vector logic  Relational operators on vectors Logical operators on vectors Special vector operators  If-Else statements  If-Elif-Else statments  Closing remarks   This tutorial is designed to help understand logic in R and use that logic to write conditional statements (i." />
 
   
   <link rel="alternate" hreflang="en-us" href="https://kustra-matt.github.io/post/ifelse/" />
@@ -339,7 +339,7 @@
   <meta property="og:site_name" content="Matt Kustra" />
   <meta property="og:url" content="https://kustra-matt.github.io/post/ifelse/" />
   <meta property="og:title" content="Logic and if-else statements | Matt Kustra" />
-  <meta property="og:description" content="This tutorial is designed to help understand logic in R and use that logic to write conditional statements (i.e., if-else statements). These programming skills are essential for doing more complex analyses in R and are useful for working in other programming language." /><meta property="og:image" content="https://kustra-matt.github.io/post/ifelse/featured.png" />
+  <meta property="og:description" content="Logical values Relational operators  NA and logic Other is.x() functions  Logical operators Vector logic  Relational operators on vectors Logical operators on vectors Special vector operators  If-Else statements  If-Elif-Else statments  Closing remarks   This tutorial is designed to help understand logic in R and use that logic to write conditional statements (i." /><meta property="og:image" content="https://kustra-matt.github.io/post/ifelse/featured.png" />
     <meta property="twitter:image" content="https://kustra-matt.github.io/post/ifelse/featured.png" /><meta property="og:locale" content="en-us" />
   
     
@@ -396,7 +396,7 @@
       "url": "https://kustra-matt.github.io/media/icon_hu968023516251523fc9a78b9c44e7eeb6_483323_192x192_fill_lanczos_center_3.png"
     }
   },
-  "description": "This tutorial is designed to help understand logic in R and use that logic to write conditional statements (i.e., if-else statements). These programming skills are essential for doing more complex analyses in R and are useful for working in other programming language."
+  "description": "Logical values Relational operators  NA and logic Other is.x() functions  Logical operators Vector logic  Relational operators on vectors Logical operators on vectors Special vector operators  If-Else statements  If-Elif-Else statments  Closing remarks   This tutorial is designed to help understand logic in R and use that logic to write conditional statements (i."
 }
 </script>
 
@@ -416,7 +416,7 @@
 </head>
 
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="c6419b2c987fa583af4852237481ba40" >
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="c22751f3026561ddd31a209ecd395b20" >
 
   
   
@@ -812,278 +812,166 @@
     <div class="row">
 
       <div class="col-12 col-lg-9 article-style">
-        <p>This tutorial is designed to help understand logic in R and use that logic to write conditional statements (i.e., if-else statements). These programming skills are essential for doing more complex analyses in R and are useful for working in other programming language.</p>
+        
+
+<div id="TOC">
+<ul>
+<li><a href="#logical-values">Logical values</a></li>
+<li><a href="#relational-operators">Relational operators</a>
+<ul>
+<li><a href="#na-and-logic"><code>NA</code> and logic</a></li>
+<li><a href="#other-is.x-functions">Other <code>is.x()</code> functions</a></li>
+</ul></li>
+<li><a href="#logical-operators">Logical operators</a></li>
+<li><a href="#vector-logic">Vector logic</a>
+<ul>
+<li><a href="#relational-operators-on-vectors">Relational operators on vectors</a></li>
+<li><a href="#logical-operators-on-vectors">Logical operators on vectors</a></li>
+<li><a href="#special-vector-operators">Special vector operators</a></li>
+</ul></li>
+<li><a href="#if-else-statements">If-Else statements</a>
+<ul>
+<li><a href="#if-elif-else-statments">If-Elif-Else statments</a></li>
+</ul></li>
+<li><a href="#closing-remarks">Closing remarks</a></li>
+</ul>
+</div>
+
+<p>This tutorial is designed to help understand logic in R and use that logic to write conditional statements (i.e., if-else statements). These programming skills are essential for doing more complex analyses in R and are useful for working in other programming language.</p>
 <p><strong>Disclaimer/clarification</strong>: Please note that in this tutorial I use vector to mean anything with length greater than 1, even though in R a single number or single character is technically also a vector albeit of length 1.</p>
-<h2 id="logical-values">Logical values</h2>
+<div id="logical-values" class="section level2">
+<h2>Logical values</h2>
 <p>Logical values can be either true or false. In practice, we generally use them to help filter data or run a specific analysis based on a specific condition. In R logical values are coded as <code>TRUE</code> and <code>FALSE</code>. You may also see/use <code>T</code> or <code>F</code>, however, it is generally recommended not to use these two. This is because you can always overwrite <code>T</code> or <code>F</code> but cannot overwrite <code>TRUE</code> or <code>FALSE</code>. This can cause errors if for whatever reason <code>T</code> or <code>F</code> is overwritten but used elsewhere as a logical value. Logical values are returned whenever we do a comparison, i.e, use a relational operator.</p>
-<h2 id="relational-operators">Relational operators</h2>
+</div>
+<div id="relational-operators" class="section level2">
+<h2>Relational operators</h2>
 <p>Here are the most common relational operators in R:</p>
-<p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<figure  >
-  <div class="d-flex justify-content-center">
-    <div class="w-100" ><img alt="Relational operators" srcset="
-               /post/ifelse/Compare_hu5279ec3dfe0a91dd64026b159131c2d4_628224_0cbcf0b43837b0f440e1018b43631498.webp 400w,
-               /post/ifelse/Compare_hu5279ec3dfe0a91dd64026b159131c2d4_628224_6c2ebe4838a4ffb6bdac21a5f05f1441.webp 760w,
-               /post/ifelse/Compare_hu5279ec3dfe0a91dd64026b159131c2d4_628224_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
-               src="/post/ifelse/Compare_hu5279ec3dfe0a91dd64026b159131c2d4_628224_0cbcf0b43837b0f440e1018b43631498.webp"
-               width="760"
-               height="281"
-               loading="lazy" data-zoomable /></div>
-  </div></figure>
-</p>
-<p>Let&rsquo;s code up those examples:</p>
-<pre><code class="language-r">2&lt;3
-</code></pre>
-<pre><code>## [1] TRUE
-</code></pre>
-<pre><code class="language-r">2&gt;8
-</code></pre>
-<pre><code>## [1] FALSE
-</code></pre>
-<pre><code class="language-r">3&lt;=3
-</code></pre>
-<pre><code>## [1] TRUE
-</code></pre>
-<pre><code class="language-r">&quot;APPLE&quot;==&quot;APPLE&quot;
-</code></pre>
-<pre><code>## [1] TRUE
-</code></pre>
-<pre><code class="language-r">&quot;Mayonnaise&quot;!= &quot;Instrument&quot;
-</code></pre>
-<pre><code>## [1] TRUE
-</code></pre>
-<p>It is important to note that comparing characters is case sensitive. For example,<code>&quot;Apple&quot;==&quot;APPLE&quot;</code> returns <code>FALSE</code>.</p>
-<h3 id="na-and-logic"><code>NA</code> and logic</h3>
+<div class="figure">
+<img src="Compare.png" alt="" />
+<p class="caption">Relational operators</p>
+</div>
+<p>Let’s code up those examples:</p>
+<pre class="r"><code>2&lt;3</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>2&gt;8</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>3&lt;=3</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>&quot;APPLE&quot;==&quot;APPLE&quot;</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>&quot;Mayonnaise&quot;!= &quot;Instrument&quot;</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p>It is important to note that comparing characters is case sensitive. For example,<code>"Apple"=="APPLE"</code> returns <code>FALSE</code>.</p>
+<div id="na-and-logic" class="section level3">
+<h3><code>NA</code> and logic</h3>
 <p>Using comparison operators and other logical functions on <code>NA</code> will return <code>NA</code> even when comparing <code>NA</code> to <code>NA</code>. For example:</p>
-<pre><code class="language-r">3&gt;NA
-</code></pre>
-<pre><code>## [1] NA
-</code></pre>
-<pre><code class="language-r">NA == NA
-</code></pre>
-<pre><code>## [1] NA
-</code></pre>
+<pre class="r"><code>3&gt;NA</code></pre>
+<pre><code>## [1] NA</code></pre>
+<pre class="r"><code>NA == NA</code></pre>
+<pre><code>## [1] NA</code></pre>
 <p>If <code>NA == NA</code> is <code>NA</code>, how do I test if there is an <code>NA</code> value? Luckily there is a special R function for that: <code>is.na()</code>:</p>
-<pre><code class="language-r">is.na(NA)
-</code></pre>
-<pre><code>## [1] TRUE
-</code></pre>
-<pre><code class="language-r">is.na(4)
-</code></pre>
-<pre><code>## [1] FALSE
-</code></pre>
-<h3 id="other-isx-functions">Other <code>is.x()</code> functions</h3>
+<pre class="r"><code>is.na(NA)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>is.na(4)</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+</div>
+<div id="other-is.x-functions" class="section level3">
+<h3>Other <code>is.x()</code> functions</h3>
 <p>While <code>is.na()</code> is probably the most commonly used, there are other similar functions to test for different data types. For example, <code>is.character()</code> tests if the input is a character, <code>is.numeric()</code> tests if the input is numerical. This is often useful when data wrangling. For example:</p>
-<pre><code class="language-r">is.numeric(&quot;five&quot;)
-</code></pre>
-<pre><code>## [1] FALSE
-</code></pre>
-<pre><code class="language-r">is.numeric(5)
-</code></pre>
-<pre><code>## [1] TRUE
-</code></pre>
-<pre><code class="language-r">is.character(&quot;five&quot;)
-</code></pre>
-<pre><code>## [1] TRUE
-</code></pre>
-<h2 id="logical-operators">Logical operators</h2>
+<pre class="r"><code>is.numeric(&quot;five&quot;)</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>is.numeric(5)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>is.character(&quot;five&quot;)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+</div>
+<div id="logical-operators" class="section level2">
+<h2>Logical operators</h2>
 <p>The next import operators to cover are ones that work on logical values and then return a logical value. These are particulary important if there are multiple conditions you need to be met.</p>
 <p>The most relevant ones are NOT (<code>!</code>), AND (<code>&amp;</code>), and OR (<code>|</code>) which are described below.</p>
 <p>The truth table shows the result of either <code>&amp;</code> or <code>|</code> given all possible combinations of inputs (x and y).</p>
-<p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<figure  >
-  <div class="d-flex justify-content-center">
-    <div class="w-100" ><img alt="Logical Operators" srcset="
-               /post/ifelse/table_hucc24530f84677382d1ae1df6d4cd6dac_381716_77d6585d90356c2f7f1754d35c12c522.webp 400w,
-               /post/ifelse/table_hucc24530f84677382d1ae1df6d4cd6dac_381716_c96a0a8ca5678d6ea0d74c1a4c857fa4.webp 760w,
-               /post/ifelse/table_hucc24530f84677382d1ae1df6d4cd6dac_381716_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
-               src="/post/ifelse/table_hucc24530f84677382d1ae1df6d4cd6dac_381716_77d6585d90356c2f7f1754d35c12c522.webp"
-               width="760"
-               height="380"
-               loading="lazy" data-zoomable /></div>
-  </div></figure>
-
+<p><img src="table.png" alt="Logical Operators" />
 An example of what that looks like in R</p>
-<pre><code class="language-r">!(1&gt;2)#should return TRUE
-</code></pre>
-<pre><code>## [1] TRUE
-</code></pre>
-<pre><code class="language-r">(1&gt;2)|(3&gt;2)#Should return TRUE
-</code></pre>
-<pre><code>## [1] TRUE
-</code></pre>
-<pre><code class="language-r">(1&gt;2)&amp;(3&gt;2)#Should return FALSE since 1 is not greater than 2
-</code></pre>
-<pre><code>## [1] FALSE
-</code></pre>
-<h2 id="vector-logic">Vector logic</h2>
+<pre class="r"><code>!(1&gt;2)#should return TRUE</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>(1&gt;2)|(3&gt;2)#Should return TRUE</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>(1&gt;2)&amp;(3&gt;2)#Should return FALSE since 1 is not greater than 2</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+</div>
+<div id="vector-logic" class="section level2">
+<h2>Vector logic</h2>
 <p>All of the operations described above work on vectors of data and there are also special functions</p>
-<h3 id="relational-operators-on-vectors">Relational operators on vectors</h3>
+<div id="relational-operators-on-vectors" class="section level3">
+<h3>Relational operators on vectors</h3>
 <p>The relational operators discussed above also work on vectors!</p>
 <p>We can compare a whole vector to a single value. This will return a vector with logical values for the comparison being applied to each element of the vector. For example:</p>
-<pre><code class="language-r">x&lt;-c(1,3,5,6)
-3&lt;x
-</code></pre>
-<pre><code>## [1] FALSE FALSE  TRUE  TRUE
-</code></pre>
+<pre class="r"><code>x&lt;-c(1,3,5,6)
+3&lt;x</code></pre>
+<pre><code>## [1] FALSE FALSE  TRUE  TRUE</code></pre>
 <p>If we compare vectors of the same length, it will return a logical vector doing pairwise comparisons:</p>
-<pre><code class="language-r">y&lt;-c(1,5,8)
+<pre class="r"><code>y&lt;-c(1,5,8)
 z&lt;-c(1,1,5)
-z==y
-</code></pre>
-<pre><code>## [1]  TRUE FALSE FALSE
-</code></pre>
-<h3 id="logical-operators-on-vectors">Logical operators on vectors</h3>
+z==y</code></pre>
+<pre><code>## [1]  TRUE FALSE FALSE</code></pre>
+</div>
+<div id="logical-operators-on-vectors" class="section level3">
+<h3>Logical operators on vectors</h3>
 <p>The logical operators discussed above also work on vectors! Like in the previous section, if we use a logical operator between a vector and a single logical value it will apply that comparison to every element:</p>
-<pre><code class="language-r">!c(TRUE,FALSE,TRUE)
-</code></pre>
-<pre><code>## [1] FALSE  TRUE FALSE
-</code></pre>
-<pre><code class="language-r">TRUE &amp; c(TRUE,FALSE,TRUE)
-</code></pre>
-<pre><code>## [1]  TRUE FALSE  TRUE
-</code></pre>
+<pre class="r"><code>!c(TRUE,FALSE,TRUE)</code></pre>
+<pre><code>## [1] FALSE  TRUE FALSE</code></pre>
+<pre class="r"><code>TRUE &amp; c(TRUE,FALSE,TRUE)</code></pre>
+<pre><code>## [1]  TRUE FALSE  TRUE</code></pre>
 <p>If the two vectors are the same length, it will do pairwise operations:</p>
-<pre><code class="language-r">c(TRUE,FALSE,FALSE) &amp; c(TRUE,FALSE,TRUE)
-</code></pre>
-<pre><code>## [1]  TRUE FALSE FALSE
-</code></pre>
-<pre><code class="language-r">c(TRUE,FALSE,FALSE) | c(TRUE,TRUE,TRUE)
-</code></pre>
-<pre><code>## [1] TRUE TRUE TRUE
-</code></pre>
-<h3 id="special-vector-operators">Special vector operators</h3>
+<pre class="r"><code>c(TRUE,FALSE,FALSE) &amp; c(TRUE,FALSE,TRUE)</code></pre>
+<pre><code>## [1]  TRUE FALSE FALSE</code></pre>
+<pre class="r"><code>c(TRUE,FALSE,FALSE) | c(TRUE,TRUE,TRUE)</code></pre>
+<pre><code>## [1] TRUE TRUE TRUE</code></pre>
+</div>
+<div id="special-vector-operators" class="section level3">
+<h3>Special vector operators</h3>
 <p>There are also special functions that act on logical vectors: <code>any()</code>, <code>all()</code>,<code>which()</code>, and <code>%in%</code> described below:</p>
-<p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<figure  >
-  <div class="d-flex justify-content-center">
-    <div class="w-100" ><img alt="Vector operators" srcset="
-               /post/ifelse/vector_huab8e1403dc3a181d53bfe8a9ebea93cb_361693_89d943f8109f6bbec6f52f93476db367.webp 400w,
-               /post/ifelse/vector_huab8e1403dc3a181d53bfe8a9ebea93cb_361693_9766243c56818e98b0eb7976daaaf213.webp 760w,
-               /post/ifelse/vector_huab8e1403dc3a181d53bfe8a9ebea93cb_361693_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
-               src="/post/ifelse/vector_huab8e1403dc3a181d53bfe8a9ebea93cb_361693_89d943f8109f6bbec6f52f93476db367.webp"
-               width="760"
-               height="252"
-               loading="lazy" data-zoomable /></div>
-  </div></figure>
-</p>
+<div class="figure">
+<img src="vector.png" alt="" />
+<p class="caption">Vector operators</p>
+</div>
 <p><code>any()</code>returns <code>TRUE</code> if there is a single <code>TRUE</code> value. Here are a few examples:</p>
-<pre><code class="language-r">any(2&gt;c(1,7,10)) #should be true cause of 1
-</code></pre>
-<pre><code>## [1] TRUE
-</code></pre>
-<pre><code class="language-r">any(1&gt;c(1,7,10)) 
-</code></pre>
-<pre><code>## [1] FALSE
-</code></pre>
+<pre class="r"><code>any(2&gt;c(1,7,10)) #should be true cause of 1</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>any(1&gt;c(1,7,10)) </code></pre>
+<pre><code>## [1] FALSE</code></pre>
 <p><code>all()</code>only returns true if all elements are <code>TRUE</code>. Here are a few examples of</p>
-<pre><code class="language-r">all(c(1,2,3,4)==c(1,2,3,5))
-</code></pre>
-<pre><code>## [1] FALSE
-</code></pre>
-<pre><code class="language-r">all(c(1,2,3,4)==c(1,2,3,4))
-</code></pre>
-<pre><code>## [1] TRUE
-</code></pre>
-<pre><code class="language-r">all(!is.na(c(NA,2,3,5,NA)))
-</code></pre>
-<pre><code>## [1] FALSE
-</code></pre>
+<pre class="r"><code>all(c(1,2,3,4)==c(1,2,3,5))</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>all(c(1,2,3,4)==c(1,2,3,4))</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>all(!is.na(c(NA,2,3,5,NA)))</code></pre>
+<pre><code>## [1] FALSE</code></pre>
 <p><code>which()</code>returns indexes (or position) of <code>TRUE</code> values. NOTE: that indexing starts at 1 in R unlike other programing languages that start at 0. Here is an example of code that returns the location of NA values.</p>
-<pre><code class="language-r">which(is.na(c(NA,2,3,5,NA)))
-</code></pre>
-<pre><code>## [1] 1 5
-</code></pre>
+<pre class="r"><code>which(is.na(c(NA,2,3,5,NA)))</code></pre>
+<pre><code>## [1] 1 5</code></pre>
 <p><code>%in%</code> tests which items in the vector left of <code>%in%</code> are within the vector right of <code>%in%</code>. For example this will test if any of the fruits listed in the vector on the left are in the vector on the right.</p>
-<pre><code class="language-r">c(&quot;Strawberry&quot;,&quot;Apple&quot;,&quot;Lychee&quot;,&quot;Pear&quot;) %in% c(&quot;Apple&quot;,&quot;Pear&quot;)
-</code></pre>
-<pre><code>## [1] FALSE  TRUE FALSE  TRUE
-</code></pre>
-<h2 id="if-else-statements">If-Else statements</h2>
-<p>Now let&rsquo;s get into conditionals! Often times, we use these logical values or logical results to do something conditioned on them. Graphically this looks like:</p>
-<p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<figure  >
-  <div class="d-flex justify-content-center">
-    <div class="w-100" ><img alt="If-Else" srcset="
-               /post/ifelse/ifelse_hubb20e6837dd2eab2aca6c4a177ee01a3_429796_1a238528a4e6e66f61a4dd90cb6c4690.webp 400w,
-               /post/ifelse/ifelse_hubb20e6837dd2eab2aca6c4a177ee01a3_429796_0100e0aa5c35877f3ddd824b9ae0ac6c.webp 760w,
-               /post/ifelse/ifelse_hubb20e6837dd2eab2aca6c4a177ee01a3_429796_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
-               src="/post/ifelse/ifelse_hubb20e6837dd2eab2aca6c4a177ee01a3_429796_1a238528a4e6e66f61a4dd90cb6c4690.webp"
-               width="760"
-               height="413"
-               loading="lazy" data-zoomable /></div>
-  </div></figure>
-</p>
-<p>An example would be If it is raining, then I will bring an umbrella, otherwise I will not bring an umbrella. The condition is &ldquo;presence/absence of rain&rdquo;. The different actions is either &ldquo;bring an umbrella&rdquo; or don&rsquo;t &ldquo;bring an umbrella.&rdquo; Coded up in R this is what it looks like:</p>
-<pre><code class="language-r">if(weather==&quot;rain&quot;){
+<pre class="r"><code>c(&quot;Strawberry&quot;,&quot;Apple&quot;,&quot;Lychee&quot;,&quot;Pear&quot;) %in% c(&quot;Apple&quot;,&quot;Pear&quot;)</code></pre>
+<pre><code>## [1] FALSE  TRUE FALSE  TRUE</code></pre>
+</div>
+</div>
+<div id="if-else-statements" class="section level2">
+<h2>If-Else statements</h2>
+<p>Now let’s get into conditionals! Often times, we use these logical values or logical results to do something conditioned on them. Graphically this looks like:</p>
+<div class="figure">
+<img src="ifelse.png" alt="" />
+<p class="caption">If-Else</p>
+</div>
+<p>An example would be If it is raining, then I will bring an umbrella, otherwise I will not bring an umbrella. The condition is “presence/absence of rain”. The different actions is either “bring an umbrella” or don’t “bring an umbrella.” Coded up in R this is what it looks like:</p>
+<pre class="r"><code>if(weather==&quot;rain&quot;){
   &quot;Bring an umbrella&quot;
 }else{
   &quot;Dont bring an umbrella&quot;
-}
-</code></pre>
-<p>A more useful example would be in a function or a <a href="https://kustra-matt.github.io/post/forloop/" target="_blank" rel="noopener">for loop</a>. Let&rsquo;s make a function to test if something is odd or even.</p>
-<p>To do this we will name our function <code>even_odd</code> and declare it a as a function with one input <code>num</code>: <code>function(num)</code>. Then we will use are if&hellip;else statements to test if <code>num</code> is even or odd and return a character value indicating the result of that test. To test if <code>num</code> is even we will use <code>%%</code> which gives us the modulo (equivalent to the remainder for positive integers). A <code>num</code> will be even if <code>num</code> modulo 2 is 0, otherwise it is odd.</p>
-<pre><code class="language-r">even_odd&lt;-function(num){
+}</code></pre>
+<p>A more useful example would be in a function or a <a href="https://kustra-matt.github.io/post/forloop/">for loop</a>. Let’s make a function to test if something is odd or even.</p>
+<p>To do this we will name our function <code>even_odd</code> and declare it a as a function with one input <code>num</code>: <code>function(num)</code>. Then we will use are if…else statements to test if <code>num</code> is even or odd and return a character value indicating the result of that test. To test if <code>num</code> is even we will use <code>%%</code> which gives us the modulo (equivalent to the remainder for positive integers). A <code>num</code> will be even if <code>num</code> modulo 2 is 0, otherwise it is odd.</p>
+<pre class="r"><code>even_odd&lt;-function(num){
   if(num%%2==0){
     return(&quot;Even&quot;)
   }else{
@@ -1092,47 +980,17 @@ z==y
   
 }
 
-even_odd(2)
-</code></pre>
-<pre><code>## [1] &quot;Even&quot;
-</code></pre>
-<pre><code class="language-r">even_odd(1)
-</code></pre>
-<pre><code>## [1] &quot;Odd&quot;
-</code></pre>
+even_odd(2)</code></pre>
+<pre><code>## [1] &quot;Even&quot;</code></pre>
+<pre class="r"><code>even_odd(1)</code></pre>
+<pre><code>## [1] &quot;Odd&quot;</code></pre>
 <p>However, if we run <code>even_odd(NA)</code> this will throw an error. We need to add another condition to catch <code>NA</code> values. But how do we add another condition?</p>
-<h3 id="if-elif-else-statments">If-Elif-Else statments</h3>
-<p>Luckily it&rsquo;s super easy to add another condition with <code>else if(){}</code> and we can add an arbitrary amount of conditions stringing together <code>else if(){}</code>. <strong>NOTE</strong>: the order matters as in R will evalutate the first condition in the <code>if</code> statement then the first <code>else if</code> then the next <code>else if</code> and so on until the <code>else</code> block. Shown below is a diagram of what that looks like:</p>
-<p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<figure  >
-  <div class="d-flex justify-content-center">
-    <div class="w-100" ><img alt="If-Elif-Else" srcset="
-               /post/ifelse/elif_hu8480ef27de809c06e937848f76c13cfc_597870_e7b25f589a499f8b5392b4f19de2a8b0.webp 400w,
-               /post/ifelse/elif_hu8480ef27de809c06e937848f76c13cfc_597870_540b5f98863dc57957c009ee692f1751.webp 760w,
-               /post/ifelse/elif_hu8480ef27de809c06e937848f76c13cfc_597870_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
-               src="/post/ifelse/elif_hu8480ef27de809c06e937848f76c13cfc_597870_e7b25f589a499f8b5392b4f19de2a8b0.webp"
-               width="760"
-               height="427"
-               loading="lazy" data-zoomable /></div>
-  </div></figure>
-
-Let&rsquo;s try our new and improved <code>even_odd</code> function. Because errors happen when we try to test <code>NA</code> values. Let&rsquo;s make that our first condition we check.</p>
-<pre><code class="language-r">even_odd&lt;-function(num){
+<div id="if-elif-else-statments" class="section level3">
+<h3>If-Elif-Else statments</h3>
+<p>Luckily it’s super easy to add another condition with <code>else if(){}</code> and we can add an arbitrary amount of conditions stringing together <code>else if(){}</code>. <strong>NOTE</strong>: the order matters as in R will evalutate the first condition in the <code>if</code> statement then the first <code>else if</code> then the next <code>else if</code> and so on until the <code>else</code> block. Shown below is a diagram of what that looks like:</p>
+<p><img src="elif.png" alt="If-Elif-Else" />
+Let’s try our new and improved <code>even_odd</code> function. Because errors happen when we try to test <code>NA</code> values. Let’s make that our first condition we check.</p>
+<pre class="r"><code>even_odd&lt;-function(num){
   if(is.na(num)){
     return(&quot;NA!&quot;)
   }else if(num%%2==0){
@@ -1142,21 +1000,19 @@ Let&rsquo;s try our new and improved <code>even_odd</code> function. Because err
   }
   
 }
-even_odd(2)
-</code></pre>
-<pre><code>## [1] &quot;Even&quot;
-</code></pre>
-<pre><code class="language-r">even_odd(1)
-</code></pre>
-<pre><code>## [1] &quot;Odd&quot;
-</code></pre>
-<pre><code class="language-r">even_odd(NA)
-</code></pre>
-<pre><code>## [1] &quot;NA!&quot;
-</code></pre>
+even_odd(2)</code></pre>
+<pre><code>## [1] &quot;Even&quot;</code></pre>
+<pre class="r"><code>even_odd(1)</code></pre>
+<pre><code>## [1] &quot;Odd&quot;</code></pre>
+<pre class="r"><code>even_odd(NA)</code></pre>
+<pre><code>## [1] &quot;NA!&quot;</code></pre>
 <p>And it worked!</p>
-<h2 id="closing-remarks">Closing remarks</h2>
+</div>
+</div>
+<div id="closing-remarks" class="section level2">
+<h2>Closing remarks</h2>
 <p>I hoped you enjoyed this tutorial. Please shoot me an email if there on any tips for improvement or if you caught a bug! Please check out the other tutorials on my website.</p>
+</div>
  
       </div>
 
@@ -1169,31 +1025,7 @@ even_odd(2)
           </li>
         </ul>
 
-        <nav id="TableOfContents">
-  <ul>
-    <li><a href="#logical-values">Logical values</a></li>
-    <li><a href="#relational-operators">Relational operators</a>
-      <ul>
-        <li><a href="#na-and-logic"><code>NA</code> and logic</a></li>
-        <li><a href="#other-isx-functions">Other <code>is.x()</code> functions</a></li>
-      </ul>
-    </li>
-    <li><a href="#logical-operators">Logical operators</a></li>
-    <li><a href="#vector-logic">Vector logic</a>
-      <ul>
-        <li><a href="#relational-operators-on-vectors">Relational operators on vectors</a></li>
-        <li><a href="#logical-operators-on-vectors">Logical operators on vectors</a></li>
-        <li><a href="#special-vector-operators">Special vector operators</a></li>
-      </ul>
-    </li>
-    <li><a href="#if-else-statements">If-Else statements</a>
-      <ul>
-        <li><a href="#if-elif-else-statments">If-Elif-Else statments</a></li>
-      </ul>
-    </li>
-    <li><a href="#closing-remarks">Closing remarks</a></li>
-  </ul>
-</nav> 
+         
 
       </div>
     </div>

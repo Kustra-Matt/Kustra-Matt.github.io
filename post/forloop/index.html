@@ -60,7 +60,7 @@
   
     
   
-  <meta name="description" content="This tutorial is designed to help understand/make for loops. This is essential for doing both repetitive and complex analyses in R and are useful for working in other programming language." />
+  <meta name="description" content="General For loop structure  For loop iterating through elements of a vector For loop iterating through index  Closing remarks   This tutorial is designed to help understand/make for loops." />
 
   
   <link rel="alternate" hreflang="en-us" href="https://kustra-matt.github.io/post/forloop/" />
@@ -339,7 +339,7 @@
   <meta property="og:site_name" content="Matt Kustra" />
   <meta property="og:url" content="https://kustra-matt.github.io/post/forloop/" />
   <meta property="og:title" content="For Loops | Matt Kustra" />
-  <meta property="og:description" content="This tutorial is designed to help understand/make for loops. This is essential for doing both repetitive and complex analyses in R and are useful for working in other programming language." /><meta property="og:image" content="https://kustra-matt.github.io/post/forloop/featured.png" />
+  <meta property="og:description" content="General For loop structure  For loop iterating through elements of a vector For loop iterating through index  Closing remarks   This tutorial is designed to help understand/make for loops." /><meta property="og:image" content="https://kustra-matt.github.io/post/forloop/featured.png" />
     <meta property="twitter:image" content="https://kustra-matt.github.io/post/forloop/featured.png" /><meta property="og:locale" content="en-us" />
   
     
@@ -396,7 +396,7 @@
       "url": "https://kustra-matt.github.io/media/icon_hu968023516251523fc9a78b9c44e7eeb6_483323_192x192_fill_lanczos_center_3.png"
     }
   },
-  "description": "This tutorial is designed to help understand/make for loops. This is essential for doing both repetitive and complex analyses in R and are useful for working in other programming language."
+  "description": "General For loop structure  For loop iterating through elements of a vector For loop iterating through index  Closing remarks   This tutorial is designed to help understand/make for loops."
 }
 </script>
 
@@ -416,7 +416,7 @@
 </head>
 
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="b13dbb45b88294576b8e81da1ae9ab3a" >
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="d4075acb86b4c8b40d16f7f788694375" >
 
   
   
@@ -812,109 +812,91 @@
     <div class="row">
 
       <div class="col-12 col-lg-9 article-style">
-        <p>This tutorial is designed to help understand/make for loops. This is essential for doing both repetitive and complex  analyses in R and are useful for working in other programming language.</p>
+        
+
+<div id="TOC">
+<ul>
+<li><a href="#general-for-loop-structure">General For loop structure</a>
+<ul>
+<li><a href="#for-loop-iterating-through-elements-of-a-vector">For loop iterating through elements of a vector</a></li>
+<li><a href="#for-loop-iterating-through-index">For loop iterating through index</a></li>
+</ul></li>
+<li><a href="#closing-remarks">Closing remarks</a></li>
+</ul>
+</div>
+
+<p>This tutorial is designed to help understand/make for loops. This is essential for doing both repetitive and complex analyses in R and are useful for working in other programming language.</p>
 <p>For loops are really great for repeating the same task over and over and over. Say if you want to run an analysis on a lot of different variables. One option would be to copy and paste the same code and manually change the variable. However, a better way that required less work on your part would be to use a for loop.</p>
-<p>To follow this lesson you should understand conditional statements and logic in R and <code>ggplot2</code>. See my <a href="https://kustra-matt.github.io/post/ifelse/" target="_blank" rel="noopener">logic tutorial</a> and <a href="https://kustra-matt.github.io/post/ggplot2/" target="_blank" rel="noopener">ggplot2 tutorial</a> .</p>
-<h2 id="general-for-loop-structure">General For loop structure</h2>
+<p>To follow this lesson you should understand conditional statements and logic in R and <code>ggplot2</code>. See my <a href="https://kustra-matt.github.io/post/ifelse/">logic tutorial</a> and <a href="https://kustra-matt.github.io/post/ggplot2/">ggplot2 tutorial</a> .</p>
+<div id="general-for-loop-structure" class="section level2">
+<h2>General For loop structure</h2>
 <p>The general form a for loop is shown below:</p>
-<p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<figure  >
-  <div class="d-flex justify-content-center">
-    <div class="w-100" ><img alt="If-Else" srcset="
-               /post/forloop/featured_hu3e4d07265ac2b0f2cae65ed9882ed100_276829_2c8758fc584351eaacdeb429f82c575d.webp 400w,
-               /post/forloop/featured_hu3e4d07265ac2b0f2cae65ed9882ed100_276829_26b84517e16d91a6fa8d77e16babcc4e.webp 760w,
-               /post/forloop/featured_hu3e4d07265ac2b0f2cae65ed9882ed100_276829_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
-               src="/post/forloop/featured_hu3e4d07265ac2b0f2cae65ed9882ed100_276829_2c8758fc584351eaacdeb429f82c575d.webp"
-               width="760"
-               height="414"
-               loading="lazy" data-zoomable /></div>
-  </div></figure>
-
-It&rsquo;s called a for loop because we are looping through some sort of sequence and repeating a task during each iteration. At the end of the iteration, R checks if there is another item in the sequence we are iterating over. If there is another item we repeat a task keeping track of where we are in the sequence we are looping over. Otherwise we exit the loop.</p>
+<p><img src="featured.png" alt="If-Else" />
+It’s called a for loop because we are looping through some sort of sequence and repeating a task during each iteration. At the end of the iteration, R checks if there is another item in the sequence we are iterating over. If there is another item we repeat a task keeping track of where we are in the sequence we are looping over. Otherwise we exit the loop.</p>
 <p>In R we can loop through elements of a vector itself or through the different positions i.e., index of the vector.</p>
-<h3 id="for-loop-iterating-through-elements-of-a-vector">For loop iterating through elements of a vector</h3>
+<div id="for-loop-iterating-through-elements-of-a-vector" class="section level3">
+<h3>For loop iterating through elements of a vector</h3>
 <p>A cartoon example might be just printing out the values in a vector.</p>
 <p><code>i</code> is the iterator variable, which keeps track of where we are in b. We use the iterator variable inside the body of the for loop (i.e, inside the curly brackets). In this case all we are printing out <code>i</code> each time, which will be a different element of <code>b</code>. The first time we go through the loop <code>i</code> will be equal to <code>1</code>, the second time <code>i</code> will be equal to <code>50</code>, the third time <code>i</code> will be equal to <code>2</code>, and so on:</p>
-<pre><code class="language-r">#first lets make a vector of numbers
+<pre class="r"><code>#first lets make a vector of numbers
 b&lt;-c(1,50,2,3,6,9,20)
 #lets just print out each number
 for(i in b){
   print (i)
-}
-</code></pre>
+}</code></pre>
 <pre><code>## [1] 1
 ## [1] 50
 ## [1] 2
 ## [1] 3
 ## [1] 6
 ## [1] 9
-## [1] 20
-</code></pre>
-<p>We can do more complex things within the for loop. For example, we can include if&hellip;else statements. Let&rsquo;s make a for loop that tests if the current element (<code>i</code>) is even or odd. To test if <code>i</code> is even we will use <code>%%</code> which gives us the modulo (equivalent to the remainder for positive integers). A <code>i</code> will be even if <code>i</code> modulo 2 is 0, otherwise it is odd.</p>
+## [1] 20</code></pre>
+<p>We can do more complex things within the for loop. For example, we can include if…else statements. Let’s make a for loop that tests if the current element (<code>i</code>) is even or odd. To test if <code>i</code> is even we will use <code>%%</code> which gives us the modulo (equivalent to the remainder for positive integers). A <code>i</code> will be even if <code>i</code> modulo 2 is 0, otherwise it is odd.</p>
 <p>We can use the <code>paste()</code> function to put together the value of different variables with characters. So now we are printing out the value of <code>i</code> and whether that element of the <code>b</code> vector is odd or even.</p>
-<pre><code class="language-r">for(i in b) {
+<pre class="r"><code>for(i in b) {
   if (i %% 2 == 0) {
     print(paste(i,&quot;is even&quot;))
   } else{
     print(paste(i,&quot;is odd&quot;))
   }
   
-}
-</code></pre>
+}</code></pre>
 <pre><code>## [1] &quot;1 is odd&quot;
 ## [1] &quot;50 is even&quot;
 ## [1] &quot;2 is even&quot;
 ## [1] &quot;3 is odd&quot;
 ## [1] &quot;6 is even&quot;
 ## [1] &quot;9 is odd&quot;
-## [1] &quot;20 is even&quot;
-</code></pre>
-<h3 id="for-loop-iterating-through-index">For loop iterating through index</h3>
+## [1] &quot;20 is even&quot;</code></pre>
+</div>
+<div id="for-loop-iterating-through-index" class="section level3">
+<h3>For loop iterating through index</h3>
 <p>What if we want to save the results? In this case it might make more sense to iterate via index (or location of an element in the vector) rather than the actual element value. This way we can use that index to save the results in a separate vector that corresponds to the original vector.</p>
 <p>The way do this is rather than <code>for (i in b)</code>, we say <code>for(i in 1:length(b))</code>. Thus <code>i</code> will now be 1 the first time we loop through, 2 the second time we loop through, and so forth until we get the length of b which is the last location/position.</p>
 <p>To do this we first need to make a results vector that is the same length of the input vector <code>b</code> to store our results which we name <code>b_results</code>.</p>
-<p>Next, we modify the <code>for()</code> part as described above. Then we have to change what we are testing. We are no longer testing <code>i</code> since <code>i</code> is the position not an actual element of <code>b</code>. We can get the actual element of <code>b</code> that corresponds to the i&rsquo;th position using <code>b[i]</code>. Finally to save the results in the right location we will assign values to the corresponding location in <code>b_results</code> like so: <code>b_results[i]&lt;-Result</code>. Putting it all together:</p>
-<pre><code class="language-r">b_results&lt;-character(length=length(b))
-print(&quot;initial b_results&quot;)
-</code></pre>
-<pre><code>## [1] &quot;initial b_results&quot;
-</code></pre>
-<pre><code class="language-r">b_results
-</code></pre>
-<pre><code>## [1] &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot;
-</code></pre>
-<pre><code class="language-r">for(i in 1:length(b)){
+<p>Next, we modify the <code>for()</code> part as described above. Then we have to change what we are testing. We are no longer testing <code>i</code> since <code>i</code> is the position not an actual element of <code>b</code>. We can get the actual element of <code>b</code> that corresponds to the i’th position using <code>b[i]</code>. Finally to save the results in the right location we will assign values to the corresponding location in <code>b_results</code> like so: <code>b_results[i]&lt;-Result</code>. Putting it all together:</p>
+<pre class="r"><code>b_results&lt;-character(length=length(b))
+print(&quot;initial b_results&quot;)</code></pre>
+<pre><code>## [1] &quot;initial b_results&quot;</code></pre>
+<pre class="r"><code>b_results</code></pre>
+<pre><code>## [1] &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot;</code></pre>
+<pre class="r"><code>for(i in 1:length(b)){
   if(b[i]%%2==0){
     b_results[i]&lt;- &quot;Even&quot;
   }else{
     b_results[i]&lt;- &quot;Odd&quot;
   }
 }
-print(&quot;final b_results&quot;)
-</code></pre>
-<pre><code>## [1] &quot;final b_results&quot;
-</code></pre>
-<pre><code class="language-r">b_results
-</code></pre>
-<pre><code>## [1] &quot;Odd&quot;  &quot;Even&quot; &quot;Even&quot; &quot;Odd&quot;  &quot;Even&quot; &quot;Odd&quot;  &quot;Even&quot;
-</code></pre>
-<h2 id="closing-remarks">Closing remarks</h2>
+print(&quot;final b_results&quot;)</code></pre>
+<pre><code>## [1] &quot;final b_results&quot;</code></pre>
+<pre class="r"><code>b_results</code></pre>
+<pre><code>## [1] &quot;Odd&quot;  &quot;Even&quot; &quot;Even&quot; &quot;Odd&quot;  &quot;Even&quot; &quot;Odd&quot;  &quot;Even&quot;</code></pre>
+</div>
+</div>
+<div id="closing-remarks" class="section level2">
+<h2>Closing remarks</h2>
 <p>I hoped you enjoyed this tutorial. Please shoot me an email if there on any tips for improvement or if you caught a bug! Please check out the other tutorials on my website.</p>
+</div>
  
       </div>
 
@@ -927,17 +909,7 @@ print(&quot;final b_results&quot;)
           </li>
         </ul>
 
-        <nav id="TableOfContents">
-  <ul>
-    <li><a href="#general-for-loop-structure">General For loop structure</a>
-      <ul>
-        <li><a href="#for-loop-iterating-through-elements-of-a-vector">For loop iterating through elements of a vector</a></li>
-        <li><a href="#for-loop-iterating-through-index">For loop iterating through index</a></li>
-      </ul>
-    </li>
-    <li><a href="#closing-remarks">Closing remarks</a></li>
-  </ul>
-</nav> 
+         
 
       </div>
     </div>
