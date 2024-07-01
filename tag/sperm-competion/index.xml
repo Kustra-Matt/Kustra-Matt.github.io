@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sperm competion | Matt Kustra</title>
+    <link>https://kustra-matt.github.io/tag/sperm-competion/</link>
+      <atom:link href="https://kustra-matt.github.io/tag/sperm-competion/index.xml" rel="self" type="application/rss+xml" />
+    <description>Sperm competion</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 01 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://kustra-matt.github.io/media/icon_hu968023516251523fc9a78b9c44e7eeb6_483323_512x512_fill_lanczos_center_3.png</url>
+      <title>Sperm competion</title>
+      <link>https://kustra-matt.github.io/tag/sperm-competion/</link>
+    </image>
+    
+    <item>
+      <title>Selection on Sperm Count, but Not on Sperm Morphology or Velocity, in a Wild Population of Anolis Lizards</title>
+      <link>https://kustra-matt.github.io/publication/kahrl-et-al-2021/</link>
+      <pubDate>Wed, 01 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://kustra-matt.github.io/publication/kahrl-et-al-2021/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sperm morphology and count vary with fine-scale changes in local density in a wild lizard population</title>
+      <link>https://kustra-matt.github.io/publication/kustra-et-al-2019/</link>
+      <pubDate>Thu, 17 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://kustra-matt.github.io/publication/kustra-et-al-2019/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
