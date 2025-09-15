@@ -5,7 +5,7 @@
     <link>https://kustra-matt.github.io/tag/endosymbionts/</link>
       <atom:link href="https://kustra-matt.github.io/tag/endosymbionts/index.xml" rel="self" type="application/rss+xml" />
     <description>Endosymbionts</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 17 Mar 2022 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 11 Jun 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://kustra-matt.github.io/media/icon_hu968023516251523fc9a78b9c44e7eeb6_483323_512x512_fill_lanczos_center_3.png</url>
       <title>Endosymbionts</title>
@@ -13,11 +13,13 @@
     </image>
     
     <item>
-      <title>Reproductive manipulating endosymbionts</title>
+      <title>Eco-evolutionary dynamics of microbial manipulation</title>
       <link>https://kustra-matt.github.io/project/endo/</link>
-      <pubDate>Thu, 17 Mar 2022 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 11 Jun 2025 00:00:00 +0000</pubDate>
       <guid>https://kustra-matt.github.io/project/endo/</guid>
-      <description>&lt;p&gt;I have been collaborating with &lt;a href=&#34;https://www.researchgate.net/profile/Tyler-Carrier&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Tyler Carrier&lt;/a&gt; on developing theory to understand the ecological and evolutionary consequences of reproductive manipulating endosymbionts in marine invertebrates. Our first &lt;a href=&#34;https://kustra-matt.github.io/publication/kustra-carrier-2022/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;paper&lt;/a&gt; from this collaboration was recently accepted at &lt;em&gt;American Naturalist&lt;/em&gt;. Email me if you want a copy of the accepted version before it is offically out!&lt;/p&gt;
+      <description>&lt;p&gt;I have been collaborating with &lt;a href=&#34;https://www.researchgate.net/profile/Tyler-Carrier&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Tyler Carrier&lt;/a&gt; on developing theory to understand the ecological and evolutionary consequences of reproductive manipulating endosymbionts in marine invertebrates. In our first paper, we show that sex ratio distorting microbes can rapidly spread in broadcast spawners despite causing sperm limitation. Infection in marine invertebrates that produce many small eggs (planktotrophy) results in reduced zygote production. However, infection in marine invertebrates that produce large eggs (lecithotrophy) results in increased zygote production &lt;a href=&#34;https://www.journals.uchicago.edu/doi/abs/10.1086/720282&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;(Kustra and Carrier 2022 &lt;em&gt;Am. Nat.&lt;/em&gt;)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In a follow up paper &lt;a href=&#34;https://journals.asm.org/doi/10.1128/mbio.03655-24&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;(Kustra and Carrier 2025 &lt;em&gt;mBio&lt;/em&gt;)&lt;/a&gt;, we demonstrate that sex ratio distorting microbes create a sperm limited environment. Under a broad range of ecological conditions, this sperm limited environment results in the rapid evolution of larger eggs. We also identify several candidate species that fit the framework of microbe-induced evolutionary transitions from planktotrophy to lecithotrophy.&lt;/p&gt;
+&lt;p&gt;Currently, we are exploring sperm-egg coevolutionary dynamics in broadcast spawners infected with microbial manipulators.&lt;/p&gt;
 </description>
     </item>
     

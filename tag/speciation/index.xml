@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Speciation | Matt Kustra</title>
+    <link>https://kustra-matt.github.io/tag/speciation/</link>
+      <atom:link href="https://kustra-matt.github.io/tag/speciation/index.xml" rel="self" type="application/rss+xml" />
+    <description>Speciation</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 06 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://kustra-matt.github.io/media/icon_hu968023516251523fc9a78b9c44e7eeb6_483323_512x512_fill_lanczos_center_3.png</url>
+      <title>Speciation</title>
+      <link>https://kustra-matt.github.io/tag/speciation/</link>
+    </image>
+    
+    <item>
+      <title>Cryptic female choice can maintain reproductive isolation</title>
+      <link>https://kustra-matt.github.io/publication/kustra-servedio-alonzo-2025/</link>
+      <pubDate>Sun, 06 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://kustra-matt.github.io/publication/kustra-servedio-alonzo-2025/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cryptic female choice theory</title>
+      <link>https://kustra-matt.github.io/project/cfc/</link>
+      <pubDate>Mon, 17 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://kustra-matt.github.io/project/cfc/</guid>
+      <description>&lt;p&gt;In contrast to sexual selection on traits that affect interactions between the sexes before mating, little theoretical research has focused on the coevolution of postmating traits via cryptic female choice (when females bias fertilization toward specific males). I am interested in using theoretical models to understand how cryptic female choice and sperm competition work together to shape the evolution of both male and female reproductive traits.&lt;/p&gt;
+&lt;p&gt;In &lt;a href=&#34;https://academic.oup.com/evlett/article/7/4/191/7191679&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Kustra and Alonzo 2023 &lt;em&gt;Evol. Lett.&lt;/em&gt;&lt;/a&gt;, we found that incorporating cryptic female choice can result in males investing much less in their ejaculates than predicted by models with sperm competition only. We also found that cryptic female choice resulted in the evolution of genetic correlations between cryptic female choice and sperm traits, even when the strength of cryptic female choice was weak, and the risk of sperm competition was low. This suggests that cryptic female choice may be important even in systems with low multiple mating.&lt;/p&gt;
+&lt;p&gt;In a follow up paper (&lt;a href=&#34;https://academic.oup.com/evolut/advance-article/doi/10.1093/evolut/qpaf156/8217261&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Kustra et al. 2025 &lt;em&gt;Evolution&lt;/em&gt;&lt;/a&gt;), we tested how cryptic female choice might contribute to speciation. We found that cryptic female choice alone can maintain reproductive isolation under limited but realistic conditions, specifically when the migration rate is low, cryptic preferences are strong, and multiple mating is intermediate. In combination with ecological divergence, cryptic female choice was able to maintain reproductive isolation even at high rates of migration. We also found that conspecific sperm precedence could evolve through reinforcement.&lt;/p&gt;
+&lt;p&gt;I am currently working on theory that looks at the evolution of polyandry in hybrid zones and testing how mating preferences interact with cryptic female choice preferences during secondary contact.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

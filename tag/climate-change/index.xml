@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Climate Change | Matt Kustra</title>
+    <link>https://kustra-matt.github.io/tag/climate-change/</link>
+      <atom:link href="https://kustra-matt.github.io/tag/climate-change/index.xml" rel="self" type="application/rss+xml" />
+    <description>Climate Change</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 06 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://kustra-matt.github.io/media/icon_hu968023516251523fc9a78b9c44e7eeb6_483323_512x512_fill_lanczos_center_3.png</url>
+      <title>Climate Change</title>
+      <link>https://kustra-matt.github.io/tag/climate-change/</link>
+    </image>
+    
+    <item>
+      <title>Warm waters undermine cryptic female choice</title>
+      <link>https://kustra-matt.github.io/publication/kustra-et-al-2025_temp/</link>
+      <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://kustra-matt.github.io/publication/kustra-et-al-2025_temp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sexual selection in a changing climate</title>
+      <link>https://kustra-matt.github.io/project/climate/</link>
+      <pubDate>Sun, 17 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://kustra-matt.github.io/project/climate/</guid>
+      <description>&lt;p&gt;Reproduction is often more thermally sensitive than survival. Thus, understanding the thermal sensitivity of reproductive interactions is crucial given global warming. Previous studies have almost exclusively focused on interactions before mating, even though important interactions between the sexes also occur after mating (e.g., gamete interactions). Thus, it is unknown how temperature influences female control over fertilization after mating (i.e., cryptic female choice).&lt;/p&gt;
+&lt;p&gt;Using a Mediterranean fish (&lt;em&gt;Symphodus ocellatus&lt;/em&gt;), I conducted one of the first experiments to examine how temperature influences postmating female-male interactions &lt;a href=&#34;https://www.biorxiv.org/content/10.1101/2025.04.10.648287v1.full&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;(Kustra et al. &lt;em&gt;Under Review&lt;/em&gt;)&lt;/a&gt;. We tested how temperatures relevant to current conditions and climate change projections influence the mechanisms underlying cryptic female choice. Under typical thermal conditions, female reproductive fluid enhances sperm velocity and biases fertilization dynamics to favor high-quality, dominant males over low-quality sneaker males. We find that warmer temperatures decrease female influence on sperm velocity, especially for dominant males. This results in dominant males having slower sperm than sneaker males at warmer temperatures, reducing the expected paternity of high-quality, dominant males. Our results highlight that considering the thermal sensitivity of female-male interactions that occur after mating will be essential for understanding how climate change will influence fertility, reproduction, and sexual selection.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
