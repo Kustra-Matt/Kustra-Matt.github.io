@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>pupfish | Matt Kustra</title>
-    <link>https://kustra-matt.github.io/tag/pupfish/</link>
-      <atom:link href="https://kustra-matt.github.io/tag/pupfish/index.xml" rel="self" type="application/rss+xml" />
-    <description>pupfish</description>
+    <title>Cyprinodon | Matt Kustra</title>
+    <link>https://kustra-matt.github.io/tag/cyprinodon/</link>
+      <atom:link href="https://kustra-matt.github.io/tag/cyprinodon/index.xml" rel="self" type="application/rss+xml" />
+    <description>Cyprinodon</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 17 Sep 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://kustra-matt.github.io/media/icon_hu968023516251523fc9a78b9c44e7eeb6_483323_512x512_fill_lanczos_center_3.png</url>
-      <title>pupfish</title>
-      <link>https://kustra-matt.github.io/tag/pupfish/</link>
+      <title>Cyprinodon</title>
+      <link>https://kustra-matt.github.io/tag/cyprinodon/</link>
     </image>
     
     <item>
@@ -20,14 +20,6 @@
       <description>&lt;p&gt;I am using whole genome sequencing in combination with functional genetics to provide insight into the speciation process and trophic specialization in an adaptive radiation of &lt;em&gt;Cyprinodon&lt;/em&gt; pupfishes endemic to Lake Chichancanab, Mexico. I have identified 55 candidate genes under selection with highly differentiated SNPs between the zooplankton specialist and the other species in the radiation. I am currently functionally validating some of these candidate loci and generating QTL crosses to map phenotypic traits (teeth, jaw, sperm) that have rapidly diverged in this young radiation.&lt;/p&gt;
 &lt;p&gt;Lake Chichancanab has unique water chemistry, so I am also studying the genetics underlying local adaptation to this unique environment. Becuase pupfish have external fertilization, I am looking at local adaptation of eggs and sperm. Preliminary data suggests local adaptation of sperm performance as well as differences in sperm and egg morphology. I am currently generating QTL crosses to map these traits.&lt;/p&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>Adaptive radiation along ecological and morphological lines of least resistance in Cyprinodon pupfishes</title>
-      <link>https://kustra-matt.github.io/publication/martin-et-al-2025/</link>
-      <pubDate>Fri, 05 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://kustra-matt.github.io/publication/martin-et-al-2025/</guid>
-      <description></description>
     </item>
     
   </channel>

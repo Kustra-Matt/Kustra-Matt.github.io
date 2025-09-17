@@ -5,12 +5,22 @@
     <link>https://kustra-matt.github.io/project/</link>
       <atom:link href="https://kustra-matt.github.io/project/index.xml" rel="self" type="application/rss+xml" />
     <description>Projects</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 17 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 17 Sep 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://kustra-matt.github.io/media/icon_hu968023516251523fc9a78b9c44e7eeb6_483323_512x512_fill_lanczos_center_3.png</url>
       <title>Projects</title>
       <link>https://kustra-matt.github.io/project/</link>
     </image>
+    
+    <item>
+      <title>Speciation genomics of Yucatán pupfishes</title>
+      <link>https://kustra-matt.github.io/project/speciationgen/</link>
+      <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://kustra-matt.github.io/project/speciationgen/</guid>
+      <description>&lt;p&gt;I am using whole genome sequencing in combination with functional genetics to provide insight into the speciation process and trophic specialization in an adaptive radiation of &lt;em&gt;Cyprinodon&lt;/em&gt; pupfishes endemic to Lake Chichancanab, Mexico. I have identified 55 candidate genes under selection with highly differentiated SNPs between the zooplankton specialist and the other species in the radiation. I am currently functionally validating some of these candidate loci and generating QTL crosses to map phenotypic traits (teeth, jaw, sperm) that have rapidly diverged in this young radiation.&lt;/p&gt;
+&lt;p&gt;Lake Chichancanab has unique water chemistry, so I am also studying the genetics underlying local adaptation to this unique environment. Becuase pupfish have external fertilization, I am looking at local adaptation of eggs and sperm. Preliminary data suggests local adaptation of sperm performance as well as differences in sperm and egg morphology. I am currently generating QTL crosses to map these traits.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Sexual selection in a changing climate</title>
@@ -28,7 +38,7 @@
       <pubDate>Thu, 17 Jul 2025 00:00:00 +0000</pubDate>
       <guid>https://kustra-matt.github.io/project/art/</guid>
       <description>&lt;p&gt;I am interested in the evolution and maintenance of alternative reproductive tactics. My main study system for my PhD was the unique and intriguing ocellated wrasse (&lt;em&gt;Symphodus ocellatus&lt;/em&gt;)! In this species there are three distinct male morphs: (1) nesting males, (2) satellite males, and (3) sneaker males. Females have a strong preference for nesting males who provide all the parental care. Sneaker males will try to sneak in during matings. Satellite males help nesting males chase away sneakers, but when given the opportunity will also try to sneak spawns. During my dissertation, I investigated how sneakers and satellite males differ in sneaking delays and how the social environment influence sneaking delays. We found that satellites have shorter sneak-spawning delays than sneakers, a benefit of their cooperation with nesting males. Sneak-spawning delays decreased with increasing nest activity for sneakers but not for satellites, suggesting that sneakers may, counter intuitively, benefit from increased sperm competition intensity &lt;a href=&#34;https://www.journals.uchicago.edu/doi/abs/10.1086/725057&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;(Kustra et al. 2023  &lt;em&gt;Am. Nat.&lt;/em&gt;)&lt;/a&gt;. I conducted follow up fertilization experiments to see how female reproductive fluids influence the timing of fertilization and selection on male sneaking delays. This work is still in progress.&lt;/p&gt;
-&lt;p&gt;Most recently, I published (a quick guide (mini review) on male alternative reproductive tactics&lt;a href=&#34;https://www.cell.com/current-biology/abstract/S0960-9822%2825%2900734-1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;(Kustra and Alonzo 2025  &lt;em&gt;Curr. Biol.&lt;/em&gt;)&lt;/a&gt;. I have also published a review on the evolution of sperm traits in species with alternative reproductive tactics &lt;a href=&#34;https://royalsocietypublishing.org/doi/10.1098/rstb.2020.0075&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;(Kustra and Alonzo 2020 &lt;em&gt;Philos. Trans. R. Soc. B.&lt;/em&gt; )&lt;/a&gt;. We specifically reviewed theoretical predictions on how male alternative reproductive tactics should differ in sperm quality. Despite general expectations that sneaker males should have higher sperm quality, existing theory does not make explicit predictions on how males adopting ARTs should differ in sperm traits. When we look at empirical studies, the majority of studies find no significant difference in sperm performance traits between dominant and sneaker males.&lt;/p&gt;
+&lt;p&gt;Most recently, I published a quick guide (mini review) on male alternative reproductive tactics&lt;a href=&#34;https://www.cell.com/current-biology/abstract/S0960-9822%2825%2900734-1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;(Kustra and Alonzo 2025  &lt;em&gt;Curr. Biol.&lt;/em&gt;)&lt;/a&gt;. I have also published a review on the evolution of sperm traits in species with alternative reproductive tactics &lt;a href=&#34;https://royalsocietypublishing.org/doi/10.1098/rstb.2020.0075&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;(Kustra and Alonzo 2020 &lt;em&gt;Philos. Trans. R. Soc. B.&lt;/em&gt; )&lt;/a&gt;. We specifically reviewed theoretical predictions on how male alternative reproductive tactics should differ in sperm quality. Despite general expectations that sneaker males should have higher sperm quality, existing theory does not make explicit predictions on how males adopting ARTs should differ in sperm traits. When we look at empirical studies, the majority of studies find no significant difference in sperm performance traits between dominant and sneaker males.&lt;/p&gt;
 </description>
     </item>
     
